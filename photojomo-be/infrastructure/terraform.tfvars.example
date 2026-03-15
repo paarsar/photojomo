@@ -1,0 +1,10 @@
+aws_region   = "us-east-1"
+environment  = "dev"
+project_name = "photojomo"
+
+db_name           = "photojomo"
+db_username       = "photojomo_admin"
+db_password       = "CHANGE_ME"
+db_instance_class = "db.t3.micro"
+
+contact_service_jar_path = "../contact-service/target/contact-service.jar"

@@ -1,0 +1,10 @@
+# Local variable overrides — may contain secrets
+terraform.tfvars
+
+# Terraform state (managed remotely in S3)
+*.tfstate
+*.tfstate.backup
+
+# Terraform working directories
+.terraform/
+.terraform.lock.hcl
