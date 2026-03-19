@@ -55,6 +55,29 @@ resource "aws_cloudwatch_log_group" "api_gateway" {
   }
 }
 
+# ── Submission Service Integration ───────────────────────────────────────────
+
+resource "aws_apigatewayv2_integration" "submission_service" {
+  api_id                 = aws_apigatewayv2_api.main.id
+  integration_type       = "AWS_PROXY"
+  integration_uri        = aws_lambda_function.submission_service.invoke_arn
+  payload_format_version = "2.0"
+}
+
+resource "aws_apigatewayv2_route" "create_submission" {
+  api_id    = aws_apigatewayv2_api.main.id
+  route_key = "POST /submissions"
+  target    = "integrations/${aws_apigatewayv2_integration.submission_service.id}"
+}
+
+resource "aws_lambda_permission" "submission_service_apigw" {
+  statement_id  = "AllowAPIGatewayInvoke"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.submission_service.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_apigatewayv2_api.main.execution_arn}/*/*"
+}
+
 # ── Contact Service Integration ───────────────────────────────────────────────
 
 resource "aws_apigatewayv2_integration" "contact_service" {

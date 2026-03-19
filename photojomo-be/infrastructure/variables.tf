@@ -44,8 +44,14 @@ variable "db_instance_class" {
 
 # ── Lambda ────────────────────────────────────────────────────────────────────
 
-variable "contact_service_jar_path" {
-  description = "Local path to the contact-service uber-jar (contact-service-aws.jar)"
+variable "contact_service_zip_path" {
+  description = "Local path to the contact-service Go binary zip"
   type        = string
-  default     = "../contact-service/target/contact-service.jar"
+  default     = "../dist/contact.zip"
+}
+
+variable "submission_service_zip_path" {
+  description = "Local path to the submission-service Go binary zip"
+  type        = string
+  default     = "../dist/submission.zip"
 }

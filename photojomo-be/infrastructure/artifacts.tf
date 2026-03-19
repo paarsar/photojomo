@@ -27,9 +27,16 @@ resource "aws_s3_bucket_public_access_block" "artifacts" {
 
 # ── Lambda Artifact Uploads ───────────────────────────────────────────────────
 
-resource "aws_s3_object" "contact_service_jar" {
+resource "aws_s3_object" "submission_service_zip" {
   bucket = aws_s3_bucket.artifacts.id
-  key    = "contact-service/contact-service.jar"
-  source = var.contact_service_jar_path
-  etag   = filemd5(var.contact_service_jar_path)
+  key    = "submission-service/submission.zip"
+  source = var.submission_service_zip_path
+  etag   = filemd5(var.submission_service_zip_path)
+}
+
+resource "aws_s3_object" "contact_service_zip" {
+  bucket = aws_s3_bucket.artifacts.id
+  key    = "contact-service/contact.zip"
+  source = var.contact_service_zip_path
+  etag   = filemd5(var.contact_service_zip_path)
 }

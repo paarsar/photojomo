@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:caribbeanphotocontests.com)",
+      "WebFetch(domain:capturecaribbean.figma.site)",
+      "Bash(grep:*)",
+      "Read(//Users/almorris/**)",
+      "Bash(curl:*)",
+      "Bash(aws dynamodb:*)",
+      "Bash(jar tf:*)",
+      "Bash(unzip:*)",
+      "Bash(java:*)",
+      "Bash(/usr/libexec/java_home:*)",
+      "Read(//opt/homebrew/Cellar/maven/3.9.9/bin/**)",
+      "Read(//usr/local/bin/**)",
+      "Bash(JAVA_HOME=\"$HOME/.sdkman/candidates/java/21.0.4-tem\" PATH=\"$HOME/.sdkman/candidates/java/21.0.4-tem/bin:/opt/homebrew/bin:$PATH\" mvn:*)",
+      "Bash(JAVA_HOME=\"$HOME/.sdkman/candidates/java/21.0.4-tem\" PATH=\"$HOME/.sdkman/candidates/java/21.0.4-tem/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin\" mvn:*)",
+      "Bash($HOME/.sdkman/candidates/java/21.0.4-tem/bin/java:*)",
+      "Bash(JAVA_HOME=\"$HOME/.sdkman/candidates/java/21.0.4-tem\" /opt/homebrew/bin/mvn clean:*)",
+      "Bash(JAVA_HOME=/Users/almorris/.sdkman/candidates/java/21.0.4-tem /opt/homebrew/bin/mvn clean:*)",
+      "Bash(aws lambda:*)",
+      "Bash(npm run:*)",
+      "Bash(npx wrangler:*)",
+      "Bash(for f in /Users/almorris/workspace/photojomo/photojomo-wb/src/app/pages/*/*.html)",
+      "Bash(do echo \"=== $f ===\")",
+      "Read(//Users/almorris/workspace/photojomo/photojomo-wb/**)",
+      "Bash(done)",
+      "Bash(make deploy-contact:*)"
+    ]
+  }
+}
