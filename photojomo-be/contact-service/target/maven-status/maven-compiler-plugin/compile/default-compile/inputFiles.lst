@@ -1,8 +1,0 @@
-/Users/almorris/workspace/photojomo/photojomo-be/contact-service/src/main/java/com/photojomo/contact/ContactServiceApplication.java
-/Users/almorris/workspace/photojomo/photojomo-be/contact-service/src/main/java/com/photojomo/contact/config/DataSourceConfig.java
-/Users/almorris/workspace/photojomo/photojomo-be/contact-service/src/main/java/com/photojomo/contact/dto/ContactRequest.java
-/Users/almorris/workspace/photojomo/photojomo-be/contact-service/src/main/java/com/photojomo/contact/dto/ContactResponse.java
-/Users/almorris/workspace/photojomo/photojomo-be/contact-service/src/main/java/com/photojomo/contact/handler/ContactFunctionConfig.java
-/Users/almorris/workspace/photojomo/photojomo-be/contact-service/src/main/java/com/photojomo/contact/model/Contact.java
-/Users/almorris/workspace/photojomo/photojomo-be/contact-service/src/main/java/com/photojomo/contact/repository/ContactRepository.java
-/Users/almorris/workspace/photojomo/photojomo-be/contact-service/src/main/java/com/photojomo/contact/service/ContactService.java

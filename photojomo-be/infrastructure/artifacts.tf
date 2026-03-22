@@ -40,3 +40,10 @@ resource "aws_s3_object" "contact_service_zip" {
   source = var.contact_service_zip_path
   etag   = filemd5(var.contact_service_zip_path)
 }
+
+resource "aws_s3_object" "contest_entry_service_zip" {
+  bucket = aws_s3_bucket.artifacts.id
+  key    = "contest-entry-service/contest-entry.zip"
+  source = var.contest_entry_service_zip_path
+  etag   = filemd5(var.contest_entry_service_zip_path)
+}

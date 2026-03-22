@@ -6,9 +6,9 @@ DIST        = dist
 
 # ── Targets ───────────────────────────────────────────────────────────────────
 
-.PHONY: all clean $(DIST) build-contact deploy-contact
+.PHONY: all clean $(DIST) build-contact deploy-contact build-submission deploy-submission build-contest-entry deploy-contest-entry
 
-all: build-contact build-submission
+all: build-contact build-submission build-contest-entry
 
 # ── Build ─────────────────────────────────────────────────────────────────────
 
@@ -37,6 +37,13 @@ deploy-submission: build-submission
 		--region $(REGION)
 	@echo "Deployed submission lambda to $(ENV)"
 
+build-contest-entry: $(DIST)
+	GOOS=$(GOOS) GOARCH=$(GOARCH) CGO_ENABLED=$(CGO_ENABLED) \
+		go build $(LDFLAGS) -o bootstrap ./cmd/contest-entry/
+	zip -j $(DIST)/contest-entry.zip bootstrap
+	rm bootstrap
+	@echo "Built: $(DIST)/contest-entry.zip"
+
 # Add future lambdas here following the same pattern:
 # build-<name>: $(DIST)
 #   GOOS=$(GOOS) GOARCH=$(GOARCH) CGO_ENABLED=$(CGO_ENABLED) \
@@ -49,6 +56,17 @@ deploy-submission: build-submission
 ENV     ?= dev
 PROJECT ?= photojomo
 REGION  ?= us-east-1
+
+deploy-contest-entry: build-contest-entry
+	aws s3 cp $(DIST)/contest-entry.zip \
+		s3://$(PROJECT)-$(ENV)-lambda-artifacts/contest-entry-service/contest-entry.zip \
+		--region $(REGION)
+	aws lambda update-function-code \
+		--function-name $(PROJECT)-$(ENV)-contest-entry-service \
+		--s3-bucket $(PROJECT)-$(ENV)-lambda-artifacts \
+		--s3-key contest-entry-service/contest-entry.zip \
+		--region $(REGION)
+	@echo "Deployed contest-entry lambda to $(ENV)"
 
 deploy-contact: build-contact
 	aws s3 cp $(DIST)/contact.zip \

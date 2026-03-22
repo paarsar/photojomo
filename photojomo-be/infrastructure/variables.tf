@@ -55,3 +55,9 @@ variable "submission_service_zip_path" {
   type        = string
   default     = "../dist/submission.zip"
 }
+
+variable "contest_entry_service_zip_path" {
+  description = "Local path to the contest-entry-service Go binary zip"
+  type        = string
+  default     = "../dist/contest-entry.zip"
+}

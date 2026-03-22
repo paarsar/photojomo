@@ -129,3 +129,56 @@ resource "aws_lambda_function" "contact_service" {
     Project     = var.project_name
   }
 }
+
+# ── Lambda Function: contest-entry-service ────────────────────────────────────
+
+resource "aws_cloudwatch_log_group" "contest_entry_service" {
+  name              = "/aws/lambda/${local.name_prefix}-contest-entry-service"
+  retention_in_days = 30
+
+  tags = {
+    Environment = var.environment
+    Project     = var.project_name
+  }
+}
+
+resource "aws_lambda_function" "contest_entry_service" {
+  function_name = "${local.name_prefix}-contest-entry-service"
+  description   = "Generates presigned S3 URLs and records contest entries"
+
+  s3_bucket        = aws_s3_bucket.artifacts.id
+  s3_key           = aws_s3_object.contest_entry_service_zip.key
+  source_code_hash = filebase64sha256(var.contest_entry_service_zip_path)
+
+  runtime = "provided.al2023"
+  handler = "bootstrap"
+  role    = aws_iam_role.lambda_exec.arn
+
+  memory_size = 128
+  timeout     = 10
+
+  vpc_config {
+    subnet_ids         = [aws_subnet.private_a.id, aws_subnet.private_b.id]
+    security_group_ids = [aws_security_group.lambda.id]
+  }
+
+  environment {
+    variables = {
+      DB_SECRET_ARN = aws_secretsmanager_secret.db_credentials.arn
+      IMAGES_BUCKET = aws_s3_bucket.contest_images.bucket
+    }
+  }
+
+  depends_on = [
+    aws_cloudwatch_log_group.contest_entry_service,
+    aws_iam_role_policy_attachment.lambda_basic,
+    aws_iam_role_policy_attachment.lambda_read_secret,
+    aws_iam_role_policy_attachment.lambda_write_images,
+  ]
+
+  tags = {
+    Name        = "${local.name_prefix}-contest-entry-service"
+    Environment = var.environment
+    Project     = var.project_name
+  }
+}

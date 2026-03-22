@@ -25,7 +25,23 @@
       "Bash(do echo \"=== $f ===\")",
       "Read(//Users/almorris/workspace/photojomo/photojomo-wb/**)",
       "Bash(done)",
-      "Bash(make deploy-contact:*)"
+      "Bash(make deploy-contact:*)",
+      "Bash(go get:*)",
+      "Bash(make build-contest-entry:*)",
+      "Bash(GOTOOLCHAIN=local /usr/local/go/bin/go version)",
+      "Read(//usr/local/go/**)",
+      "Bash(~/.gobrew/current/bin/go version:*)",
+      "Bash(GOTOOLCHAIN=go1.22.3 GOPATH=~/.gobrew/versions/1.22.3/go ~/.gobrew/versions/1.22.3/go/bin/go list:*)",
+      "Bash(GOTOOLCHAIN=go1.22.3 ~/.gobrew/versions/1.22.3/go/bin/go get:*)",
+      "Bash(GOTOOLCHAIN=go1.22.3 ~/.gobrew/versions/1.22.3/go/bin/go mod:*)",
+      "Bash(GOTOOLCHAIN=go1.22.3 make build-contest-entry:*)",
+      "Bash(GOTOOLCHAIN=go1.22.3 make build-submission:*)",
+      "Bash(npx ng:*)",
+      "Bash(terraform apply:*)",
+      "Bash(make deploy-contest-entry:*)",
+      "Bash(aws logs:*)",
+      "Bash(CLOUDFLARE_ACCOUNT_ID=e6a409663bf73140c8bd4caaadd9ebc2 npx wrangler:*)",
+      "Bash(CLOUDFLARE_ACCOUNT_ID=e6a409663bf73140c8bd4caaadd9ebc2 npm run:*)"
     ]
   }
 }
