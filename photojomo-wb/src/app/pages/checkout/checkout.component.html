@@ -1,0 +1,160 @@
+<div class="checkout-page">
+
+  <!-- Header -->
+  <header class="checkout-header">
+    <img src="https://capturecaribbean.figma.site/_assets/v11/298bca564b3aa0d4bda992214a988b1fb44ebdfd.svg" alt="Capture Caribbean" class="checkout-logo" />
+  </header>
+
+  <!-- Success State -->
+  <div *ngIf="submitSuccess" class="checkout-success">
+    <h2>You're in! 🎉</h2>
+    <p>Your submission has been received. Check your email for confirmation.</p>
+    <a routerLink="/contest" class="checkout-submit-btn" style="display:inline-block;text-decoration:none;text-align:center;">Back to Contests</a>
+  </div>
+
+  <!-- Main -->
+  <main class="checkout-main" *ngIf="!submitSuccess">
+
+    <!-- Left: Form -->
+    <div class="checkout-form-col">
+      <div class="checkout-card">
+
+        <!-- Personal Info -->
+        <section class="form-section">
+          <h2 class="form-section-title">Add personal information</h2>
+          <p class="form-section-sub">All fields are mandatory.</p>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label">First Name <span class="req">*</span></label>
+              <input type="text" class="form-input" [(ngModel)]="firstName" name="firstName" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last Name <span class="req">*</span></label>
+              <input type="text" class="form-input" [(ngModel)]="lastName" name="lastName" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Enter Your Email <span class="req">*</span></label>
+            <input type="email" class="form-input" [(ngModel)]="email" name="email" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Country of Residence <span class="req">*</span></label>
+            <select class="form-input form-select" [(ngModel)]="country" name="country">
+              <option value="">Select Country</option>
+              <option>United States</option>
+              <option>Canada</option>
+              <option>United Kingdom</option>
+              <option>Saint Lucia</option>
+              <option>Trinidad and Tobago</option>
+              <option>Jamaica</option>
+              <option>Barbados</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </section>
+
+        <!-- Upload Images -->
+        <section class="form-section">
+          <h2 class="form-section-title">Upload images</h2>
+          <p class="form-section-sub">Accepted file types: jpg, jpeg, jpg, png. Max. file size: 8 MB.</p>
+
+          <div class="upload-grid">
+            <div class="upload-item" *ngFor="let slot of imageSlots; let i = index">
+              <label class="form-label">Upload Image {{ slot }} <span class="req" *ngIf="slot === 1">*</span></label>
+              <div class="upload-row">
+                <label class="upload-btn">Choose File<input type="file" accept=".jpg,.jpeg,.png" hidden (change)="onFileChange($event, i)" /></label>
+                <span class="upload-no-file">{{ imageFiles[i]?.name || 'No file chosen' }}</span>
+              </div>
+              <p class="upload-hint">Accepted file types: jpg, jpeg, png. Max. file size: 8 MB.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Privacy and Rules -->
+        <section class="form-section">
+          <h2 class="form-section-title">Privacy and Rules</h2>
+
+          <label class="checkbox-row">
+            <input type="checkbox" [(ngModel)]="confirm1" />
+            <span>I confirm that my images were captured between the years 2024, 2025 and 2026.</span>
+          </label>
+
+          <label class="checkbox-row">
+            <input type="checkbox" [(ngModel)]="confirm2" />
+            <span>I confirm that I am at least 18 years old as of the opening date of the competition.</span>
+          </label>
+
+          <label class="checkbox-row">
+            <input type="checkbox" [(ngModel)]="confirm3" />
+            <span>I have read and agreed to the <a href="https://caribbeanphotocontests.com/rules/" target="_blank" class="form-link">Rules</a>, <a href="https://caribbeanphotocontests.com/terms-and-conditions/" target="_blank" class="form-link">Terms and Conditions</a> and <a href="https://caribbeanphotocontests.com/privacy-policy/" target="_blank" class="form-link">Privacy Policy</a>.</span>
+          </label>
+
+          <label class="checkbox-row">
+            <input type="checkbox" [(ngModel)]="confirm4" />
+            <span>Yes! Send me exclusive Saint Lucia travel offers from the Official Hospitality Partners.</span>
+          </label>
+          <div class="offer-bullets">
+            <span class="offer-bullet golden">● Win a Luxury Caribbean Escape</span>
+            <span class="offer-bullet golden">● Participate caribbean photo contest</span>
+            <span class="offer-bullet golden">● Resort Offers</span>
+          </div>
+
+          <div class="form-total-row">
+            <span class="form-total-label">Total</span>
+          </div>
+        </section>
+
+        <!-- Payment -->
+        <section class="form-section">
+          <h2 class="form-section-title">Select payment method</h2>
+          <p class="form-label">Payment Method <span class="req">*</span></p>
+          <div class="payment-options">
+            <label class="payment-option" [class.selected]="paymentMethod === 'stripe'">
+              <input type="radio" name="payment" value="stripe" [(ngModel)]="paymentMethod" />
+              <span class="payment-icon">&#x1F4B3;</span> Stripe
+            </label>
+            <label class="payment-option" [class.selected]="paymentMethod === 'paypal'">
+              <input type="radio" name="payment" value="paypal" [(ngModel)]="paymentMethod" />
+              <span class="payment-icon">&#x1F4B0;</span> Paypal
+            </label>
+          </div>
+
+          <div *ngIf="submitStatus" class="submit-status">{{ submitStatus }}</div>
+          <div *ngIf="submitError" class="submit-error">{{ submitError }}</div>
+          <button class="checkout-submit-btn" (click)="submit()" [disabled]="!formValid || submitting">
+            {{ submitting ? submitStatus || 'Submitting…' : 'Complete Purchase' }}
+          </button>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- Right: Order Summary -->
+    <div class="checkout-summary-col">
+      <div class="checkout-card summary-card">
+        <h2 class="summary-title">Order Summary</h2>
+        <p class="summary-contest">{{ contest.name }}</p>
+        <p class="summary-entry">{{ contest.entryLabel }}</p>
+        <div class="summary-divider"></div>
+        <div class="summary-total-row">
+          <span class="summary-total-label">Total</span>
+          <span class="summary-total-amount">${{ tier.price }}.00</span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="checkout-footer">
+    <img src="https://capturecaribbean.figma.site/_assets/v11/298bca564b3aa0d4bda992214a988b1fb44ebdfd.svg" alt="Capture Caribbean" class="checkout-footer-logo" />
+    <p>Capture Caribbean™ is the flagship platform celebrating Caribbean and Caribbean-connected visual storytelling. Submissions for the First Wave Challenge are administered through the <a href="https://caribbeanphotocontests.com/" target="_blank" class="footer-link">Caribbean Photo Contest®</a> platform.</p>
+    <p>One (1) cash award will be granted per division. The Capture Caribbean™ First Wave Challenge Jury, comprised of industry professionals and platform founders, selects the winners.</p>
+    <p>Participation constitutes acceptance of the <a href="https://caribbeanphotocontests.com/terms-and-conditions/" target="_blank" class="footer-link">Terms of Use</a>, <a href="https://caribbeanphotocontests.com/privacy-policy/" target="_blank" class="footer-link">Privacy Policy</a>, and <a href="https://caribbeanphotocontests.com/rules/" target="_blank" class="footer-link">Official Contest Rules</a>. Contestants may enter multiple divisions per contest period; however, entries are limited to one (1) unique submission per division. The Official Rules govern all aspects of the Challenge.</p>
+    <p class="footer-copy">© 2025–2026 Capture Caribbean LLC. All rights reserved.</p>
+  </footer>
+
+</div>

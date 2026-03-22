@@ -1,0 +1,198 @@
+/* ── Desktop dropdown ─────────────────────────────────────────────────────── */
+
+.nav-dropdown-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-dropdown-trigger {
+  cursor: pointer;
+}
+
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 8px 0;
+  min-width: 240px;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+.nav-dropdown-menu.open {
+  display: flex;
+}
+
+.nav-dropdown-menu a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-family: inherit;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.nav-dropdown-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ── Hamburger button ─────────────────────────────────────────────────────── */
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 1001;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  transform-origin: center;
+}
+
+/* Animate to X when open */
+.nav-hamburger span:nth-child(1).open {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-hamburger span:nth-child(2).open {
+  opacity: 0;
+}
+
+.nav-hamburger span:nth-child(3).open {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Mobile menu ──────────────────────────────────────────────────────────── */
+
+.nav-mobile-menu {
+  display: none;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.95);
+  padding: 16px 0 24px;
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-mobile-menu.open {
+  display: flex;
+}
+
+.nav-mobile-menu a,
+.nav-mobile-section-title {
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-family: inherit;
+  display: block;
+}
+
+.nav-mobile-section-title {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-mobile-section-title::after {
+  content: '›';
+  font-size: 18px;
+  transition: transform 0.2s;
+}
+
+.nav-mobile-submenu {
+  display: none;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.nav-mobile-submenu.open {
+  display: flex;
+}
+
+.nav-mobile-submenu a {
+  padding: 10px 40px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.nav-mobile-cta {
+  margin: 12px 24px 0;
+  padding: 12px 24px !important;
+  background-color: #c9a84c;
+  color: #000 !important;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ── Responsive breakpoint ────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+
+  /*
+   * Each page passes a different wrapperClass to the navbar.
+   * All of them have an inline transform: translateX(-50%) which breaks
+   * position:fixed on children. Fix by making the outer wrapper itself
+   * position:fixed and neutralizing the transform with !important.
+   */
+  .css-fbgm56,
+  .css-vhq6dg,
+  .css-rq6135,
+  .css-rq60k7,
+  .css-2bd4at {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    transform: none !important;
+    z-index: 9999 !important;
+  }
+
+  /* Inner bar: normal flex row, logo left / hamburger right */
+  .nav-bar-inner {
+    position: relative !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 0 !important;
+    width: 100% !important;
+    height: 65px !important;
+    padding: 0 16px !important;
+    margin-top: 10px;
+
+    box-sizing: border-box !important;
+    top: auto !important;
+    left: auto !important;
+    background: none !important;
+  }
+
+  .nav-links {
+    display: none !important;
+  }
+
+  .nav-hamburger {
+    display: flex;
+  }
+}

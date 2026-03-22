@@ -1,0 +1,90 @@
+<div [class]="wrapperClass" style="transform: translateX(-50%)">
+  <div class="css-whg6o css-thvz0a css-paq0kv nav-bar-inner">
+
+    <!-- Logo -->
+    <div class="css-8ouu4i css-9uyk0n css-paq0kv">
+      <div class="css-hv8sls css-wc1msa" data-isimage="true">
+        <img
+          src="https://capturecaribbean.figma.site/_assets/v11/298bca564b3aa0d4bda992214a988b1fb44ebdfd.svg"
+          alt=""
+          class="css-tzn6qh css-ez8men"
+        />
+      </div>
+    </div>
+
+    <!-- Desktop nav links -->
+    <div class="css-kf6bp5 css-paq0kv nav-links">
+      <a
+        class="textContents css-wc1msa css-q6rpi1 css-xd3orb"
+        routerLink="/"
+        target="_self"
+        ><p class="css-8zr56v css-4i1sn1">Home</p></a
+      >
+      <div class="nav-dropdown-wrapper">
+        <div class="css-e5i0mc css-paq0kv nav-dropdown-trigger" (click)="toggleDropdown($event)">
+          <p class="css-nf5ac4 css-qbbnzh css-ueucp2 textContents">
+            The Experience
+          </p>
+          <div
+            class="css-xpqoi5 css-bhht40"
+            style="--transform-inner-width: 5.3125; --transform-inner-height: 9.671875;"
+          >
+            <div class="css-ayg824 css-dyglrz">
+              <div class="css-vf8mzy css-tyqmfx" data-isimage="true">
+                <img
+                  src="https://capturecaribbean.figma.site/_assets/v11/413badcb2b7acd728ada187af66cda23de3ed8a3.svg"
+                  alt=""
+                  class="css-tzn6qh css-ez8men"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="nav-dropdown-menu" [class.open]="dropdownOpen">
+          <a routerLink="/global-tour" target="_self" (click)="closeMenu()">The Global Tour</a>
+          <a routerLink="/exhibition" target="_self" (click)="closeMenu()">The Saint Lucia Exhibition</a>
+          <a routerLink="/residency" target="_self" (click)="closeMenu()">Artist in Residency Program</a>
+          <a routerLink="/saint-lucia" target="_self" (click)="closeMenu()">The Capture Saint Lucia™ Invitational</a>
+        </div>
+      </div>
+      <a
+        class="css-e5i0mc css-hf9sha"
+        routerLink="/about-us"
+        target="_self"
+        ><p class="css-nf5ac4 css-qbbnzh css-ueucp2 textContents">
+          The Vision
+        </p></a
+      ><a
+        class="textContents css-wc1msa css-q6rpi1 css-xd3orb"
+        routerLink="/contact"
+        target="_self"
+        ><p class="css-8zr56v css-4i1sn1">Contact</p></a
+      >
+    </div>
+
+    <!-- Hamburger button (mobile only) -->
+    <button class="nav-hamburger" (click)="toggleMenu($event)" aria-label="Toggle menu">
+      <span [class.open]="menuOpen"></span>
+      <span [class.open]="menuOpen"></span>
+      <span [class.open]="menuOpen"></span>
+    </button>
+
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="nav-mobile-menu" [class.open]="menuOpen" (click)="$event.stopPropagation()">
+    <a routerLink="/" (click)="closeMenu()">Home</a>
+    <div class="nav-mobile-section">
+      <span class="nav-mobile-section-title" (click)="toggleDropdown($event)">The Experience</span>
+      <div class="nav-mobile-submenu" [class.open]="dropdownOpen">
+        <a routerLink="/global-tour" (click)="closeMenu()">The Global Tour</a>
+        <a routerLink="/exhibition" (click)="closeMenu()">The Saint Lucia Exhibition</a>
+        <a routerLink="/residency" (click)="closeMenu()">Artist in Residency Program</a>
+        <a routerLink="/saint-lucia" (click)="closeMenu()">The Capture Saint Lucia™ Invitational</a>
+      </div>
+    </div>
+    <a routerLink="/about-us" (click)="closeMenu()">The Vision</a>
+    <a routerLink="/contact" (click)="closeMenu()">Contact</a>
+    <a routerLink="/contest" class="nav-mobile-cta" (click)="closeMenu()">Enter Contest</a>
+  </div>
+</div>

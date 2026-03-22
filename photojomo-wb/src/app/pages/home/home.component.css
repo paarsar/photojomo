@@ -1,0 +1,443 @@
+/* ── tri-path visibility ──────────────────────────────────────────────────── */
+#tri-path-sm {
+  display: none !important;
+}
+
+#tri-path-lg {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  #tri-path-sm {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  #tri-path-sm .css-704s6b {
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  #tri-path-sm .css-jff7uw {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: auto !important;
+  }
+}
+
+/* ── Mobile: home page responsive overrides ──────────────────────────────── */
+@media (min-width: 769px) {
+
+  .tri-path-lg {
+    display: inline-block;
+  }
+
+  #tri-path-lg {
+    display: block !important;
+  }
+}
+@media (max-width: 768px) {
+
+  /* ── Page wrapper ── */
+  #container .css-rn2hh9,
+  #container .css-50jkpj {
+    min-width: 0 !important;
+    width: 100% !important;
+    overflow: visible !important;
+  }
+
+  /* ── Remove desktop gaps between sections ── */
+  #container .css-fsqjq9 {
+    gap: 0 !important;
+  }
+
+  /* ─────────────────────────────────────────────────────────────────────
+     HERO: "PRESENTED IN PARTNERSHIP" LOGOS
+     Absolutely positioned with top:549px (off-screen on mobile).
+     Repin to bottom of hero image.
+     ───────────────────────────────────────────────────────────────────── */
+
+  #container .css-idcn1d {
+    font-family: "Sora:Regular", sans-serif;
+    word-break: break-word;
+    font-style: normal;
+    font-size: 35.321px;
+    line-height: 38.974px;
+  }
+
+  #container .css-iv7ltk {
+    font-family: "CalvinoGrandeItalicVarTrial:Italic", sans-serif;
+    word-break: break-word;
+    font-weight: 450;
+    font-style: italic;
+    font-size: 36.538px;
+    line-height: 38.974px;
+  }
+
+  #container .css-3enmih {
+    font-family: "Calvino Grande Trial:Light Italic", sans-serif;
+    word-break: break-word;
+    font-style: italic;
+    font-size: 19.231px;
+    letter-spacing: 0px;
+    text-align: center;
+    line-height: 1.25;
+    white-space: nowrap;
+  }
+
+  #container .css-a131r6 {
+    font-family: "CalvinoGrandeItalicVarTrial:Italic", sans-serif;
+    word-break: break-word;
+    font-weight: 450;
+    font-style: italic;
+    font-size: 30.769px;
+    line-height: 34.615px;
+  }
+
+  #container .css-8hexdp {
+    font-family: "PP Neue Montreal:Book", sans-serif;
+    word-break: break-word;
+    font-style: normal;
+    font-size: 19.487px;
+    letter-spacing: 0px;
+    text-align: center;
+    line-height: 24.359px;
+  }
+
+  #container .css-w062lt {
+    height: 41.41px;
+    width: 100%;
+  }
+  #container .css-wc1msa {
+    position: relative;
+    flex-shrink: 0;
+    display: block;
+  }
+  #container .css-29l6m {
+    width: 411.667px;
+    min-width: 1px;
+    min-height: 1px;
+  }
+
+  #container .css-lale {
+    color: #4a5565;
+    -webkit-text-fill-color: #4a5565;
+    --letter-spacing: 0px;
+  }
+  #container .css-l1mcow {
+    display: block;
+    position: relative;
+    flex: 1 0 0;
+  }
+
+  #container .css-nnrhis {
+    top: auto !important;
+    bottom: 0px !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 18vh !important;
+    transform: none !important;
+  }
+
+  #container .css-bnxihm {
+    position: static !important;
+    transform: none !important;
+    margin-top: 0 !important;
+    left: auto !important;
+    top: auto !important;
+    height: auto !important;
+  }
+
+  #container .css-56akgc {
+    position: static !important;
+    width: 100% !important;
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ── Hero overlay: remove desktop aspect-ratio (1920/927) that squashes
+     content to ~188px on mobile ── */
+  #container .css-8fq6lu {
+    aspect-ratio: unset !important;
+    height: 100% !important;
+  }
+
+  /* Fixed-width inner content column */
+  #container .css-19gqjo {
+    width: 100% !important;
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ── Hero title: scale down from desktop 64px ── */
+  #container .css-k1oxlm {
+    font-size: 36px !important;
+    white-space: normal !important;
+    line-height: 1.2 !important;
+  }
+  #container .css-366pmd {
+    font-family: "CalvinoGrandeItalicVarTrial:Italic", sans-serif;
+    font-size: 33px !important;
+    white-space: normal !important;
+    line-height: 1.2 !important;
+  }
+  #container .css-l1ge5b {
+    white-space: normal !important;
+  }
+
+  /* Hero subtitle: widen, upscale font, remove all-caps */
+  #container .css-tqifx6 {
+    width: 100% !important;
+  }
+  #container .css-tjpclu {
+    text-transform: none !important;
+  }
+  #container .css-ola2vu {
+    font-size: 17px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Hero partner logo (Bay Gardens): needs explicit height because
+     inner image is position:absolute — container collapses to 0 otherwise */
+  #container .css-vj08gm {
+  /*  width: 180px !important;
+    height: 53px !important;*/
+    position: relative !important;
+  }
+
+  /* Fixed-width Tailwind text overlay */
+  #container [class*="w-[567px]"] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Hero card top/bottom padding */
+  #container [class*="pb-[168px]"] {
+    padding-bottom: 48px !important;
+  }
+  #container [class*="pt-[200px]"] {
+    padding-top: 48px !important;
+  }
+
+  /* ─────────────────────────────────────────────────────────────────────
+     TRI-PATH / CAROUSEL SECTION
+     ───────────────────────────────────────────────────────────────────── */
+
+  #container .css-fix5vh {
+    height: auto !important;
+    min-height: unset !important;
+  }
+
+  /* Stack three cards vertically */
+  #container .css-f1jjdz {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  #container .css-hdqalq {
+    height: 280px !important;
+    width: 100% !important;
+  }
+
+  #container .css-uwf2km {
+    flex: none !important;
+    width: 100% !important;
+  }
+
+  /* ─────────────────────────────────────────────────────────────────────
+     ARTIST RESIDENCY SECTION
+     Desired order: title/text → image → feature cards
+     HTML order:   image (left col) | title + cards (right col)
+     Fix: display:contents collapses the right col so we can use `order`
+     ───────────────────────────────────────────────────────────────────── */
+
+  #container .css-h5jcxr {
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  /* Dissolve right column so children participate in parent flex */
+  #container .css-i5evnr {
+    display: contents !important;
+  }
+
+  /* Title / description / "Generously Hosted By" block → first */
+  #container .css-btwdja {
+    order: 0;
+    width: 100% !important;
+    padding: 40px 20px 28px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Image → second */
+  #container .css-6wowof {
+    order: 1;
+    width: 100% !important;
+  }
+
+  #container .css-pkh8wy {
+    height: 300px !important;
+    width: 100% !important;
+  }
+
+  /* Feature cards + CTA → third */
+  #container .css-6zr2lh {
+    order: 2;
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    padding: 28px 20px 40px !important;
+    box-sizing: border-box !important;
+    gap: 32px !important;
+  }
+
+  /* Fix fixed-width card elements */
+  #container .css-atc28e,
+  #container .css-b7msgf {
+    width: 100% !important;
+  }
+
+  /* Card description: remove fixed height */
+  #container .css-ma7oee {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Card title: allow wrapping */
+  #container .css-9bcgjl {
+    white-space: normal !important;
+  }
+
+  /* ─────────────────────────────────────────────────────────────────────
+     INTRODUCING CAPTURE CARIBBEAN (VIDEO SECTION)
+     ───────────────────────────────────────────────────────────────────── */
+
+  /* Hide 762px decorative absolute element */
+  #container .css-fijxpg {
+    display: none !important;
+  }
+
+  /* Title */
+  #container .css-wr6d5v {
+    width: 100% !important;
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Video/image embed */
+  #container .css-9dnpuu {
+    height: 220px !important;
+    width: 100% !important;
+  }
+
+  /* ─────────────────────────────────────────────────────────────────────
+     PROSPECTIVE PARTNERS SECTION
+     ───────────────────────────────────────────────────────────────────── */
+
+  #container .css-g9qt8c {
+    gap: 32px !important;
+    padding: 40px 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 2-column logo grid */
+  #container .css-4i2lzp {
+    flex-wrap: wrap !important;
+    gap: 24px 16px !important;
+    padding: 0 !important;
+    justify-content: center !important;
+  }
+
+  #container .css-4i2lzp > div {
+    flex: 0 0 calc(50% - 8px) !important;
+    max-width: calc(50% - 8px) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: auto !important;
+  }
+
+  #container .css-4i2lzp img {
+    width: auto !important;
+    max-width: 130px !important;
+    height: auto !important;
+    max-height: 70px !important;
+    object-fit: contain !important;
+  }
+
+  /* ─────────────────────────────────────────────────────────────────────
+     OUR LEGACY SPONSOR SECTION
+     css-m80az1 has height:740.25px — too tall; reduce for mobile.
+     css-sljxc1 has padding:118.5px 501px — fix horizontal padding.
+     ───────────────────────────────────────────────────────────────────── */
+
+  #container .css-m80az1 {
+    height: 380px !important;
+  }
+
+  #container .css-sljxc1 {
+    padding: 40px 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Bay Gardens logo in legacy sponsor */
+  #container .css-xeyfn0 {
+    width: 180px !important;
+    height: auto !important;
+  }
+
+  /* Allow subtitle to wrap */
+  #container .css-5euc4f {
+    white-space: normal !important;
+  }
+
+  /* ─────────────────────────────────────────────────────────────────────
+     FOOTER
+     ───────────────────────────────────────────────────────────────────── */
+
+  #container .css-p70z91 {
+    padding: 40px 20px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  .tri-path-lg {
+    display: none !important;
+  }
+}
+
+/* ── Small phones (≤480px) ── */
+@media (max-width: 480px) {
+
+  #container .css-vj08gm {
+    width: 140px !important;
+  }
+
+  #container .css-hdqalq {
+    height: 240px !important;
+  }
+
+  #container .css-pkh8wy {
+    height: 260px !important;
+  }
+
+  #container .css-9dnpuu {
+    height: 185px !important;
+  }
+
+  #container .css-m80az1 {
+    height: 320px !important;
+  }
+
+  #container .css-4i2lzp img {
+    max-width: 110px !important;
+    max-height: 60px !important;
+  }
+
+
+  .tri-path-lg {
+    display: none !important;
+  }
+}
+

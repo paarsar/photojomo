@@ -1,0 +1,29 @@
+import { Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
+import { GlobalTourComponent } from './pages/global-tour/global-tour.component';
+import { ExhibitionComponent } from './pages/exhibition/exhibition.component';
+import { CaribbeanConnectionComponent } from './pages/caribbean-connection/caribbean-connection.component';
+import { ResidencyComponent } from './pages/residency/residency.component';
+import { FirstWaveChallengeComponent } from './pages/first-wave-challenge/first-wave-challenge.component';
+import { SaintLuciaComponent } from './pages/saint-lucia/saint-lucia.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ContestComponent } from './pages/contest/contest.component';
+import { ContestEntryComponent } from './pages/contest-entry/contest-entry.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
+
+export const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'global-tour', component: GlobalTourComponent },
+  { path: 'exhibition', component: ExhibitionComponent },
+  { path: 'caribbean-connection', component: CaribbeanConnectionComponent },
+  { path: 'residency', component: ResidencyComponent },
+  { path: 'first-wave-challenge', component: FirstWaveChallengeComponent },
+  { path: 'saint-lucia', component: SaintLuciaComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'about-us', component: AboutUsComponent },
+  { path: 'contest', component: ContestComponent },
+  { path: 'contest-entry/:id', component: ContestEntryComponent },
+  { path: 'checkout/:contestId/:tierId', component: CheckoutComponent },
+  { path: '**', redirectTo: '' },
+];

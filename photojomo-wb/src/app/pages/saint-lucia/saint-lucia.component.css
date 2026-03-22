@@ -1,0 +1,72 @@
+/* ── Saint Lucia – Responsive overrides ──────────────────────────────────── */
+/* All rules scoped to .css-i9h3z so they only affect this page              */
+
+@media (max-width: 768px) {
+
+  /* ── Hero: text overlay ─────────────────────────────────────────────── */
+
+  /* Fluid container for the tagline text */
+  #container .css-i9h3z .css-c1ktjq {
+    width: 90vw !important;
+  }
+
+  /* "An Invitational Celebration of" */
+  #container .css-i9h3z .css-cqhbfv {
+    font-size: clamp(18px, 5vw, 42px) !important;
+    line-height: 1.3 !important;
+  }
+
+  /* "Island Storytelling" */
+  #container .css-i9h3z .css-kax0lw {
+    font-size: clamp(26px, 7vw, 61px) !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Logo in the hero overlay */
+  #container .css-i9h3z .css-f270zq {
+    width: 100px !important;
+    height: auto !important;
+  }
+
+  /* ── Hero: page's own nav row (css-qo5u35 / css-9xpv4m) ────────────── */
+
+  /* The spacer placeholder that reserves 88px - shrink it */
+  #container .css-i9h3z .css-qo5u35 {
+    height: 60px !important;
+  }
+
+  /* The absolutely-positioned nav row inside – collapse the 782px gap */
+  #container .css-i9h3z .css-9xpv4m {
+    gap: 0 !important;
+    justify-content: space-between !important;
+    width: calc(100% - 40px) !important;
+    left: 20px !important;
+    transform: none !important;
+  }
+
+  /* ── White gradient overlay ─────────────────────────────────────────── */
+
+  #container .css-i9h3z .css-nnrgqd {
+    width: 100% !important;
+    left: 0 !important;
+    transform: none !important;
+  }
+
+  /* ── "Our Experience" content section ───────────────────────────────── */
+
+  /* Remove horizontal padding that assumes 1440px */
+  #container .css-i9h3z .css-1um89v {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Make the text block fluid */
+  #container .css-i9h3z .css-dyuwb8 {
+    width: 100% !important;
+  }
+
+  /* Stack the two-column layout (text + image) vertically */
+  #container .css-i9h3z .css-1um89v > .css-paq0kv {
+    flex-direction: column !important;
+  }
+}
