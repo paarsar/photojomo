@@ -178,6 +178,10 @@ export class Home implements OnInit, OnDestroy {
     });
   }
 
+  scrollToContests() {
+    document.getElementById('contests')?.scrollIntoView({ behavior: 'smooth' });
+  }
+
   toggleFaq(catIndex: number, itemIndex: number) {
     this.faqCategories[catIndex].items[itemIndex].open = !this.faqCategories[catIndex].items[itemIndex].open;
   }
