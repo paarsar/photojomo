@@ -1,3 +1,21 @@
+/* ── Remove top gap ───────────────────────────────────────────────────────── */
+
+#container .css-fbgm56 {
+  top: 0 !important;
+  padding-top: 50px !important;
+}
+
+/* ── Scroll-opaque navbar ─────────────────────────────────────────────────── */
+
+.nav-bar-inner {
+  transition: background-color 0.3s ease;
+}
+
+.nav-scrolled .nav-bar-inner {
+  background-color: rgba(0, 0, 0, 0.85) !important;
+  backdrop-filter: blur(6px);
+}
+
 /* ── Desktop dropdown ─────────────────────────────────────────────────────── */
 
 .nav-dropdown-wrapper {
@@ -180,7 +198,7 @@
     width: 100% !important;
     height: 65px !important;
     padding: 0 16px !important;
-    margin-top: 10px;
+    margin-top: 0;
 
     box-sizing: border-box !important;
     top: auto !important;

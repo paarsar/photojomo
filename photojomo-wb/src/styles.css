@@ -252,6 +252,56 @@
         }
       }
 
+      /* ── Calvino & PP Neue Montreal ───────────────────────────────────────── */
+      @font-face {
+        font-family: "CalvinoGrandeItalicVarTrial:Italic";
+        font-style: italic;
+        src: url("/assets/fonts/CalvinoGrandeItalicVarTrial.woff2") format("woff2");
+        font-display: block;
+      }
+      @font-face {
+        font-family: "CalvinoGrandeItalicVarTrial";
+        font-style: italic;
+        src: url("/assets/fonts/CalvinoGrandeItalicVarTrial.woff2") format("woff2");
+        font-display: block;
+      }
+      @font-face {
+        font-family: "CalvinoGrandeItalicVarTrial:Light Italic";
+        font-style: italic;
+        src: url("/assets/fonts/CalvinoGrandeItalicVarTrial.woff2") format("woff2");
+        font-display: block;
+      }
+      @font-face {
+        font-family: "Calvino Grande Trial:Light Italic";
+        font-style: italic;
+        src: url("/assets/fonts/CalvinoGrandeTrial-LightItalic.woff2") format("woff2");
+        font-display: block;
+      }
+      @font-face {
+        font-family: "Calvino Grande Trial";
+        font-style: italic;
+        src: url("/assets/fonts/CalvinoGrandeTrial-LightItalic.woff2") format("woff2");
+        font-display: block;
+      }
+      @font-face {
+        font-family: "PP Neue Montreal:Medium";
+        font-style: normal;
+        src: url("/assets/fonts/PPNouveauMontreal-Medium.woff2") format("woff2");
+        font-display: block;
+      }
+      @font-face {
+        font-family: "PP Neue Montreal:Book";
+        font-style: normal;
+        src: url("/assets/fonts/PPNouveauMontreal.woff2") format("woff2");
+        font-display: block;
+      }
+      @font-face {
+        font-family: "PP Neue Montreal";
+        font-style: normal;
+        src: url("/assets/fonts/PPNouveauMontreal.woff2") format("woff2");
+        font-display: block;
+      }
+      /* ─────────────────────────────────────────────────────────────────────── */
 
       @font-face {
         font-family: "Sora:Light";
@@ -1495,7 +1545,7 @@
         width: 365.385px;
       }
       #container .css-gsipbk {
-        line-height: 0;
+        line-height: 17x;
         white-space: pre-wrap;
       }
       #container .css-hd97 {

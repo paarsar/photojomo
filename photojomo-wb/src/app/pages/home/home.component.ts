@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.stopAutoPlay();   
+    this.stopAutoPlay();
   }
 
   get currentImage(): string {

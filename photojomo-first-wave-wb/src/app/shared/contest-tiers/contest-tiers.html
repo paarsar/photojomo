@@ -1,0 +1,41 @@
+<section class="tiers">
+  <h2 class="tiers__heading">Contest Submission <i>Tier & Fees</i></h2>
+  <div class="tiers__grid">
+    @for (tier of tiers; track tier.name) {
+      <div class="tier-card" [class.tier-card--featured]="tier.golden">
+        @if (tier.golden) {
+          <div class="tier-card__badge">Most Popular</div>
+        }
+        <div class="tier-card__header">
+          <h3 class="tier-card__name">{{ tier.name }}</h3>
+          <div class="tier-card__price">{{ tier.price }}</div>
+          <div class="tier-card__images">{{ tier.images }}</div>
+        </div>
+        <div class="tier-card__body">
+          <p class="tier-card__benefits-label">Benefits</p>
+          <ul class="tier-card__benefits">
+            @for (benefit of tier.benefits; track $index) {
+              <li>{{ benefit }}</li>
+            }
+            @if (tier.golden) {
+              <li class="tier-card__golden">
+                <span class="golden-icon">🎟</span> Golden Ticket
+              </li>
+            }
+          </ul>
+        </div>
+        <div class="tier-card__footer">
+          <a [routerLink]="['/account/register']"
+             [queryParams]="{ division: division, tier: tier.name }"
+             class="tier-btn">
+            Register Now
+          </a>
+        </div>
+      </div>
+    }
+  </div>
+  <p class="tiers__footer-note">
+    By registering you agree to the <a routerLink="/info/rules">Rules</a> and
+    <a routerLink="/info/terms-and-conditions">Terms & Conditions</a>.
+  </p>
+</section>

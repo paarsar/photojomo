@@ -1,0 +1,50 @@
+<nav class="navbar">
+  <div class="navbar__brand">
+    <a routerLink="/home" (click)="closeMobile()">
+      <img src="logo.png" alt="Caribbean Photo Contests" />
+    </a>
+  </div>
+
+  <button class="navbar__hamburger" (click)="toggleMobile()" [attr.aria-expanded]="mobileOpen()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <ul class="navbar__menu" [ngClass]="{ 'navbar__menu--open': mobileOpen() }">
+    @for (item of navItems; track item.route) {
+      <li class="navbar__item" [ngClass]="{ 'navbar__item--has-children': item.children }">
+        @if (item.children) {
+          <button
+            class="navbar__link navbar__link--dropdown"
+            (click)="toggleDropdown(item.label)"
+            [ngClass]="{ 'navbar__link--active': activeDropdown() === item.label }"
+          >
+            {{ item.label }}
+            <span class="navbar__caret">&#9662;</span>
+          </button>
+          <ul class="navbar__dropdown" [ngClass]="{ 'navbar__dropdown--open': activeDropdown() === item.label }">
+            @for (child of item.children; track child.route) {
+              <li>
+                <a
+                  class="navbar__dropdown-link"
+                  [routerLink]="child.route"
+                  routerLinkActive="navbar__dropdown-link--active"
+                  (click)="closeMobile()"
+                >{{ child.label }}</a>
+              </li>
+            }
+          </ul>
+        } @else {
+          <a
+            class="navbar__link"
+            [routerLink]="item.route"
+            routerLinkActive="navbar__link--active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            (click)="closeMobile()"
+          >{{ item.label }}</a>
+        }
+      </li>
+    }
+  </ul>
+</nav>

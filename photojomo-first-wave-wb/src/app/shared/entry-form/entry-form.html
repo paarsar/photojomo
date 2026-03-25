@@ -1,0 +1,171 @@
+@if (submitted) {
+  <div class="form-success">
+    <div class="form-success__icon">✓</div>
+    <h2>Congratulations!</h2>
+    <p>Your <strong>{{ division }}</strong> entry to the First Wave Challenge has been successfully submitted.</p>
+    <p>Check your email for confirmation and important updates.</p>
+    <p>Your Founding Class Member Digital Badge will be issued after the challenge concludes.</p>
+    <p><em>Thank you for entering — and welcome to the First Wave.</em></p>
+    <p>— Capture Caribbean Team</p>
+  </div>
+} @else {
+  <section class="entry-form">
+    <h2 class="entry-form__heading">Enter the <i>{{ division }}</i> Division</h2>
+
+    <form (ngSubmit)="onSubmit()" #f="ngForm" class="entry-form__form">
+
+      <!-- TIER SELECTION -->
+      <div class="form-section">
+        <h3 class="form-section__title">Select Your Tier</h3>
+        <div class="tier-select-grid">
+          @for (tier of tiers; track tier.name) {
+            <label class="tier-option" [class.tier-option--selected]="selectedTier === tier">
+              <input type="radio" name="tier" [value]="tier" [(ngModel)]="selectedTier" (ngModelChange)="onTierChange()" />
+              <div class="tier-option__card">
+                <div class="tier-option__name">{{ tier.name }}</div>
+                <div class="tier-option__price">{{ tier.price }}</div>
+                <div class="tier-option__images">{{ tier.images }}</div>
+                @if (tier.golden) {
+                  <div class="tier-option__golden">🎟 Golden Ticket</div>
+                }
+              </div>
+            </label>
+          }
+        </div>
+      </div>
+
+      <!-- PERSONAL INFO -->
+      <div class="form-section">
+        <h3 class="form-section__title">Personal Information</h3>
+        <div class="form-row">
+          <div class="form-field">
+            <label>First Name <span class="req">*</span></label>
+            <input type="text" name="firstName" [(ngModel)]="form.firstName" required placeholder="First name" />
+          </div>
+          <div class="form-field">
+            <label>Last Name</label>
+            <input type="text" name="lastName" [(ngModel)]="form.lastName" placeholder="Last name" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>Email Address <span class="req">*</span></label>
+            <input type="email" name="email" [(ngModel)]="form.email" required placeholder="your@email.com" />
+          </div>
+          <div class="form-field">
+            <label>Country of Residence <span class="req">*</span></label>
+            <select name="country" [(ngModel)]="form.country" required>
+              <option value="" disabled selected>Select country</option>
+              @for (country of countries; track country) {
+                <option [value]="country">{{ country }}</option>
+              }
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- IMAGE UPLOADS -->
+      <div class="form-section">
+        <h3 class="form-section__title">
+          Upload Your Photos
+          <span class="form-section__sub">{{ uploadedCount }} / {{ maxImages }} uploaded</span>
+        </h3>
+        <p class="form-section__note">JPEG or PNG · Max 8MB per image · Min 3000px on longest side · No watermarks or AI-generated content.</p>
+        <div class="upload-grid">
+          @for (slot of uploadSlots; track slot.index) {
+            <div class="upload-slot" [class.upload-slot--filled]="slot.file">
+              @if (slot.preview) {
+                <img [src]="slot.preview" class="upload-slot__preview" alt="Preview" />
+                <button type="button" class="upload-slot__remove" (click)="removeFile(slot)">✕</button>
+              } @else {
+                <label class="upload-slot__label">
+                  <input type="file" accept="image/jpeg,image/png" (change)="onFileSelect($event, slot)" hidden />
+                  <span class="upload-slot__icon">+</span>
+                  <span class="upload-slot__num">Image {{ slot.index }}</span>
+                  @if (slot.index === 1) { <span class="upload-slot__req">Required</span> }
+                </label>
+              }
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- CONFIRMATIONS -->
+      <div class="form-section">
+        <h3 class="form-section__title">Confirmations</h3>
+        <div class="form-checks">
+          <label class="form-check">
+            <input type="checkbox" name="confirmDates" [(ngModel)]="form.confirmDates" required />
+            <span>I confirm that my images were captured between the years 2024, 2025 and 2026. <span class="req">*</span></span>
+          </label>
+          <label class="form-check">
+            <input type="checkbox" name="confirmAge" [(ngModel)]="form.confirmAge" required />
+            <span>I confirm that I am at least 18 years old as of the opening date of the competition. <span class="req">*</span></span>
+          </label>
+          <label class="form-check">
+            <input type="checkbox" name="agreePrivacy" [(ngModel)]="form.agreePrivacy" required />
+            <span>I agree to the <a href="/info/privacy-policy" target="_blank">privacy policy</a>. <span class="req">*</span></span>
+          </label>
+          <label class="form-check">
+            <input type="checkbox" name="agreeTerms" [(ngModel)]="form.agreeTerms" required />
+            <span>I agree to the <a href="/info/terms-and-conditions" target="_blank">terms and conditions</a> and <a href="/info/rules" target="_blank">contest rules</a>. <span class="req">*</span></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- ORDER SUMMARY -->
+      <div class="form-section">
+        <h3 class="form-section__title">Order Summary</h3>
+        <div class="order-summary">
+          <div class="order-summary__row">
+            <span>{{ selectedTier.name }}</span>
+            <span>{{ selectedTier.price }}</span>
+          </div>
+          <div class="order-summary__row">
+            <span>{{ selectedTier.images }}</span>
+          </div>
+          @if (selectedTier.golden) {
+            <div class="order-summary__row order-summary__row--golden">
+              <span>🎟 Golden Ticket Included</span>
+            </div>
+          }
+          <div class="order-summary__divider"></div>
+          <div class="order-summary__total">
+            <span>Total</span>
+            <span>{{ selectedTier.price }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAYMENT -->
+      <div class="form-section">
+        <h3 class="form-section__title">Payment Method</h3>
+        <div class="payment-methods">
+          <label class="payment-option" [class.payment-option--selected]="paymentMethod === 'stripe'">
+            <input type="radio" name="payment" value="stripe" [(ngModel)]="paymentMethod" />
+            <span>💳 Credit / Debit Card</span>
+          </label>
+          <label class="payment-option" [class.payment-option--selected]="paymentMethod === 'paypal'">
+            <input type="radio" name="payment" value="paypal" [(ngModel)]="paymentMethod" />
+            <span>🅿 PayPal</span>
+          </label>
+        </div>
+        <div class="payment-note">
+          Secure payment processing. Your card details are never stored on our servers.
+        </div>
+      </div>
+
+      <!-- SUBMIT -->
+      <div class="form-submit">
+        <button type="submit" class="submit-btn" [disabled]="submitting || !f.valid">
+          @if (submitting) {
+            Processing…
+          } @else {
+            Submit Entry — {{ selectedTier.price }}
+          }
+        </button>
+      </div>
+
+    </form>
+  </section>
+}

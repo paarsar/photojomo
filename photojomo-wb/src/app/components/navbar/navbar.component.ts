@@ -15,6 +15,12 @@ export class NavbarComponent {
   @Input() wrapperClass = 'css-fbgm56 css-8hhw9a css-roiesn';
   dropdownOpen = false;
   menuOpen = false;
+  scrolled = false;
+
+  @HostListener('window:scroll')
+  onScroll(): void {
+    this.scrolled = window.scrollY > 20;
+  }
 
   toggleDropdown(event: Event): void {
     event.stopPropagation();

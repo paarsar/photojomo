@@ -1,0 +1,244 @@
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <img class="hero__logo" src="images/Capture-caribbean-Logo.png" alt="Capture Caribbean" />
+    <h1 class="hero__title">The First Wave Challenge</h1>
+    <h2 class="hero__subtitle">Win a Trip to Saint Lucia</h2>
+    <div class="hero__partnership">
+      <p class="hero__partnership-label">In Partnership with</p>
+      <img src="images/bay-gardens-logo-sm.png" alt="Bay Gardens Resorts" />
+    </div>
+    <a routerLink="/early-bird-entry" class="btn btn--cta">ENTER THE CHALLENGE</a>
+    <p class="hero__tagline">30-Day Challenge · Limited Entries</p>
+
+    <div class="countdown">
+      <div class="countdown__units">
+        <div class="countdown__unit">
+          <span class="countdown__value">{{ countdown().days | number:'2.0' }}</span>
+          <span class="countdown__name">DAYS</span>
+        </div>
+        <div class="countdown__sep">:</div>
+        <div class="countdown__unit">
+          <span class="countdown__value">{{ countdown().hours | number:'2.0' }}</span>
+          <span class="countdown__name">HRS</span>
+        </div>
+        <div class="countdown__sep">:</div>
+        <div class="countdown__unit">
+          <span class="countdown__value">{{ countdown().minutes | number:'2.0' }}</span>
+          <span class="countdown__name">MNTS</span>
+        </div>
+        <div class="countdown__sep">:</div>
+        <div class="countdown__unit">
+          <span class="countdown__value">{{ countdown().seconds | number:'2.0' }}</span>
+          <span class="countdown__name">SECONDS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEST CARDS -->
+<section class="contests">
+  <h2 class="contests__heading">Choose your <i>category</i></h2>
+  <div class="contests__grid">
+    @for (contest of contests; track contest.route) {
+      <div class="contest-card">
+        <!-- Image with overlaid title + award -->
+        <div class="contest-card__media">
+          <img class="contest-card__img" [src]="contest.image" [alt]="contest.title" />
+          <div class="contest-card__overlay">
+            <h3 class="contest-card__title">{{ contest.title }}</h3>
+            <div class="contest-card__award">
+              <span class="contest-card__award-amount">{{ contest.award }}</span>
+              <span class="contest-card__award-label">Cash Award</span>
+            </div>
+          </div>
+        </div>
+        <!-- Body -->
+        <div class="contest-card__body">
+          <p class="contest-card__desc">{{ contest.description }}</p>
+          <div class="contest-card__pricing">
+            <span class="contest-card__price-label">Starting From</span>
+            <span class="contest-card__price-value">{{ contest.price }}</span>
+          </div>
+          <a [routerLink]="contest.route" class="contest-card__enter">Enter Contest →</a>
+          <span class="contest-card__tier">{{ contest.tier }}</span>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- FOUNDING CLASS -->
+<section class="founding" style="background-image: url('images/background-1.jpg')">
+  <div class="founding__overlay"></div>
+
+  <!-- Part 1: Forge the Founding Class -->
+  <div class="founding__intro">
+    <div class="founding__intro-text">
+      <h2 class="founding__title">Forge the <em>Founding Class</em></h2>
+      <p class="founding__subtitle">The first creators to shape the future of Capture Caribbean.</p>
+      <p class="founding__desc">The First Wave Challenge invites global visual storytellers to launch Capture Caribbean as our inaugural Founding Creators. Whether professional or passionate, we are selecting a cohort of artists to define the creative foundation and set the standard for future Invitationals.</p>
+    </div>
+    <div class="founding__intro-badge">
+      <img src="images/Badge-1@2x.png" alt="Founding Class Member Badge" />
+    </div>
+  </div>
+
+  <!-- Part 2: Why Become a Founding Creator? -->
+  <div class="founding__why">
+    <div class="founding__why-badge">
+      <img src="images/Badge-1@2x.png" alt="Founding Class Member Badge" />
+    </div>
+    <div class="founding__why-text">
+      <h3 class="founding__why-heading"><em>Why Become a Founding Creator?</em></h3>
+      <ul class="founding__why-list">
+        @for (benefit of founderBenefits; track $index) {
+          <li>{{ benefit }}</li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- GOLDEN TICKET -->
+<section class="golden-ticket" style="background-image: url('images/background-1.jpg')">
+  <div class="golden-ticket__overlay"></div>
+  <div class="golden-ticket__inner">
+    <div class="golden-ticket__header">
+      <h2 class="golden-ticket__title">The Golden Ticket : <em>The ultimate advantage</em></h2>
+      <p class="golden-ticket__subtitle">Double Your Chances at Glory</p>
+    </div>
+    <div class="golden-ticket__body">
+      <div class="golden-ticket__benefits">
+        @for (benefit of goldenTicketBenefits; track $index) {
+          <div class="gt-benefit">
+            <div class="gt-benefit__icon">✓</div>
+            <div class="gt-benefit__text">
+              <p class="gt-benefit__title">{{ benefit.title }}</p>
+              <p class="gt-benefit__desc">{{ benefit.desc }}</p>
+            </div>
+          </div>
+        }
+      </div>
+      <div class="golden-ticket__image">
+        <img src="images/coin-icon-l.png" alt="Golden Ticket" />
+      </div>
+    </div>
+    <div class="golden-ticket__cta">
+      <a routerLink="/early-bird-entry" class="gt-btn">Claim Your Golden Ticket</a>
+    </div>
+  </div>
+</section>
+
+<!-- BAY GARDENS PARTNERSHIP -->
+<section class="partnership" style="background-image: url('images/home-slice1-1.jpg')">
+  <div class="partnership__overlay"></div>
+  <div class="partnership__content">
+    <div class="partnership__text">
+      <h2 class="partnership__heading">Hosted in Partnership with</h2>
+      <p class="partnership__desc">Bay Gardens Resorts is a trusted hotel group located in Rodney Bay, Saint Lucia, known for decades of Caribbean hospitality and a trusted presence in the region.</p>
+    </div>
+    <div class="partnership__logo-wrap">
+      <img src="images/bay-gardens-logo.png" alt="Bay Gardens Resorts" class="partnership__logo" />
+    </div>
+  </div>
+</section>
+
+<!-- THE PATH FORWARD -->
+<section class="path-forward" style="background-image: url('images/mountain.jpg')">
+  <div class="path-forward__overlay"></div>
+  <div class="path-forward__inner">
+    <h2 class="path-forward__heading">The Path <em>Forward</em></h2>
+    <div class="path-forward__timeline">
+      <div class="path-forward__line"></div>
+
+      <div class="path-forward__step">
+        <div class="path-forward__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+        </div>
+        <h3 class="path-forward__step-title"><em>Application Review</em></h3>
+        <p class="path-forward__step-desc">Curatorial review based on originality, storytelling strength, and perspective.</p>
+      </div>
+
+      <div class="path-forward__step">
+        <div class="path-forward__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <h3 class="path-forward__step-title"><em>Selection</em></h3>
+        <p class="path-forward__step-desc">A limited number of creators are named to the inaugural Founding Class.</p>
+      </div>
+
+      <div class="path-forward__step">
+        <div class="path-forward__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 2H21v5.5"/></svg>
+        </div>
+        <h3 class="path-forward__step-title"><em>Access &amp; Recognition</em></h3>
+        <p class="path-forward__step-desc">Receive official recognition, early platform access, and priority for future Invitationals.</p>
+      </div>
+
+      <div class="path-forward__step">
+        <div class="path-forward__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21 4 19 2c-2-2-4-2-5.5-.5L10 5 1.8 6.2l4.8 4.8-1 4 4-1 4.8 4.8z"/></svg>
+        </div>
+        <h3 class="path-forward__step-title"><em>The Journey Begins</em></h3>
+        <p class="path-forward__step-desc">From live Caribbean experiences to global exhibitions, the Founding Class moves forward together.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FIRST WAVE CHALLENGE PRIZE VAULT -->
+<section class="contests">
+  <h2 class="contests__heading">The First Wave Challenge <i>Prize Vault</i></h2>
+  <div class="contests__grid">
+    @for (contest of contests; track contest.route) {
+      <div class="contest-card">
+        <div class="contest-card__media">
+          <img class="contest-card__img" [src]="contest.image" [alt]="contest.title" />
+          <div class="contest-card__overlay">
+            <h3 class="contest-card__title">{{ contest.title }}</h3>
+            <div class="contest-card__award">
+              <span class="contest-card__award-amount">{{ contest.award }}</span>
+              <span class="contest-card__award-label">Cash Award</span>
+            </div>
+          </div>
+        </div>
+        <div class="contest-card__body">
+          <p class="contest-card__desc">{{ contest.description }}</p>
+          <div class="contest-card__pricing">
+            <span class="contest-card__price-label">Starting From</span>
+            <span class="contest-card__price-value">{{ contest.price }}</span>
+          </div>
+          <a [routerLink]="contest.route" class="contest-card__enter">Enter Contest →</a>
+          <span class="contest-card__tier">{{ contest.tier }}</span>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq__inner">
+    <h2 class="faq__heading">Frequently Asked <em>Questions</em></h2>
+    @for (cat of faqCategories; track $index; let ci = $index) {
+      <div class="faq__category">
+        <h3 class="faq__category-title">{{ cat.category }}</h3>
+        @for (item of cat.items; track $index; let ii = $index) {
+          <div class="faq__item" [class.faq__item--open]="item.open">
+            <button class="faq__question" (click)="toggleFaq(ci, ii)">
+              <span>{{ item.question }}</span>
+              <svg class="faq__chevron" [class.faq__chevron--open]="item.open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            @if (item.open) {
+              <div class="faq__answer">{{ item.answer }}</div>
+            }
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>
