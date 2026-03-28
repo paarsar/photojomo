@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { loadStripe, Stripe, StripeElements } from '@stripe/stripe-js';
+import { loadScript } from '@paypal/paypal-js';
 import { TIERS, Tier } from '../../../shared/contest-tiers/contest-tiers';
 import { COUNTRIES } from '../../../shared/entry-form/countries';
 import { SubmissionService } from '../../../core/submission.service';
@@ -37,11 +38,16 @@ export class Register implements OnInit {
   submitted = false;
   submitting = false;
   stripeLoading = false;
+  paypalLoading = false;
   errorMessage = '';
+
+  @ViewChild('f') ngForm!: NgForm;
 
   private stripe: Stripe | null = null;
   private elements: StripeElements | null = null;
   private paymentIntentId = '';
+  paypalButtons: any = null;
+  private paypalFormInvalid = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -99,6 +105,90 @@ export class Register implements OnInit {
     }
   }
 
+  async initPaypalButtons() {
+    this.paypalLoading = true;
+    try {
+      const paypal = await loadScript({
+        clientId: environment.paypalClientId,
+        currency: 'USD',
+        intent: 'capture',
+      });
+      if (!paypal || !paypal.Buttons) {
+        this.errorMessage = 'Failed to load PayPal. Please try again.';
+        return;
+      }
+      this.paypalButtons = paypal.Buttons({
+        style: { height: 55 },
+        createOrder: async () => {
+          if (!this.ngForm?.valid) {
+            this.paypalFormInvalid = true;
+            throw new Error('form-invalid');
+          }
+          this.paypalFormInvalid = false;
+          const { orderId } = await this.submissionService.createPaypalOrder(this.selectedTier!.name);
+          return orderId;
+        },
+        onApprove: async (data: any) => {
+          await this.submissionService.capturePaypalOrder(data.orderID);
+          await this.doSubmit('paypal', data.orderID);
+        },
+        onError: (err: any) => {
+          console.error('PayPal onError:', err);
+          if (this.paypalFormInvalid) {
+            this.paypalFormInvalid = false;
+            this.errorMessage = 'Please complete all required fields before proceeding with PayPal.';
+            return;
+          }
+          this.errorMessage = 'PayPal payment failed. Please try again.';
+        },
+      });
+      this.paypalButtons.render('#paypal-button-container');
+    } catch (err) {
+      console.error('Failed to initialize PayPal:', err);
+      this.errorMessage = 'Failed to initialize PayPal. Please try again.';
+    } finally {
+      this.paypalLoading = false;
+    }
+  }
+
+  async doSubmit(paymentMethod: 'stripe' | 'paypal', paymentId: string) {
+    if (!this.selectedTier) return;
+
+    this.submitting = true;
+    this.errorMessage = '';
+
+    try {
+      await this.submissionService.submit({
+        firstName:             this.form.firstName,
+        lastName:              this.form.lastName,
+        email:                 this.form.email,
+        country:               this.form.country,
+        confirmImagesDates:    this.form.confirmDates,
+        confirmAge:            this.form.confirmAge,
+        confirmRules:          this.form.agreeRules,
+        marketingConsent:      this.form.subscribeOffers,
+        division:              this.division,
+        tierName:              this.selectedTier.name,
+        paymentMethod,
+        stripePaymentIntentId: paymentMethod === 'stripe' ? paymentId : '',
+        paypalOrderId:         paymentMethod === 'paypal' ? paymentId : '',
+        files:                 this.uploadSlots.map(s => s.file).filter((f): f is File => f !== null),
+      });
+      this.submitted = true;
+    } catch (err) {
+      console.error('Submission failed', err);
+      this.errorMessage = 'Something went wrong. Please try again.';
+    } finally {
+      this.submitting = false;
+    }
+  }
+
+  onPaymentMethodChange() {
+    if (this.paymentMethod === 'paypal' && !this.paypalButtons) {
+      setTimeout(() => this.initPaypalButtons(), 0);
+    }
+  }
+
   private buildUploadSlots(tier: Tier) {
     const max = this.maxImages(tier);
     this.uploadSlots = Array.from({ length: max }, (_, i) => ({
@@ -135,54 +225,41 @@ export class Register implements OnInit {
   async onSubmit() {
     if (!this.selectedTier) return;
 
+    if (this.paymentMethod === 'paypal') {
+      // Payment is handled by PayPal buttons' onApprove callback
+      return;
+    }
+
+    // Stripe flow
     this.submitting = true;
     this.errorMessage = '';
 
     try {
-      if (this.paymentMethod === 'stripe') {
-        if (!this.stripe || !this.elements) {
-          this.errorMessage = 'Payment not ready. Please wait a moment and try again.';
-          return;
-        }
-
-        const result = await this.stripe.confirmPayment({
-          elements: this.elements,
-          redirect: 'if_required',
-          confirmParams: {
-            payment_method_data: {
-              billing_details: {
-                name: `${this.form.firstName} ${this.form.lastName}`.trim(),
-                email: this.form.email,
-              },
-            },
-          },
-        });
-
-        if (result.error) {
-          this.errorMessage = result.error.message ?? 'Payment failed. Please try again.';
-          return;
-        }
-
-        const intentId = result.paymentIntent?.id ?? this.paymentIntentId;
-
-        await this.submissionService.submit({
-          firstName:             this.form.firstName,
-          lastName:              this.form.lastName,
-          email:                 this.form.email,
-          country:               this.form.country,
-          confirmImagesDates:    this.form.confirmDates,
-          confirmAge:            this.form.confirmAge,
-          confirmRules:          this.form.agreeRules,
-          marketingConsent:      this.form.subscribeOffers,
-          division:              this.division,
-          tierName:              this.selectedTier.name,
-          paymentMethod:         'stripe',
-          stripePaymentIntentId: intentId,
-          files:                 this.uploadSlots.map(s => s.file).filter((f): f is File => f !== null),
-        });
+      if (!this.stripe || !this.elements) {
+        this.errorMessage = 'Payment not ready. Please wait a moment and try again.';
+        return;
       }
 
-      this.submitted = true;
+      const result = await this.stripe.confirmPayment({
+        elements: this.elements,
+        redirect: 'if_required',
+        confirmParams: {
+          payment_method_data: {
+            billing_details: {
+              name: `${this.form.firstName} ${this.form.lastName}`.trim(),
+              email: this.form.email,
+            },
+          },
+        },
+      });
+
+      if (result.error) {
+        this.errorMessage = result.error.message ?? 'Payment failed. Please try again.';
+        return;
+      }
+
+      const intentId = result.paymentIntent?.id ?? this.paymentIntentId;
+      await this.doSubmit('stripe', intentId);
     } catch (err) {
       console.error('Submission failed', err);
       this.errorMessage = 'Something went wrong. Please try again.';

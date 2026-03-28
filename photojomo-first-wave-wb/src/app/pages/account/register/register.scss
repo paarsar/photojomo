@@ -251,6 +251,10 @@
   display: none;
 }
 
+.paypal-section {
+  &--hidden { display: none; }
+}
+
 .stripe-loading {
   font-size: 0.85rem;
   color: rgba(255,255,255,0.45);
@@ -264,8 +268,13 @@
 }
 
 // SUBMIT
-.reg-submit {
+.reg-submit-wrapper {
+  position: relative;
   margin-top: 2rem;
+}
+
+
+.reg-submit {
   width: 100%;
   background: var(--color-gold);
   color: #fff;

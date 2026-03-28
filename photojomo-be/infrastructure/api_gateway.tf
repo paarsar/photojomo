@@ -147,6 +147,75 @@ resource "aws_lambda_permission" "stripe_webhook_service_apigw" {
   source_arn    = "${aws_apigatewayv2_api.main.execution_arn}/*/*"
 }
 
+# ── PayPal Order Service Integration ─────────────────────────────────────────
+
+resource "aws_apigatewayv2_integration" "paypal_order_service" {
+  api_id                 = aws_apigatewayv2_api.main.id
+  integration_type       = "AWS_PROXY"
+  integration_uri        = aws_lambda_function.paypal_order_service.invoke_arn
+  payload_format_version = "2.0"
+}
+
+resource "aws_apigatewayv2_route" "create_paypal_order" {
+  api_id    = aws_apigatewayv2_api.main.id
+  route_key = "POST /paypal-orders"
+  target    = "integrations/${aws_apigatewayv2_integration.paypal_order_service.id}"
+}
+
+resource "aws_lambda_permission" "paypal_order_service_apigw" {
+  statement_id  = "AllowAPIGatewayInvoke"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.paypal_order_service.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_apigatewayv2_api.main.execution_arn}/*/*"
+}
+
+# ── PayPal Capture Service Integration ───────────────────────────────────────
+
+resource "aws_apigatewayv2_integration" "paypal_capture_service" {
+  api_id                 = aws_apigatewayv2_api.main.id
+  integration_type       = "AWS_PROXY"
+  integration_uri        = aws_lambda_function.paypal_capture_service.invoke_arn
+  payload_format_version = "2.0"
+}
+
+resource "aws_apigatewayv2_route" "capture_paypal_order" {
+  api_id    = aws_apigatewayv2_api.main.id
+  route_key = "POST /paypal-orders/{orderId}/capture"
+  target    = "integrations/${aws_apigatewayv2_integration.paypal_capture_service.id}"
+}
+
+resource "aws_lambda_permission" "paypal_capture_service_apigw" {
+  statement_id  = "AllowAPIGatewayInvoke"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.paypal_capture_service.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_apigatewayv2_api.main.execution_arn}/*/*"
+}
+
+# ── PayPal Webhook Service Integration ───────────────────────────────────────
+
+resource "aws_apigatewayv2_integration" "paypal_webhook_service" {
+  api_id                 = aws_apigatewayv2_api.main.id
+  integration_type       = "AWS_PROXY"
+  integration_uri        = aws_lambda_function.paypal_webhook_service.invoke_arn
+  payload_format_version = "2.0"
+}
+
+resource "aws_apigatewayv2_route" "paypal_webhook" {
+  api_id    = aws_apigatewayv2_api.main.id
+  route_key = "POST /webhooks/paypal"
+  target    = "integrations/${aws_apigatewayv2_integration.paypal_webhook_service.id}"
+}
+
+resource "aws_lambda_permission" "paypal_webhook_service_apigw" {
+  statement_id  = "AllowAPIGatewayInvoke"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.paypal_webhook_service.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_apigatewayv2_api.main.execution_arn}/*/*"
+}
+
 # ── Contact Service Integration ───────────────────────────────────────────────
 
 resource "aws_apigatewayv2_integration" "contact_service" {

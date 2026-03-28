@@ -39,12 +39,34 @@ export interface SubmitParams {
   tierName:              string;
   paymentMethod:         'stripe' | 'paypal';
   stripePaymentIntentId: string;
+  paypalOrderId:         string;
   files:                 File[];
 }
 
 @Injectable({ providedIn: 'root' })
 export class SubmissionService {
   constructor(private http: HttpClient) {}
+
+  async createPaypalOrder(tierName: string): Promise<{ orderId: string }> {
+    const amount = TIER_PRICES[tierName];
+    if (!amount) throw new Error(`Unknown tier: ${tierName}`);
+
+    return firstValueFrom(
+      this.http.post<{ orderId: string }>(
+        `${environment.apiBaseUrl}/paypal-orders`,
+        { amount, currency: 'usd' }
+      )
+    );
+  }
+
+  async capturePaypalOrder(orderId: string): Promise<void> {
+    await firstValueFrom(
+      this.http.post<void>(
+        `${environment.apiBaseUrl}/paypal-orders/${orderId}/capture`,
+        {}
+      )
+    );
+  }
 
   async createPaymentIntent(tierName: string): Promise<{ clientSecret: string; paymentIntentId: string }> {
     const amount = TIER_PRICES[tierName];
@@ -85,6 +107,7 @@ export class SubmissionService {
           amountPaid,
           paymentMethod:         params.paymentMethod,
           stripePaymentIntentId: params.stripePaymentIntentId || undefined,
+          paypalOrderId:         params.paypalOrderId || undefined,
         }
       )
     );

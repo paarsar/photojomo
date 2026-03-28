@@ -22,6 +22,39 @@ resource "aws_secretsmanager_secret_version" "db_credentials" {
   })
 }
 
+# ── Stripe Secret ─────────────────────────────────────────────────────────────
+
+resource "aws_secretsmanager_secret" "stripe_credentials" {
+  name        = "${local.name_prefix}/stripe"
+  description = "Stripe API credentials for ${local.name_prefix}"
+  tags        = { Environment = var.environment, Project = var.project_name }
+}
+
+resource "aws_secretsmanager_secret_version" "stripe_credentials" {
+  secret_id = aws_secretsmanager_secret.stripe_credentials.id
+  secret_string = jsonencode({
+    secretKey     = var.stripe_secret_key
+    webhookSecret = var.stripe_webhook_secret
+  })
+}
+
+# ── PayPal Secret ─────────────────────────────────────────────────────────────
+
+resource "aws_secretsmanager_secret" "paypal_credentials" {
+  name        = "${local.name_prefix}/paypal"
+  description = "PayPal API credentials for ${local.name_prefix}"
+  tags        = { Environment = var.environment, Project = var.project_name }
+}
+
+resource "aws_secretsmanager_secret_version" "paypal_credentials" {
+  secret_id = aws_secretsmanager_secret.paypal_credentials.id
+  secret_string = jsonencode({
+    clientId     = var.paypal_client_id
+    clientSecret = var.paypal_client_secret
+    webhookId    = var.paypal_webhook_id
+  })
+}
+
 # ── IAM: allow Lambda to read the secret ─────────────────────────────────────
 
 resource "aws_iam_policy" "lambda_read_secret" {
@@ -32,9 +65,13 @@ resource "aws_iam_policy" "lambda_read_secret" {
     Version = "2012-10-17"
     Statement = [
       {
-        Effect   = "Allow"
-        Action   = ["secretsmanager:GetSecretValue"]
-        Resource = aws_secretsmanager_secret.db_credentials.arn
+        Effect = "Allow"
+        Action = ["secretsmanager:GetSecretValue"]
+        Resource = [
+          aws_secretsmanager_secret.db_credentials.arn,
+          aws_secretsmanager_secret.stripe_credentials.arn,
+          aws_secretsmanager_secret.paypal_credentials.arn,
+        ]
       }
     ]
   })

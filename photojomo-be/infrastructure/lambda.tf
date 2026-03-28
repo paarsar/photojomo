@@ -121,13 +121,14 @@ resource "aws_lambda_function" "payment_intent_service" {
 
   environment {
     variables = {
-      STRIPE_SECRET_KEY = var.stripe_secret_key
+      STRIPE_SECRET_ARN = aws_secretsmanager_secret.stripe_credentials.arn
     }
   }
 
   depends_on = [
     aws_cloudwatch_log_group.payment_intent_service,
     aws_iam_role_policy_attachment.lambda_basic,
+    aws_iam_role_policy_attachment.lambda_read_secret,
   ]
 
   tags = {
@@ -171,8 +172,8 @@ resource "aws_lambda_function" "stripe_webhook_service" {
 
   environment {
     variables = {
-      DB_SECRET_ARN         = aws_secretsmanager_secret.db_credentials.arn
-      STRIPE_WEBHOOK_SECRET = var.stripe_webhook_secret
+      DB_SECRET_ARN     = aws_secretsmanager_secret.db_credentials.arn
+      STRIPE_SECRET_ARN = aws_secretsmanager_secret.stripe_credentials.arn
     }
   }
 
@@ -225,6 +226,154 @@ resource "aws_lambda_function" "contact_service" {
 
   tags = {
     Name        = "${local.name_prefix}-contact-service"
+    Environment = var.environment
+    Project     = var.project_name
+  }
+}
+
+# ── Lambda Function: paypal-order-service ────────────────────────────────────
+
+resource "aws_cloudwatch_log_group" "paypal_order_service" {
+  name              = "/aws/lambda/${local.name_prefix}-paypal-order-service"
+  retention_in_days = 30
+
+  tags = {
+    Environment = var.environment
+    Project     = var.project_name
+  }
+}
+
+resource "aws_lambda_function" "paypal_order_service" {
+  function_name = "${local.name_prefix}-paypal-order-service"
+  description   = "Creates PayPal orders and returns order IDs"
+
+  s3_bucket        = aws_s3_bucket.artifacts.id
+  s3_key           = aws_s3_object.paypal_order_service_zip.key
+  source_code_hash = filebase64sha256(var.paypal_order_service_zip_path)
+
+  runtime = "provided.al2023"
+  handler = "bootstrap"
+  role    = aws_iam_role.lambda_exec.arn
+
+  memory_size = 128
+  timeout     = 10
+
+  # No VPC config — this lambda only calls PayPal's external API, no DB access needed.
+  # Placing it outside the VPC gives it internet access without a NAT Gateway.
+
+  environment {
+    variables = {
+      PAYPAL_SECRET_ARN = aws_secretsmanager_secret.paypal_credentials.arn
+    }
+  }
+
+  depends_on = [
+    aws_cloudwatch_log_group.paypal_order_service,
+    aws_iam_role_policy_attachment.lambda_basic,
+    aws_iam_role_policy_attachment.lambda_read_secret,
+  ]
+
+  tags = {
+    Name        = "${local.name_prefix}-paypal-order-service"
+    Environment = var.environment
+    Project     = var.project_name
+  }
+}
+
+# ── Lambda Function: paypal-capture-service ───────────────────────────────────
+
+resource "aws_cloudwatch_log_group" "paypal_capture_service" {
+  name              = "/aws/lambda/${local.name_prefix}-paypal-capture-service"
+  retention_in_days = 30
+
+  tags = {
+    Environment = var.environment
+    Project     = var.project_name
+  }
+}
+
+resource "aws_lambda_function" "paypal_capture_service" {
+  function_name = "${local.name_prefix}-paypal-capture-service"
+  description   = "Captures PayPal orders by order ID"
+
+  s3_bucket        = aws_s3_bucket.artifacts.id
+  s3_key           = aws_s3_object.paypal_capture_service_zip.key
+  source_code_hash = filebase64sha256(var.paypal_capture_service_zip_path)
+
+  runtime = "provided.al2023"
+  handler = "bootstrap"
+  role    = aws_iam_role.lambda_exec.arn
+
+  memory_size = 128
+  timeout     = 10
+
+  # No VPC config — this lambda only calls PayPal's external API, no DB access needed.
+  # Placing it outside the VPC gives it internet access without a NAT Gateway.
+
+  environment {
+    variables = {
+      PAYPAL_SECRET_ARN = aws_secretsmanager_secret.paypal_credentials.arn
+    }
+  }
+
+  depends_on = [
+    aws_cloudwatch_log_group.paypal_capture_service,
+    aws_iam_role_policy_attachment.lambda_basic,
+    aws_iam_role_policy_attachment.lambda_read_secret,
+  ]
+
+  tags = {
+    Name        = "${local.name_prefix}-paypal-capture-service"
+    Environment = var.environment
+    Project     = var.project_name
+  }
+}
+
+# ── Lambda Function: paypal-webhook-service ───────────────────────────────────
+
+resource "aws_cloudwatch_log_group" "paypal_webhook_service" {
+  name              = "/aws/lambda/${local.name_prefix}-paypal-webhook-service"
+  retention_in_days = 30
+
+  tags = {
+    Environment = var.environment
+    Project     = var.project_name
+  }
+}
+
+resource "aws_lambda_function" "paypal_webhook_service" {
+  function_name = "${local.name_prefix}-paypal-webhook-service"
+  description   = "Handles PayPal webhook events and updates payment status"
+
+  s3_bucket        = aws_s3_bucket.artifacts.id
+  s3_key           = aws_s3_object.paypal_webhook_service_zip.key
+  source_code_hash = filebase64sha256(var.paypal_webhook_service_zip_path)
+
+  runtime = "provided.al2023"
+  handler = "bootstrap"
+  role    = aws_iam_role.lambda_exec.arn
+
+  memory_size = 128
+  timeout     = 10
+
+  # No VPC config — needs internet access for PayPal verification API.
+  # The DB is publicly accessible, so no VPC is required.
+
+  environment {
+    variables = {
+      PAYPAL_SECRET_ARN = aws_secretsmanager_secret.paypal_credentials.arn
+      DB_SECRET_ARN     = aws_secretsmanager_secret.db_credentials.arn
+    }
+  }
+
+  depends_on = [
+    aws_cloudwatch_log_group.paypal_webhook_service,
+    aws_iam_role_policy_attachment.lambda_basic,
+    aws_iam_role_policy_attachment.lambda_read_secret,
+  ]
+
+  tags = {
+    Name        = "${local.name_prefix}-paypal-webhook-service"
     Environment = var.environment
     Project     = var.project_name
   }

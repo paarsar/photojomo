@@ -127,11 +127,11 @@
           <p class="reg-section__sub">Payment Method</p>
           <div class="payment-options">
             <label class="payment-opt" [class.payment-opt--active]="paymentMethod === 'stripe'">
-              <input type="radio" name="payment" value="stripe" [(ngModel)]="paymentMethod" />
+              <input type="radio" name="payment" value="stripe" [(ngModel)]="paymentMethod" (change)="onPaymentMethodChange()" />
               <span>Stripe</span>
             </label>
             <label class="payment-opt" [class.payment-opt--active]="paymentMethod === 'paypal'">
-              <input type="radio" name="payment" value="paypal" [(ngModel)]="paymentMethod" />
+              <input type="radio" name="payment" value="paypal" [(ngModel)]="paymentMethod" (change)="onPaymentMethodChange()" />
               <span>Paypal</span>
             </label>
           </div>
@@ -142,15 +142,25 @@
             }
             <div id="stripe-payment-element" [class.stripe-element--hidden]="stripeLoading"></div>
           </div>
+
         </div>
 
         @if (errorMessage) {
           <p class="reg-error">{{ errorMessage }}</p>
         }
 
-        <button type="submit" class="reg-submit" [disabled]="submitting || stripeLoading || !f.valid">
-          @if (submitting) { Processing… } @else { Complete Purchase }
-        </button>
+        <div class="reg-submit-wrapper">
+          @if (paymentMethod === 'paypal') {
+            @if (paypalLoading) {
+              <p class="stripe-loading">Loading PayPal…</p>
+            }
+            <div id="paypal-button-container"></div>
+          } @else {
+            <button type="submit" class="reg-submit" [disabled]="submitting || stripeLoading || !f.valid">
+              @if (submitting) { Processing… } @else { Complete Purchase }
+            </button>
+          }
+        </div>
 
       </form>
 

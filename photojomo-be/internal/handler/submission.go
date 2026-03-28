@@ -26,6 +26,7 @@ type SubmissionRequest struct {
 	AmountPaid            float64 `json:"amountPaid"`
 	PaymentMethod         string  `json:"paymentMethod"`
 	StripePaymentIntentID string  `json:"stripePaymentIntentId"`
+	PaypalOrderID         string  `json:"paypalOrderId"`
 }
 
 type SubmissionResponse struct {
@@ -129,6 +130,7 @@ func (h *SubmissionHandler) Handle(ctx context.Context, req events.APIGatewayV2H
 		AmountPaid:            body.AmountPaid,
 		PaymentMethod:         body.PaymentMethod,
 		StripePaymentIntentID: body.StripePaymentIntentID,
+		PaypalOrderID:         body.PaypalOrderID,
 	})
 	if err != nil {
 		log.Printf("error creating submission: %v", err)

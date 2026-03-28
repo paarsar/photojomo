@@ -53,7 +53,9 @@
       "Bash(aws secretsmanager:*)",
       "Bash(PGPASSWORD=\"ph0t0j0m0321!\" psql:*)",
       "Bash(make all:*)",
-      "Bash(terraform plan:*)"
+      "Bash(terraform plan:*)",
+      "Bash(make build-paypal-webhook:*)",
+      "Bash(openssl rand:*)"
     ]
   }
 }

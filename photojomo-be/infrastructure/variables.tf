@@ -85,3 +85,37 @@ variable "payment_intent_service_zip_path" {
   type        = string
   default     = "../dist/payment-intent.zip"
 }
+
+variable "paypal_order_service_zip_path" {
+  description = "Local path to the paypal-order-service Go binary zip"
+  type        = string
+  default     = "../dist/paypal-order.zip"
+}
+
+variable "paypal_capture_service_zip_path" {
+  description = "Local path to the paypal-capture-service Go binary zip"
+  type        = string
+  default     = "../dist/paypal-capture.zip"
+}
+
+variable "paypal_client_id" {
+  description = "PayPal client ID"
+  type        = string
+}
+
+variable "paypal_client_secret" {
+  description = "PayPal client secret"
+  type        = string
+  sensitive   = true
+}
+
+variable "paypal_webhook_service_zip_path" {
+  description = "Local path to the paypal-webhook-service Go binary zip"
+  type        = string
+  default     = "../dist/paypal-webhook.zip"
+}
+
+variable "paypal_webhook_id" {
+  description = "PayPal webhook ID from the PayPal developer dashboard"
+  type        = string
+}

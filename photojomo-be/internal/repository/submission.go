@@ -25,6 +25,7 @@ type Submission struct {
 	AmountPaid            float64
 	PaymentMethod         string
 	StripePaymentIntentID string
+	PaypalOrderID         string
 }
 
 func (r *SubmissionRepository) UpdatePaymentStatus(ctx context.Context, id string, status string) error {
@@ -58,6 +59,16 @@ func (r *SubmissionRepository) UpdatePaymentStatusByPaymentIntentID(ctx context.
 	return nil
 }
 
+func (r *SubmissionRepository) UpdatePaymentStatusByPaypalOrderID(ctx context.Context, paypalOrderID string, status string) error {
+	_, err := r.db.Exec(ctx, `
+		UPDATE submission SET payment_status = $1 WHERE paypal_order_id = $2
+	`, status, paypalOrderID)
+	if err != nil {
+		return fmt.Errorf("updating payment status by paypal order id: %w", err)
+	}
+	return nil
+}
+
 func (r *SubmissionRepository) Save(ctx context.Context, tx pgx.Tx, s Submission) (string, error) {
 	id := idgen.New("sub")
 
@@ -66,13 +77,18 @@ func (r *SubmissionRepository) Save(ctx context.Context, tx pgx.Tx, s Submission
 		stripePaymentIntentID = &s.StripePaymentIntentID
 	}
 
+	var paypalOrderID *string
+	if s.PaypalOrderID != "" {
+		paypalOrderID = &s.PaypalOrderID
+	}
+
 	_, err := tx.Exec(ctx, `
 		INSERT INTO submission (
 			id, contestant_id, contest_id, contest_category_id, contest_tier_id,
 			amount_paid, payment_method, payment_status, stripe_payment_intent_id,
-			created_at
-		) VALUES ($1, $2, $3, $4, $5, $6, $7, 'pending', $8, NOW())
-	`, id, s.ContestantID, s.ContestID, s.ContestCategoryID, s.ContestTierID, s.AmountPaid, s.PaymentMethod, stripePaymentIntentID,
+			paypal_order_id, created_at
+		) VALUES ($1, $2, $3, $4, $5, $6, $7, 'pending', $8, $9, NOW())
+	`, id, s.ContestantID, s.ContestID, s.ContestCategoryID, s.ContestTierID, s.AmountPaid, s.PaymentMethod, stripePaymentIntentID, paypalOrderID,
 	)
 	if err != nil {
 		return "", fmt.Errorf("inserting submission: %w", err)

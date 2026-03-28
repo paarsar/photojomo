@@ -61,3 +61,24 @@ resource "aws_s3_object" "payment_intent_service_zip" {
   source = var.payment_intent_service_zip_path
   etag   = filemd5(var.payment_intent_service_zip_path)
 }
+
+resource "aws_s3_object" "paypal_order_service_zip" {
+  bucket = aws_s3_bucket.artifacts.id
+  key    = "paypal-order-service/paypal-order.zip"
+  source = var.paypal_order_service_zip_path
+  etag   = filemd5(var.paypal_order_service_zip_path)
+}
+
+resource "aws_s3_object" "paypal_capture_service_zip" {
+  bucket = aws_s3_bucket.artifacts.id
+  key    = "paypal-capture-service/paypal-capture.zip"
+  source = var.paypal_capture_service_zip_path
+  etag   = filemd5(var.paypal_capture_service_zip_path)
+}
+
+resource "aws_s3_object" "paypal_webhook_service_zip" {
+  bucket = aws_s3_bucket.artifacts.id
+  key    = "paypal-webhook-service/paypal-webhook.zip"
+  source = var.paypal_webhook_service_zip_path
+  etag   = filemd5(var.paypal_webhook_service_zip_path)
+}

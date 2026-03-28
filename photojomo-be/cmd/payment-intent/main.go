@@ -2,20 +2,20 @@ package main
 
 import (
 	"context"
-	"os"
 
 	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/photojomo/photojomo-be/internal/handler"
+	"github.com/photojomo/photojomo-be/internal/secrets"
 )
 
 func main() {
-	_ = context.Background()
+	ctx := context.Background()
 
-	stripeKey := os.Getenv("STRIPE_SECRET_KEY")
-	if stripeKey == "" {
-		panic("STRIPE_SECRET_KEY is not set")
+	stripe, err := secrets.GetStripe(ctx)
+	if err != nil {
+		panic("failed to fetch Stripe secret: " + err.Error())
 	}
 
-	h := handler.NewPaymentIntentHandler(stripeKey)
+	h := handler.NewPaymentIntentHandler(stripe.SecretKey)
 	lambda.Start(h.Handle)
 }
