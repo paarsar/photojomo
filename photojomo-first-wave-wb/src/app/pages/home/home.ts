@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { DecimalPipe } from '@angular/common';
+import { Info } from '../info/info';
 
 interface CountdownTime {
   days: number;
@@ -16,6 +17,7 @@ interface ContestCard {
   price: string;
   award: string;
   tier: string;
+  tierInfo?: string
   route: string;
 }
 
@@ -76,7 +78,8 @@ export class Home implements OnInit, OnDestroy {
       description: 'For working photographers and artists who earn professionally or demonstrate advanced skill. Submissions are evaluated to the highest standards.',
       price: '$25',
       award: '$1000',
-      tier: 'General Admission',
+      tier: 'General Admission', 
+      tierInfo: 'Includes Golden Ticket Entry.',
       route: '/contests/professional',
     },
   ];
