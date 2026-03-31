@@ -7,10 +7,12 @@
     <h2 class="hero__subtitle">Win a Trip to Saint Lucia</h2>
     <div class="hero__partnership">
       <p class="hero__partnership-label">In Partnership with</p>
-      <img src="images/bay-gardens-logo-sm.png" alt="Bay Gardens Resorts" />
+      <a href="https://www.baygardensresorts.com/" target="_blank" rel="noopener noreferrer">
+        <img src="images/bay-gardens-logo-sm.png" alt="Bay Gardens Resorts" />
+      </a>
     </div>
     <a (click)="scrollToContests()" class="btn btn--cta" style="cursor:pointer">ENTER THE CHALLENGE</a>
-    <p class="hero__tagline">30-Day Challenge · Limited Entries</p>
+    <p class="hero__tagline"><em>30-Day Challenge · Limited Entries</em></p>
 
     <div class="countdown">
       <div class="countdown__units">
@@ -82,8 +84,13 @@
       <p class="founding__desc">The First Wave Challenge invites global visual storytellers to launch Capture Caribbean as our inaugural Founding Creators. Whether professional or passionate, we are selecting a cohort of artists to define the creative foundation and set the standard for future Invitationals.</p>
     </div>
     <div class="founding__intro-badge">
-      <img src="images/Badge-1@2x.png" alt="Founding Class Member Badge" />
+      <video class="founding__intro-badge__video" autoplay muted loop playsinline poster="images/image-242.png">
+        <source src="images/coin-icon.mp4" type="video/mp4" />
+        <source src="images/coin-icon.webm" type="video/webm" />
+        Your browser does not support the video tag.
+      </video>
     </div>
+
   </div>
 
   <!-- Part 2: Why Become a Founding Creator? -->
@@ -141,7 +148,9 @@
       <p class="partnership__desc">Bay Gardens Resorts is a trusted hotel group located in Rodney Bay, Saint Lucia, known for decades of Caribbean hospitality and a trusted presence in the region.</p>
     </div>
     <div class="partnership__logo-wrap">
-      <img src="images/bay-gardens-logo.png" alt="Bay Gardens Resorts" class="partnership__logo" />
+      <a href="https://www.baygardensresorts.com/" target="_blank" rel="noopener noreferrer">
+        <img src="images/bay-gardens-resorts-500st.png" alt="Bay Gardens Resorts" class="partnership__logo" />
+      </a>
     </div>
   </div>
 </section>
@@ -156,7 +165,7 @@
 
       <div class="path-forward__step">
         <div class="path-forward__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 11l-4-4-3 3"/></svg>
         </div>
         <h3 class="path-forward__step-title"><em>Application Review</em></h3>
         <p class="path-forward__step-desc">Curatorial review based on originality, storytelling strength, and perspective.</p>
@@ -164,15 +173,15 @@
 
       <div class="path-forward__step">
         <div class="path-forward__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 12 15 22 5"/></svg>
         </div>
         <h3 class="path-forward__step-title"><em>Selection</em></h3>
         <p class="path-forward__step-desc">A limited number of creators are named to the inaugural Founding Class.</p>
       </div>
 
       <div class="path-forward__step">
-        <div class="path-forward__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 2H21v5.5"/></svg>
+        <div class="path-forward__icon path-forward__icon--key">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="3"/><path d="M9 12h9"/><path d="M18 12v-3"/><path d="M20 12v-3"/><path d="M18 15v-1"/><path d="M20 15v-1"/><path d="M10 7l1-1 2 2-1 1"/></svg>
         </div>
         <h3 class="path-forward__step-title"><em>Access &amp; Recognition</em></h3>
         <p class="path-forward__step-desc">Receive official recognition, early platform access, and priority for future Invitationals.</p>
@@ -180,7 +189,7 @@
 
       <div class="path-forward__step">
         <div class="path-forward__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21 4 19 2c-2-2-4-2-5.5-.5L10 5 1.8 6.2l4.8 4.8-1 4 4-1 4.8 4.8z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 19l19-7-19-7 4 7-4 7z"/><path d="M6 12h7"/><path d="M6 12l3-3"/><path d="M6 12l3 3"/></svg>
         </div>
         <h3 class="path-forward__step-title"><em>The Journey Begins</em></h3>
         <p class="path-forward__step-desc">From live Caribbean experiences to global exhibitions, the Founding Class moves forward together.</p>
@@ -204,6 +213,8 @@
               <span class="contest-card__award-amount">{{ contest.award }}</span>
               <span class="contest-card__award-label">Cash Award</span>
             </div>
+
+           
           </div>
         </div>
         <div class="contest-card__body">
@@ -214,7 +225,11 @@
           </div>
           <a [routerLink]="contest.route" class="contest-card__enter">Enter Contest →</a>
           <span class="contest-card__tier">{{ contest.tier }}</span>
+          @if (contest.tierInfo) {
+            <span class="contest-card__tier">{{ contest.tierInfo }}</span>
+          }
         </div>
+        
       </div>
     }
   </div>
