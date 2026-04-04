@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, OnInit, OnDestroy, inject, signal } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { DecimalPipe } from '@angular/common';
 import { Info } from '../info/info';
 
@@ -17,7 +17,8 @@ interface ContestCard {
   price: string;
   award: string;
   tier: string;
-  tierInfo?: string
+  tierInfo?: string;
+  tierInfoHighlight?: string;
   route: string;
 }
 
@@ -41,6 +42,7 @@ interface FaqCategory {
 export class Home implements OnInit, OnDestroy {
   private intervalId: ReturnType<typeof setInterval> | null = null;
   private deadline = new Date('2026-04-04T23:59:00-05:00');
+  private readonly router = inject(Router);
 
   countdown = signal<CountdownTime>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
@@ -78,8 +80,9 @@ export class Home implements OnInit, OnDestroy {
       description: 'For working photographers and artists who earn professionally or demonstrate advanced skill. Submissions are evaluated to the highest standards.',
       price: '$25',
       award: '$1000',
-      tier: 'General Admission', 
-      tierInfo: 'Includes Golden Ticket Entry.',
+      tier: 'General Admission',
+      tierInfo: 'Includes',
+      tierInfoHighlight: 'Golden Ticket Entry',
       route: '/contests/professional',
     },
   ];
@@ -187,5 +190,12 @@ export class Home implements OnInit, OnDestroy {
 
   toggleFaq(catIndex: number, itemIndex: number) {
     this.faqCategories[catIndex].items[itemIndex].open = !this.faqCategories[catIndex].items[itemIndex].open;
+  }
+
+  legalModalState() {
+    return {
+      returnUrl: this.router.url,
+      returnScrollY: window.scrollY,
+    };
   }
 }
