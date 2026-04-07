@@ -264,7 +264,9 @@
 }
 
 .stripe-element--hidden {
-  display: none;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
 }
 
 // SUBMIT
