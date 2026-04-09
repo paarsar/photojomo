@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { environment } from '../../../environments/environment';
 
 const BASE = 'https://capturecaribbean.figma.site/_assets/v11';
 
@@ -14,6 +15,7 @@ const BASE = 'https://capturecaribbean.figma.site/_assets/v11';
   encapsulation: ViewEncapsulation.None,
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  firstWaveUrl = environment.firstWaveUrl;
 
   heroImages = [
     `${BASE}/5162c9366bc452fc11600eed14119d07029a44c5.png`,

@@ -1,11 +1,11 @@
 ACCOUNT_ID := e6a409663bf73140c8bd4caaadd9ebc2
-PROJECT    := capture-caribbean-first-wave
-PROJECT_DEV:= capture-caribbean-first-wave-dev
-DIST       := dist/photojomo-first-wave-wb/browser
+PROJECT    := capturecaribbean
+PROJECT_DEV:= capturecaribbean
+DIST       := dist/photojomo-web
 NODE       := /Users/almorris/.nvm/versions/node/v20.19.6/bin/node
 NPX        := /Users/almorris/.nvm/versions/node/v20.19.6/bin/npx
 
-.PHONY: deploy-dev
+.PHONY: build build-dev deploy deploy-dev
 
 build:
 	$(NPX) ng build
@@ -21,5 +21,5 @@ build-dev:
 deploy-dev: build-dev
 	CLOUDFLARE_ACCOUNT_ID=$(ACCOUNT_ID) wrangler pages deploy $(DIST) \
 		--project-name $(PROJECT_DEV) \
-		--branch=development \
+		--branch=dev \
 		--commit-dirty=true

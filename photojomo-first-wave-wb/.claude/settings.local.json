@@ -18,7 +18,10 @@
       "Bash(curl -s \"https://api.cloudflare.com/client/v4/zones/3711ac91a7bb09ba137106bef3b89e2e/dns_records?name=dev.capturecaribbean.com\" -H \"Authorization: Bearer m0rHrC-LOwsENYXUVlMm0YUlbW22cpvXVaNoD1O2GvI.mDkK-IUAHtckhnsJ3MBNlp2sxlydSJ5JhAktF8OQJXo\")",
       "Bash(python3 -c \"import sys,json; cfg=json.load\\(sys.stdin\\); dev=cfg[''''projects''''][''''photojomo-first-wave-wb''''][''''architect''''][''''build''''][''''configurations''''][''''development'''']; print\\(json.dumps\\(dev, indent=2\\)\\)\")",
       "Bash(curl -s -X POST https://49124qqimj.execute-api.us-east-1.amazonaws.com/payment-intents -H \"Content-Type: application/json\" -H \"Origin: https://dev.capturecaribbean.com\" -d '{\"\"\"\"amount\"\"\"\":25,\"\"\"\"currency\"\"\"\":\"\"\"\"usd\"\"\"\"}' -v)",
-      "Bash(curl -sv -X OPTIONS https://49124qqimj.execute-api.us-east-1.amazonaws.com/payment-intents -H \"Origin: https://dev.capturecaribbean.com\" -H \"Access-Control-Request-Method: POST\" -H \"Access-Control-Request-Headers: Content-Type\")"
+      "Bash(curl -sv -X OPTIONS https://49124qqimj.execute-api.us-east-1.amazonaws.com/payment-intents -H \"Origin: https://dev.capturecaribbean.com\" -H \"Access-Control-Request-Method: POST\" -H \"Access-Control-Request-Headers: Content-Type\")",
+      "Bash(curl:*)",
+      "Bash(dig:*)",
+      "Bash(make deploy-dev:*)"
     ]
   }
 }
