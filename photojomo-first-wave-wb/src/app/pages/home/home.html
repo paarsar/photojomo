@@ -66,6 +66,9 @@
         </div>
         <a [routerLink]="contest.route" class="contest-card__enter">Enter Contest →</a>
         <span class="contest-card__tier">{{ contest.tier }}</span>
+        @if (contest.tierInfo) {
+        <span class="contest-card__tier">{{ contest.tierInfo }}</span>
+        }
       </div>
     </div>
     }

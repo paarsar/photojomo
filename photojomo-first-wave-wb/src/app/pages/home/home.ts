@@ -81,7 +81,7 @@ export class Home implements OnInit, OnDestroy {
       price: '$25',
       award: '$1000',
       tier: 'General Admission', 
-      tierInfo: 'Includes Golden Ticket Entry.',
+      tierInfo: 'Includes Golden Ticket',
       route: '/contests/professional',
     },
   ];
