@@ -1,6 +1,7 @@
 import { Component, HostListener, Input, ViewEncapsulation } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-navbar',
@@ -12,6 +13,7 @@ import { CommonModule } from '@angular/common';
   host: { style: 'display: contents' },
 })
 export class NavbarComponent {
+  firstWaveUrl = environment.firstWaveUrl;
   @Input() wrapperClass = 'css-fbgm56 css-8hhw9a css-roiesn';
   dropdownOpen = false;
   menuOpen = false;

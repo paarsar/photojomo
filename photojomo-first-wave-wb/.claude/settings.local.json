@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(PGPASSWORD='ph0t0j0m0321!' psql \"host=photojomo-dev-postgres.cijkgu6ccmfk.us-east-1.rds.amazonaws.com port=5432 dbname=photojomo user=photojomo_admin sslmode=disable\" -c \"\\\\l\" 2>&1)",
+      "Bash(psql:*)",
+      "Bash(aws secretsmanager:*)",
+      "Bash(nvm use:*)",
+      "Bash(npx ng:*)",
+      "Bash(CLOUDFLARE_ACCOUNT_ID=e6a409663bf73140c8bd4caaadd9ebc2 wrangler pages deploy dist/photojomo-first-wave-wb/browser --project-name capture-caribbean-first-wave-dev --commit-dirty=true 2>&1)",
+      "Bash(CLOUDFLARE_ACCOUNT_ID=e6a409663bf73140c8bd4caaadd9ebc2 wrangler pages deploy dist/photojomo-first-wave-wb/browser --project-name capture-caribbean-first-wave-dev --commit-dirty=true --branch=development 2>&1)",
+      "Bash(find ~/.config -name *.toml)",
+      "Bash(find ~/Library -name *.toml -path *wrangler*)",
+      "Bash(curl -s -X POST \"https://api.cloudflare.com/client/v4/accounts/e6a409663bf73140c8bd4caaadd9ebc2/pages/projects\" -H \"Authorization: Bearer m0rHrC-LOwsENYXUVlMm0YUlbW22cpvXVaNoD1O2GvI.mDkK-IUAHtckhnsJ3MBNlp2sxlydSJ5JhAktF8OQJXo\" -H \"Content-Type: application/json\" --data '{\"\"\"\"name\"\"\"\":\"\"\"\"capture-caribbean-first-wave-dev\"\"\"\",\"\"\"\"production_branch\"\"\"\":\"\"\"\"development\"\"\"\"}')",
+      "Bash(python3 -m json.tool)",
+      "Bash(curl -s \"https://api.cloudflare.com/client/v4/accounts/e6a409663bf73140c8bd4caaadd9ebc2/pages/projects/capture-caribbean-first-wave-dev/domains\" -H \"Authorization: Bearer m0rHrC-LOwsENYXUVlMm0YUlbW22cpvXVaNoD1O2GvI.mDkK-IUAHtckhnsJ3MBNlp2sxlydSJ5JhAktF8OQJXo\")",
+      "Bash(curl -s -X POST \"https://api.cloudflare.com/client/v4/accounts/e6a409663bf73140c8bd4caaadd9ebc2/pages/projects/capture-caribbean-first-wave-dev/domains\" -H \"Authorization: Bearer m0rHrC-LOwsENYXUVlMm0YUlbW22cpvXVaNoD1O2GvI.mDkK-IUAHtckhnsJ3MBNlp2sxlydSJ5JhAktF8OQJXo\" -H \"Content-Type: application/json\" --data '{\"\"\"\"name\"\"\"\":\"\"\"\"dev.capturecaribbean.com\"\"\"\"}')",
+      "Bash(curl -s \"https://api.cloudflare.com/client/v4/zones?name=capturecaribbean.com\" -H \"Authorization: Bearer m0rHrC-LOwsENYXUVlMm0YUlbW22cpvXVaNoD1O2GvI.mDkK-IUAHtckhnsJ3MBNlp2sxlydSJ5JhAktF8OQJXo\")",
+      "Bash(curl -s \"https://api.cloudflare.com/client/v4/zones/3711ac91a7bb09ba137106bef3b89e2e/dns_records?name=dev.capturecaribbean.com\" -H \"Authorization: Bearer m0rHrC-LOwsENYXUVlMm0YUlbW22cpvXVaNoD1O2GvI.mDkK-IUAHtckhnsJ3MBNlp2sxlydSJ5JhAktF8OQJXo\")",
+      "Bash(python3 -c \"import sys,json; cfg=json.load\\(sys.stdin\\); dev=cfg[''''projects''''][''''photojomo-first-wave-wb''''][''''architect''''][''''build''''][''''configurations''''][''''development'''']; print\\(json.dumps\\(dev, indent=2\\)\\)\")",
+      "Bash(curl -s -X POST https://49124qqimj.execute-api.us-east-1.amazonaws.com/payment-intents -H \"Content-Type: application/json\" -H \"Origin: https://dev.capturecaribbean.com\" -d '{\"\"\"\"amount\"\"\"\":25,\"\"\"\"currency\"\"\"\":\"\"\"\"usd\"\"\"\"}' -v)",
+      "Bash(curl -sv -X OPTIONS https://49124qqimj.execute-api.us-east-1.amazonaws.com/payment-intents -H \"Origin: https://dev.capturecaribbean.com\" -H \"Access-Control-Request-Method: POST\" -H \"Access-Control-Request-Headers: Content-Type\")",
+      "Bash(curl:*)",
+      "Bash(dig:*)",
+      "Bash(make deploy-dev:*)"
+    ]
+  }
+}

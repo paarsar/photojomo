@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, inject, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { DecimalPipe } from '@angular/common';
 import { Info } from '../info/info';
+import { environment } from '../../../environments/environment';
 
 interface CountdownTime {
   days: number;
@@ -40,6 +41,7 @@ interface FaqCategory {
   styleUrl: './home.scss',
 })
 export class Home implements OnInit, OnDestroy {
+  version = environment.version;
   private intervalId: ReturnType<typeof setInterval> | null = null;
   private deadline = new Date('2026-04-04T23:59:00-05:00');
   private readonly router = inject(Router);
