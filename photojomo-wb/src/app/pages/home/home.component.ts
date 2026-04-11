@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { environment } from '../../../environments/environment';
 
 interface HeroSlide {
   src: string;
@@ -18,6 +19,7 @@ interface HeroSlide {
   encapsulation: ViewEncapsulation.None,
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  firstWaveUrl = environment.firstWaveUrl;
 
   heroSlides: HeroSlide[] = [
     {

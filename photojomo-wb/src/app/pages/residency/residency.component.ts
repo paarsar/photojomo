@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-residency',
