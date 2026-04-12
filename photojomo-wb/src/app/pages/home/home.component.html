@@ -1,3 +1,12 @@
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <defs>
+    <filter id="hero-sharpen">
+      <feConvolveMatrix order="3"
+        kernelMatrix="0 -1 0  -1 5 -1  0 -1 0"
+        preserveAlpha="true" />
+    </filter>
+  </defs>
+</svg>
 <div id="container">
       <div
         class="css-cmhhzz css-50jkpj css-rn2hh9"
@@ -18,6 +27,7 @@
                 class="css-ez8men css-qhd53h css-trglf0 css-trglf0 css-r0azwh css-qhd53h transition-opacity duration-700 hero-main-image"
                 [src]="currentImage"
                 [style.object-position]="currentObjectPosition"
+                [style.filter]="currentFilter"
                 style="opacity: 1"
               />
               <!-- end -->

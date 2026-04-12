@@ -13,7 +13,6 @@
 }
 
 .hero-main-image {
-  filter: saturate(1.34) contrast(1.1) brightness(1.06) hue-rotate(-2deg);
 }
 
 .hero-image-shell::after {
