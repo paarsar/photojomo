@@ -18,7 +18,7 @@
           <app-navbar [wrapperClass]="'residency-header--desktop css-vhq6dg css-8hhw9a css-trglf0'" />
           <app-navbar [wrapperClass]="'residency-header--tablet css-vhq6dg css-8hhw9a css-trglf0'" />
           <app-navbar [wrapperClass]="'residency-header--mobile css-vhq6dg css-8hhw9a css-trglf0'" />
-          <div class="css-stwrzw css-5knerd">
+          <div class="css-stwrzw css-5knerd residency-hero">
             <div aria-hidden="true" class="css-trglf0 css-r0azwh">
               <img
                 alt=""
@@ -39,8 +39,8 @@
               <div class="css-ghqjpe css-paq0kv css-j9f0op">
                 <div class="css-4heiga css-msco0v css-paq0kv">
                   <div class="css-56bisj css-n8r96y css-paq0kv">
-                    <div class="css-pasalw css-a8ckpo css-paq0kv">
-                      <div class="css-n8r99j css-v27th6 css-paq0kv residency-hero-copy">
+                    <div class="css-pasalw css-a8ckpo css-paq0kv residency-hero-copy-block">
+                      <div class="css-n8r99j css-v27th6 css-paq0kv">
                         <div class="css-sz2f8 css-v27th6 css-paq0kv">
                           <div class="css-sz2f8 css-v27th6 css-paq0kv">
                             <div class="css-dczajm css-v27th6 css-paq0kv">
@@ -59,13 +59,13 @@
                         </p>
                       </div>
                       <p
-                        class="css-nf5ac4 css-qnrxeb css-lgbtxs css-uugwx8 textContents residency-hero-copy-text"
+                        class="css-nf5ac4 css-qnrxeb css-lgbtxs css-uugwx8 textContents"
                       >
                         This prestigious residency is the ultimate prize awarded
                         to the overall winner of the Caribbean Photo Contest.
                       </p>
                     </div>
-                    <div class="css-17xzu7 css-1xrifm css-paq0kv">
+                    <div class="css-17xzu7 css-1xrifm css-paq0kv residency-hero-host">
                       <div class="css-1phb5a css-wc1msa">
                         <div
                           class="css-phc9f9 css-trglf0 css-trglf0 css-r0azwh"
@@ -86,12 +86,12 @@
                       <p
                         class="css-tzn6qh css-evzbid css-umedde css-8oxa0k textContents"
                       >
-                        Proudly hosted by
+                        Proudly Hosted By
                       </p>
                     </div>
                   </div>
                   <div class="css-9uyk0n css-v27th6 css-paq0kv">
-                    <div class="css-kvumda css-snkgse css-paq0kv">
+                    <div class="css-kvumda css-snkgse css-paq0kv residency-hero-buttonwrap">
                       <a
                         routerLink="/contest"
                         class="hero-primary-cta css-t67tmc css-5knerd css-134pm3"
@@ -604,7 +604,7 @@
               </div>
             </div>
             <p class="css-tzn6qh css-n54h2w css-26k3y0 css-6mvdej textContents">
-              Our Generous Host
+              Our Generous <span class="residency-host-italic">Host</span>
             </p>
             <p class="css-tal9ew css-roiesn css-he4ds8 css-5euc4f textContents">
               <span class="css-pjq13b"
@@ -612,7 +612,7 @@
               ><span class="css-x69i9b css-lauz26">Capture Saint Lucia</span>
             </p>
           </div>
-          <div class="css-kkdv9j css-hp0pp css-cuerbe">
+          <div class="css-kkdv9j css-hp0pp css-cuerbe residency-program-section">
             <div class="css-i5cx62 css-osh0kg css-paq0kv">
               <div class="css-i5djls css-dczajm css-paq0kv residency-mobile-gutter">
                 <div class="css-zfhupp css-v27th6 css-paq0kv">
@@ -640,7 +640,7 @@
                   </div>
                 </div>
               </div>
-              <div class="tailwind css-wc1msa css-v27th6 residency-program-accordion">
+              <div class="tailwind css-wc1msa css-v27th6 residency-program-accordion residency-mobile-gutter">
                 <div class="residency-program-accordion__list">
                   <div
                     *ngFor="let item of programDetails; let i = index"
@@ -698,7 +698,90 @@
               </div>
             </div>
           </div>
-          <div class="css-9uyk0n css-v27th6 css-paq0kv">
+          <section class="residency-program-section-mobile">
+            <div class="residency-program-section-mobile__intro">
+              <div class="residency-program-section-mobile__intro-clean">
+                <h2 class="residency-program-section-mobile__title">
+                  <span>Program </span><span class="residency-heading-light">Details</span>
+                </h2>
+                <p class="residency-program-section-mobile__subtitle">
+                  Answers to common questions about the residency prize.
+                </p>
+              <p class="residency-program-section-mobile__sponsor">
+                <span>Sponsored by Bay Gardens Resorts -</span
+                ><span class="residency-program-section-mobile__sponsor-line2">Championing Caribbean Creativity</span>
+              </p>
+              </div>
+              <p class="css-wc1msa css-9errab css-iguuiu textContents">
+                <span class="css-yuud08 css-b54yok">Program </span
+                ><span class="css-11qvqg residency-heading-light">Details</span>
+              </p>
+              <p class="css-nf5ac4 css-i5fe4j css-o1g9g1 css-uot4si textContents">
+                Answers to common questions about the residency prize.
+              </p>
+              <p class="css-wc1msa css-v27th6 css-vr2606 css-2e5s4a textContents">
+                <span class="css-tfcyi2">Sponsored by Bay Gardens Resorts â€”</span
+                ><span class="css-73lbds"> Championing Caribbean Creativity </span>
+              </p>
+            </div>
+            <div class="residency-program-accordion residency-program-accordion--mobile">
+              <div class="residency-program-accordion__list">
+                <div
+                  *ngFor="let item of programDetails; let i = index"
+                  class="residency-program-accordion__item"
+                  [class.is-open]="openProgramDetailIndex === i"
+                >
+                  <button
+                    type="button"
+                    class="residency-program-accordion__trigger"
+                    [attr.aria-expanded]="openProgramDetailIndex === i"
+                    (click)="toggleProgramDetail(i)"
+                  >
+                    <span class="residency-program-accordion__icon" aria-hidden="true">
+                      <svg
+                        class="residency-program-accordion__chevron"
+                        fill="none"
+                        preserveAspectRatio="none"
+                        viewBox="0 0 14 8"
+                      >
+                        <path
+                          d="M1 1L7 7L13 1"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.5"
+                        ></path>
+                      </svg>
+                    </span>
+                    <span class="residency-program-accordion__question">{{ item.question }}</span>
+                  </button>
+                  <div
+                    class="residency-program-accordion__panel"
+                    *ngIf="openProgramDetailIndex === i"
+                  >
+                    <ul
+                      *ngIf="item.answerLines?.length; else residencyProgramAnswerTextMobile"
+                      class="residency-program-accordion__answer-list"
+                    >
+                      <li
+                        *ngFor="let line of item.answerLines; let lineIndex = index"
+                        class="residency-program-accordion__answer-list-item"
+                        [class.is-header]="item.question === 'How long is the residency?' && lineIndex === 0"
+                      >
+                        {{ line }}
+                      </li>
+                    </ul>
+                    <ng-template #residencyProgramAnswerTextMobile>
+                      <p class="residency-program-accordion__answer">
+                        {{ item.answer }}
+                      </p>
+                    </ng-template>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div class="css-9uyk0n css-v27th6 css-paq0kv residency-post-program-section">
             <div class="css-2bswk5 css-sf5ny4 css-2gbjjk">
               <div class="css-phc9f9 css-trglf0 css-trglf0 css-r0azwh">
                 <img
@@ -792,7 +875,7 @@
             </div>
           </div>
         </div>
-        <div class="css-5knerd css-v27th6 css-sfem9u residency-footer-section">
+        <div class="css-5knerd css-v27th6 css-sfem9u residency-footer-section residency-footer-section--exported">
           <div class="css-gxdil1 css-e1d1o2 css-j9f0op">
             <div class="css-p70z91 css-paq0kv css-v27th6">
               <div class="css-ra9f2e css-jvpnk3 css-paq0kv">
@@ -815,6 +898,9 @@
                         sizes="auto,251.33215623111008px"
                       /></div
                   ></a>
+                  <p class="footer-bonus-copy">
+                    Share with Friends for Bonus Entries!
+                  </p>
                   <div class="css-7xhp8u css-nertwn css-paq0kv">
                     <a
                       class="css-456nzv css-wc1msa css-134pm3"
@@ -976,6 +1062,52 @@
         </div>
       </div>
     </div>
+
+    <footer class="residency-mobile-footer residency-mobile-footer--outer">
+      <a class="residency-mobile-footer__logo" routerLink="/" target="_self">
+        <img
+          loading="lazy"
+          src="https://capturecaribbean.figma.site/_assets/v11/4e15e14d4fa44a8fb814bd0e24df338980d991cc.png"
+          alt="Capture Caribbean"
+        />
+      </a>
+      <p class="footer-bonus-copy">Share with Friends for Bonus Entries!</p>
+      <div class="residency-mobile-footer__socials">
+        <a href="https://x.com/takecaribphotos" target="_self" aria-label="X">
+          <img
+            loading="lazy"
+            src="https://capturecaribbean.figma.site/_assets/v11/b2074916c4b3fb08fdb1513db29f423f555a529e.svg"
+            alt=""
+          />
+        </a>
+        <a href="https://www.facebook.com/caribbeanphotocontest" target="_self" aria-label="Facebook">
+          <img
+            loading="lazy"
+            src="https://capturecaribbean.figma.site/_assets/v11/6cfbca3ae939308c21eba8d2209aba2c9cadf9c1.svg"
+            alt=""
+          />
+        </a>
+        <a href="https://www.instagram.com/caribbean_photo_contest/" target="_self" aria-label="Instagram">
+          <img
+            loading="lazy"
+            src="https://capturecaribbean.figma.site/_assets/v11/d806ac49b737d95371ac3477b7bbd266a5cde24c.svg"
+            alt=""
+          />
+        </a>
+      </div>
+      <nav class="residency-mobile-footer__links" aria-label="Footer">
+        <a routerLink="/saint-lucia" target="_self">The Capture Saint Luciaâ„¢ Invitational</a>
+        <a routerLink="/residency" target="_self">Artist in Residency Program</a>
+        <a routerLink="/exhibition" target="_self">The Saint Lucia Exhibition</a>
+        <a routerLink="/global-tour" target="_self">The Global Tour</a>
+        <a routerLink="/about-us" target="_self">The Vision</a>
+        <a routerLink="/contact" target="_self">Contact</a>
+      </nav>
+      <div class="residency-mobile-footer__meta">
+        <p>Capture Caribbean: Where the World Meets Caribbean Creativity</p>
+        <p>Â© 2026 Capture Caribbean</p>
+      </div>
+    </footer>
 
     <noscript data-nosnippet="">
       <main

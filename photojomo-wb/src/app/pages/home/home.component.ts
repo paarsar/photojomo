@@ -7,6 +7,7 @@ import { environment } from '../../../environments/environment';
 interface HeroSlide {
   src: string;
   objectPosition?: string;
+  filter?: string;
 }
 
 @Component({
@@ -21,7 +22,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   firstWaveUrl = environment.firstWaveUrl;
 
   heroSlides: HeroSlide[] = [
-    { src: 'assets/images/beach_image.jpg', objectPosition: '72% center' },
+    {
+      src: 'assets/images/beach_image.jpg',
+      objectPosition: '72% center',
+      filter: 'url(#hero-sharpen) saturate(1.34) contrast(1.1) brightness(1.06) hue-rotate(-2deg)'
+    },
     { src: 'assets/images/BG4.jpg' },
     { src: 'https://photojomo-dev-media.s3.amazonaws.com/images/iStock-1316997695.jpg' },
     { src: 'https://photojomo-dev-media.s3.amazonaws.com/images/iStock-1232115076.jpg' }
@@ -48,6 +53,10 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   get currentObjectPosition(): string | null {
     return this.currentSlide.objectPosition ?? null;
+  }
+
+  get currentFilter(): string {
+    return this.currentSlide.filter ?? 'saturate(1.34) contrast(1.1) brightness(1.06) hue-rotate(-2deg)';
   }
 
   prev(): void {

@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  HostListener,
+  OnDestroy,
+} from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { environment } from '../../../environments/environment';
@@ -11,8 +17,72 @@ import { environment } from '../../../environments/environment';
   templateUrl: './residency.component.html',
   styleUrls: ['./residency.component.css'],
 })
-export class ResidencyComponent {
+export class ResidencyComponent implements AfterViewInit, OnDestroy {
   openProgramDetailIndex = 0;
+
+  private ctaOriginalParent: HTMLElement | null = null;
+  private ctaOriginalNextSibling: ChildNode | null = null;
+  private ctaElement: HTMLElement | null = null;
+
+  constructor(private hostRef: ElementRef<HTMLElement>) {}
+
+  ngAfterViewInit(): void {
+    this.applyMobileLayout();
+  }
+
+  @HostListener('window:resize')
+  onResize(): void {
+    this.applyMobileLayout();
+  }
+
+  ngOnDestroy(): void {
+    this.restoreCta();
+  }
+
+  private applyMobileLayout(): void {
+    if (window.innerWidth <= 768) {
+      this.moveCtaIntoContainer();
+    } else {
+      this.restoreCta();
+    }
+  }
+
+  private moveCtaIntoContainer(): void {
+    const host = this.hostRef.nativeElement;
+    const container = host.querySelector<HTMLElement>('#container');
+    if (!container) return;
+
+    const cta = container.querySelector<HTMLElement>(
+      '.residency-cta-section',
+    );
+    if (!cta) return;
+
+    if (cta.parentElement === container) return;
+
+    if (!this.ctaOriginalParent) {
+      this.ctaOriginalParent = cta.parentElement;
+      this.ctaOriginalNextSibling = cta.nextSibling;
+      this.ctaElement = cta;
+    }
+
+    const outerFooter = container.querySelector<HTMLElement>(
+      '.residency-mobile-footer--outer',
+    );
+    if (outerFooter) {
+      container.insertBefore(cta, outerFooter);
+    } else {
+      container.appendChild(cta);
+    }
+  }
+
+  private restoreCta(): void {
+    if (!this.ctaElement || !this.ctaOriginalParent) return;
+    if (this.ctaElement.parentElement === this.ctaOriginalParent) return;
+    this.ctaOriginalParent.insertBefore(
+      this.ctaElement,
+      this.ctaOriginalNextSibling,
+    );
+  }
 
   readonly programDetails = [
     {
