@@ -177,8 +177,9 @@ resource "aws_lambda_function" "stripe_webhook_service" {
 
   environment {
     variables = {
-      DB_SECRET_ARN     = aws_secretsmanager_secret.db_credentials.arn
-      STRIPE_SECRET_ARN = aws_secretsmanager_secret.stripe_credentials.arn
+      DB_SECRET_ARN         = aws_secretsmanager_secret.db_credentials.arn
+      STRIPE_SECRET_ARN     = aws_secretsmanager_secret.stripe_credentials.arn
+      MAILCHIMP_SECRET_ARN  = aws_secretsmanager_secret.mailchimp_credentials.arn
     }
   }
 
@@ -366,8 +367,9 @@ resource "aws_lambda_function" "paypal_webhook_service" {
 
   environment {
     variables = {
-      PAYPAL_SECRET_ARN = aws_secretsmanager_secret.paypal_credentials.arn
-      DB_SECRET_ARN     = aws_secretsmanager_secret.db_credentials.arn
+      PAYPAL_SECRET_ARN    = aws_secretsmanager_secret.paypal_credentials.arn
+      DB_SECRET_ARN        = aws_secretsmanager_secret.db_credentials.arn
+      MAILCHIMP_SECRET_ARN = aws_secretsmanager_secret.mailchimp_credentials.arn
     }
   }
 
