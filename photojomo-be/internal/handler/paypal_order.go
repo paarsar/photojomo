@@ -158,7 +158,7 @@ func (h *PaypalOrderHandler) getAccessToken() (string, error) {
 }
 
 type paypalCreateOrderRequest struct {
-	Intent      string              `json:"intent"`
+	Intent        string               `json:"intent"`
 	PurchaseUnits []paypalPurchaseUnit `json:"purchase_units"`
 }
 

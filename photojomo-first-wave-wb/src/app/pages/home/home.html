@@ -42,19 +42,18 @@
 
 <!-- CONTEST CARDS -->
 <section class="contests" id="contests">
-  <h2 class="contests__heading">Choose your <i>category</i></h2>
+  <h2 class="contests__heading">Choose your <i class="contests__heading-accent">category</i></h2>
   <div class="contests__grid">
     @for (contest of contests; track contest.route) {
-      <div class="contest-card">
-        <!-- Image with overlaid title + award -->
-        <div class="contest-card__media">
-          <img class="contest-card__img" [src]="contest.image" [alt]="contest.title" />
-          <div class="contest-card__overlay">
-            <h3 class="contest-card__title">{{ contest.title }}</h3>
-            <div class="contest-card__award">
-              <span class="contest-card__award-amount">{{ contest.award }}</span>
-              <span class="contest-card__award-label">Cash Award</span>
-            </div>
+    <div class="contest-card">
+      <!-- Image with overlaid title + award -->
+      <div class="contest-card__media">
+        <img class="contest-card__img" [src]="contest.image" [alt]="contest.title" />
+        <div class="contest-card__overlay">
+          <h3 class="contest-card__title">{{ contest.title }}</h3>
+          <div class="contest-card__award">
+            <span class="contest-card__award-amount">{{ contest.award }}</span>
+            <span class="contest-card__award-label">Cash Award</span>
           </div>
         </div>
         <!-- Body -->
@@ -66,8 +65,18 @@
           </div>
           <a [routerLink]="contest.route" class="contest-card__enter">Enter Contest →</a>
           <span class="contest-card__tier">{{ contest.tier }}</span>
+          @if (contest.tierInfo) {
+            <span class="contest-card__tier contest-card__tier--info">
+              {{ contest.tierInfo }}
+              @if (contest.tierInfoHighlight) {
+                <span class="contest-card__tier-highlight">{{ contest.tierInfoHighlight }}</span>.
+              }
+            </span>
+          }
         </div>
+        
       </div>
+    </div>
     }
   </div>
 </section>
@@ -79,13 +88,15 @@
   <!-- Part 1: Forge the Founding Class -->
   <div class="founding__intro">
     <div class="founding__intro-text">
-      <h2 class="founding__title">Forge the <em>Founding Class</em></h2>
+      <h2 class="founding__title">Forge the <em class="founding__title-accent">Founding Class</em></h2>
       <p class="founding__subtitle">The first creators to shape the future of Capture Caribbean.</p>
-      <p class="founding__desc">The First Wave Challenge invites global visual storytellers to launch Capture Caribbean as our inaugural Founding Creators. Whether professional or passionate, we are selecting a cohort of artists to define the creative foundation and set the standard for future Invitationals.</p>
+      <p class="founding__desc">The First Wave Challenge invites global visual storytellers to launch Capture Caribbean
+        as our inaugural Founding Creators. Whether professional or passionate, we are selecting a cohort of artists to
+        define the creative foundation and set the standard for future Invitationals.</p>
     </div>
     <div class="founding__intro-badge">
       <video class="founding__intro-badge__video" autoplay muted loop playsinline poster="images/image-242.png">
-        <source src="images/coin-icon.mp4" type="video/mp4" />
+        <source src="https://photojomo-dev-media.s3.amazonaws.com/videos/coin-icon.mp4" type="video/mp4" />
         <source src="images/coin-icon.webm" type="video/webm" />
         Your browser does not support the video tag.
       </video>
@@ -102,7 +113,7 @@
       <h3 class="founding__why-heading"><em>Why Become a Founding Creator?</em></h3>
       <ul class="founding__why-list">
         @for (benefit of founderBenefits; track $index) {
-          <li>{{ benefit }}</li>
+        <li>{{ benefit }}</li>
         }
       </ul>
     </div>
@@ -120,13 +131,13 @@
     <div class="golden-ticket__body">
       <div class="golden-ticket__benefits">
         @for (benefit of goldenTicketBenefits; track $index) {
-          <div class="gt-benefit">
-            <div class="gt-benefit__icon">✓</div>
-            <div class="gt-benefit__text">
-              <p class="gt-benefit__title">{{ benefit.title }}</p>
-              <p class="gt-benefit__desc">{{ benefit.desc }}</p>
-            </div>
+        <div class="gt-benefit">
+          <div class="gt-benefit__icon">✓</div>
+          <div class="gt-benefit__text">
+            <p class="gt-benefit__title">{{ benefit.title }}</p>
+            <p class="gt-benefit__desc">{{ benefit.desc }}</p>
           </div>
+        </div>
         }
       </div>
       <div class="golden-ticket__image">
@@ -145,7 +156,8 @@
   <div class="partnership__content">
     <div class="partnership__text">
       <h2 class="partnership__heading">Hosted in Partnership with</h2>
-      <p class="partnership__desc">Bay Gardens Resorts is a trusted hotel group located in Rodney Bay, Saint Lucia, known for decades of Caribbean hospitality and a trusted presence in the region.</p>
+      <p class="partnership__desc">Bay Gardens Resorts is a trusted hotel group located in Rodney Bay, Saint Lucia,
+        known for decades of Caribbean hospitality and a trusted presence in the region.</p>
     </div>
     <div class="partnership__logo-wrap">
       <a href="https://www.baygardensresorts.com/" target="_blank" rel="noopener noreferrer">
@@ -159,21 +171,31 @@
 <section class="path-forward" style="background-image: url('images/mountain.jpg')">
   <div class="path-forward__overlay"></div>
   <div class="path-forward__inner">
-    <h2 class="path-forward__heading">The Path <em>Forward</em></h2>
+    <h2 class="path-forward__heading">The Path <em class="path-forward__heading-accent">Forward</em></h2>
     <div class="path-forward__timeline">
       <div class="path-forward__line"></div>
 
       <div class="path-forward__step">
         <div class="path-forward__icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 11l-4-4-3 3"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M22 11l-4-4-3 3" />
+          </svg>
         </div>
         <h3 class="path-forward__step-title"><em>Application Review</em></h3>
-        <p class="path-forward__step-desc">Curatorial review based on originality, storytelling strength, and perspective.</p>
+        <p class="path-forward__step-desc">Curatorial review based on originality, storytelling strength, and
+          perspective.</p>
       </div>
 
       <div class="path-forward__step">
         <div class="path-forward__icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 12 15 22 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="9 12 12 15 22 5" />
+          </svg>
         </div>
         <h3 class="path-forward__step-title"><em>Selection</em></h3>
         <p class="path-forward__step-desc">A limited number of creators are named to the inaugural Founding Class.</p>
@@ -181,18 +203,35 @@
 
       <div class="path-forward__step">
         <div class="path-forward__icon path-forward__icon--key">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="3"/><path d="M9 12h9"/><path d="M18 12v-3"/><path d="M20 12v-3"/><path d="M18 15v-1"/><path d="M20 15v-1"/><path d="M10 7l1-1 2 2-1 1"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="6" cy="12" r="3" />
+            <path d="M9 12h9" />
+            <path d="M18 12v-3" />
+            <path d="M20 12v-3" />
+            <path d="M18 15v-1" />
+            <path d="M20 15v-1" />
+            <path d="M10 7l1-1 2 2-1 1" />
+          </svg>
         </div>
         <h3 class="path-forward__step-title"><em>Access &amp; Recognition</em></h3>
-        <p class="path-forward__step-desc">Receive official recognition, early platform access, and priority for future Invitationals.</p>
+        <p class="path-forward__step-desc">Receive official recognition, early platform access, and priority for future
+          Invitationals.</p>
       </div>
 
       <div class="path-forward__step">
         <div class="path-forward__icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 19l19-7-19-7 4 7-4 7z"/><path d="M6 12h7"/><path d="M6 12l3-3"/><path d="M6 12l3 3"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 19l19-7-19-7 4 7-4 7z" />
+            <path d="M6 12h7" />
+            <path d="M6 12l3-3" />
+            <path d="M6 12l3 3" />
+          </svg>
         </div>
         <h3 class="path-forward__step-title"><em>The Journey Begins</em></h3>
-        <p class="path-forward__step-desc">From live Caribbean experiences to global exhibitions, the Founding Class moves forward together.</p>
+        <p class="path-forward__step-desc">From live Caribbean experiences to global exhibitions, the Founding Class
+          moves forward together.</p>
       </div>
 
     </div>
@@ -201,21 +240,20 @@
 
 <!-- FIRST WAVE CHALLENGE PRIZE VAULT -->
 <section class="contests">
-  <h2 class="contests__heading">The First Wave Challenge <i>Prize Vault</i></h2>
+  <h2 class="contests__heading">The First Wave Challenge <i class="contests__heading-accent">Prize Vault</i></h2>
   <div class="contests__grid">
     @for (contest of contests; track contest.route) {
-      <div class="contest-card">
-        <div class="contest-card__media">
-          <img class="contest-card__img" [src]="contest.image" [alt]="contest.title" />
-          <div class="contest-card__overlay">
-            <h3 class="contest-card__title">{{ contest.title }}</h3>
-            <div class="contest-card__award">
-              <span class="contest-card__award-amount">{{ contest.award }}</span>
-              <span class="contest-card__award-label">Cash Award</span>
-            </div>
-
-           
+    <div class="contest-card">
+      <div class="contest-card__media">
+        <img class="contest-card__img" [src]="contest.image" [alt]="contest.title" />
+        <div class="contest-card__overlay">
+          <h3 class="contest-card__title">{{ contest.title }}</h3>
+          <div class="contest-card__award">
+            <span class="contest-card__award-amount">{{ contest.award }}</span>
+            <span class="contest-card__award-label">Cash Award</span>
           </div>
+
+
         </div>
         <div class="contest-card__body">
           <p class="contest-card__desc">{{ contest.description }}</p>
@@ -226,11 +264,22 @@
           <a [routerLink]="contest.route" class="contest-card__enter">Enter Contest →</a>
           <span class="contest-card__tier">{{ contest.tier }}</span>
           @if (contest.tierInfo) {
-            <span class="contest-card__tier">{{ contest.tierInfo }}</span>
+            <span class="contest-card__tier contest-card__tier--info">
+              {{ contest.tierInfo }}
+              @if (contest.tierInfoHighlight) {
+                <span class="contest-card__tier-highlight">{{ contest.tierInfoHighlight }}</span>.
+              }
+            </span>
           }
         </div>
-        
+        <a [routerLink]="contest.route" class="contest-card__enter">Enter Contest →</a>
+        <span class="contest-card__tier">{{ contest.tier }}</span>
+        @if (contest.tierInfo) {
+        <span class="contest-card__tier">{{ contest.tierInfo }}</span>
+        }
       </div>
+
+    </div>
     }
   </div>
 </section>
@@ -269,22 +318,25 @@
 <!-- FAQ -->
 <section class="faq">
   <div class="faq__inner">
-    <h2 class="faq__heading">Frequently Asked <em>Questions</em></h2>
+    <h2 class="faq__heading">Frequently Asked <em class="faq__heading-accent">Questions</em></h2>
     @for (cat of faqCategories; track $index; let ci = $index) {
-      <div class="faq__category">
-        <h3 class="faq__category-title">{{ cat.category }}</h3>
-        @for (item of cat.items; track $index; let ii = $index) {
-          <div class="faq__item" [class.faq__item--open]="item.open">
-            <button class="faq__question" (click)="toggleFaq(ci, ii)">
-              <span>{{ item.question }}</span>
-              <svg class="faq__chevron" [class.faq__chevron--open]="item.open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            @if (item.open) {
-              <div class="faq__answer">{{ item.answer }}</div>
-            }
-          </div>
+    <div class="faq__category">
+      <h3 class="faq__category-title">{{ cat.category }}</h3>
+      @for (item of cat.items; track $index; let ii = $index) {
+      <div class="faq__item" [class.faq__item--open]="item.open">
+        <button class="faq__question" (click)="toggleFaq(ci, ii)">
+          <span>{{ item.question }}</span>
+          <svg class="faq__chevron" [class.faq__chevron--open]="item.open" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
+        @if (item.open) {
+        <div class="faq__answer">{{ item.answer }}</div>
         }
       </div>
+      }
+    </div>
     }
   </div>
 </section>
@@ -295,7 +347,8 @@
     <img class="disclaimer__logo" src="images/Capture-caribbean-Logo.png" alt="Capture Caribbean" />
     <p><strong><em>Capture Caribbean™</em></strong> is the flagship platform celebrating Caribbean and Caribbean-connected visual storytelling. Submissions for the First Wave Challenge are administered through the <strong>Caribbean Photo Contest®</strong> platform.</p>
     <p>One (1) cash award will be granted per division. The Capture Caribbean™ First Wave Challenge Jury, comprised of industry professionals and platform founders, selects the winners.</p>
-    <p>Participation constitutes acceptance of the <a routerLink="/info/terms" class="disclaimer__link disclaimer__link--gold">Terms of Use</a>, <a routerLink="/info/privacy" class="disclaimer__link disclaimer__link--gold">Privacy Policy</a>, and <a routerLink="/info/rules" class="disclaimer__link disclaimer__link--gold">Official Contest Rules</a>. Contestants may enter multiple divisions per contest period; however, entries are limited to one (1) unique submission per division. The Official Rules govern all aspects of the Challenge.</p>
+    <p>Participation constitutes acceptance of the <a routerLink="/info/terms-and-conditions" [state]="legalModalState()" [replaceUrl]="true" class="disclaimer__link disclaimer__link--gold">Terms of Use</a>, <a routerLink="/info/privacy-policy" [state]="legalModalState()" [replaceUrl]="true" class="disclaimer__link disclaimer__link--gold">Privacy Policy</a>, and <a routerLink="/info/rules" [state]="legalModalState()" [replaceUrl]="true" class="disclaimer__link disclaimer__link--gold">Official Contest Rules</a>. Contestants may enter multiple divisions per contest period; however, entries are limited to one (1) unique submission per division. The Official Rules govern all aspects of the Challenge.</p>
     <p class="disclaimer__copyright">© 2025–2026 Capture Caribbean LLC. All rights reserved.</p>
+    <p class="disclaimer__version">{{ version }}</p>
   </div>
 </section>

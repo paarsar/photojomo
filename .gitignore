@@ -35,3 +35,15 @@ target/
 # Secrets
 .env
 *.env.local
+
+# Claude Code local settings (per-developer)
+**/.claude/settings.local.json
+
+# Cloudflare Wrangler local cache
+.wrangler/
+**/.wrangler/
+
+# Local dev server logs
+**/serve-*.log
+**/serve-*.out.log
+**/serve-*.err.log
