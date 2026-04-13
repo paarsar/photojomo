@@ -3,13 +3,13 @@ import { RouterLink } from '@angular/router';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 
 @Component({
-  selector: 'app-caribbean-connection',
+  selector: 'app-caribbean-connections',
   standalone: true,
   imports: [RouterLink, NavbarComponent],
-  templateUrl: './caribbean-connection.component.html',
-  styleUrls: ['./caribbean-connection.component.css'],
+  templateUrl: './caribbean-connections.component.html',
+  styleUrls: ['./caribbean-connections.component.css'],
 })
-export class CaribbeanConnectionComponent {
+export class CaribbeanConnectionsComponent {
   readonly testimonials = [
     {
       avatar:
@@ -44,6 +44,12 @@ export class CaribbeanConnectionComponent {
 
   get current() {
     return this.testimonials[this.currentSlide];
+  }
+
+  scrollToTop(): void {
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }
 
   prev(event?: Event): void {

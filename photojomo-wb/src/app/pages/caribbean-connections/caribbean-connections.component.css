@@ -1,5 +1,21 @@
 /* Styles are in global styles.css */
 
+
+:host ::ng-deep #container .cc-footer-logo {
+  width: 198px !important;
+  height: 58px !important;
+  flex: 0 0 auto !important;
+  overflow: visible !important;
+}
+
+:host ::ng-deep #container .cc-footer-logo .cc-footer-logo-img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: contain !important;
+}
+
 :host ::ng-deep .footer-bonus-copy {
   color: #ffffff !important;
   margin: -14px 0 0 !important;
@@ -1741,4 +1757,47 @@
 :host ::ng-deep .css-z8tzya > .css-tyqn17:hover .css-f7juvu p {
   color: #000000 !important;
   -webkit-text-fill-color: #000000 !important;
+}
+
+/* Footer bottom row — copyright + Back to top — shrunken */
+:host ::ng-deep #container .css-b0jis2 p {
+  font-size: 10px !important;
+}
+:host ::ng-deep #container .css-b0jis2 .css-u7g7t {
+  transform: scale(0.8);
+  transform-origin: center;
+}
+
+/* Footer spacing tightening */
+:host ::ng-deep #container .css-z8tvcy {
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 36px !important;
+}
+:host ::ng-deep #container .css-zfhta1 {
+  gap: 14px !important;
+}
+:host ::ng-deep #container .css-cf1rk {
+  gap: 28px !important;
+}
+
+/* Footer "Back to Capture Caribbean" link */
+:host ::ng-deep #container .cc-footer-back-link {
+  flex-basis: 100% !important;
+  width: 100% !important;
+  margin-top: 2px !important;
+  text-align: center !important;
+}
+:host ::ng-deep #container .cc-footer-back-link p {
+  text-align: center !important;
+}
+:host ::ng-deep #container .cc-footer-back-link-text,
+:host ::ng-deep #container .cc-footer-back-link-text strong {
+  color: #b8b8b8 !important;
+  -webkit-text-fill-color: #b8b8b8 !important;
+  font-size: 11px !important;
+  line-height: 1.2 !important;
+}
+:host ::ng-deep #container .cc-footer-back-link-text strong {
+  font-weight: 700 !important;
 }
