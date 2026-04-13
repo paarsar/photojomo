@@ -380,3 +380,79 @@
     transform: translateX(-50%) !important;
   }
 }
+
+/* ── Caribbean Connections logo ─────────────────────────────────────────── */
+
+#container .nav-bar-inner .nav-logo-cc {
+  width: auto !important;
+  flex: 0 0 auto !important;
+  transform: translate(-30px, -10px);
+}
+
+#container .nav-bar-inner .nav-logo-cc .css-hv8sls {
+  width: auto !important;
+  height: 43px !important;
+  aspect-ratio: 494 / 144;
+  max-width: none !important;
+  overflow: visible !important;
+}
+
+#container .nav-bar-inner .nav-logo-cc .css-hv8sls img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: contain !important;
+}
+
+@media (min-width: 1101px) {
+  #container .nav-bar-inner .nav-logo-cc .css-hv8sls {
+    height: 56px !important;
+  }
+}
+
+/* ── Caribbean Connections "Main" button ─────────────────────────────────── */
+
+#container .nav-links-cc,
+.nav-links-cc {
+  gap: 32px !important;
+}
+
+.nav-links-cc .nav-main-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  padding: 7px 16px;
+  background: #ffffff;
+  color: #1e5bd6 !important;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  border: 1.5px solid #ffffff;
+  border-radius: 11px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+
+.nav-links-cc .nav-main-btn:hover,
+.nav-links-cc .nav-main-btn:focus-visible {
+  background: transparent;
+  color: #ffffff !important;
+  border-color: #ffffff;
+}
+
+.nav-mobile-menu .nav-main-btn-mobile {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1.5px solid #ffffff !important;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.nav-mobile-menu .nav-main-btn-mobile:hover {
+  background: transparent !important;
+  color: #ffffff !important;
+}

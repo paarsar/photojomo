@@ -2,10 +2,10 @@
   <div class="css-whg6o css-thvz0a css-paq0kv nav-bar-inner">
 
     <!-- Logo -->
-    <div class="css-8ouu4i css-9uyk0n css-paq0kv">
+    <div class="css-8ouu4i css-9uyk0n css-paq0kv" [class.nav-logo-cc]="cc">
       <div class="css-hv8sls css-wc1msa" data-isimage="true">
         <img
-          src="https://capturecaribbean.figma.site/_assets/v11/298bca564b3aa0d4bda992214a988b1fb44ebdfd.svg"
+          [src]="cc ? '/assets/images/caribbean-connections-footer-logo.png' : 'https://capturecaribbean.figma.site/_assets/v11/298bca564b3aa0d4bda992214a988b1fb44ebdfd.svg'"
           alt=""
           class="css-tzn6qh css-ez8men"
         />
@@ -13,7 +13,7 @@
     </div>
 
     <!-- Desktop nav links -->
-    <div class="css-kf6bp5 css-paq0kv nav-links">
+    <div class="css-kf6bp5 css-paq0kv nav-links" *ngIf="!cc">
       <a
         class="textContents css-wc1msa css-q6rpi1 css-xd3orb"
         routerLink="/"
@@ -62,6 +62,35 @@
       >
     </div>
 
+    <!-- CC Desktop nav links -->
+    <div class="css-kf6bp5 css-paq0kv nav-links nav-links-cc" *ngIf="cc">
+      <a
+        class="textContents css-wc1msa css-q6rpi1 css-xd3orb"
+        routerLink="/caribbean-connections"
+        target="_self"
+        ><p class="css-8zr56v css-4i1sn1">Home</p></a
+      >
+      <a
+        class="textContents css-wc1msa css-q6rpi1 css-xd3orb"
+        routerLink="/caribbean-connections/experience"
+        target="_self"
+        ><p class="css-8zr56v css-4i1sn1">Experience</p></a
+      >
+      <a
+        class="textContents css-wc1msa css-q6rpi1 css-xd3orb"
+        routerLink="/caribbean-connections/about-connections"
+        target="_self"
+        ><p class="css-8zr56v css-4i1sn1">About</p></a
+      >
+      <a
+        class="textContents css-wc1msa css-q6rpi1 css-xd3orb"
+        routerLink="/caribbean-connections/contact-connections"
+        target="_self"
+        ><p class="css-8zr56v css-4i1sn1">Contact</p></a
+      >
+      <a class="nav-main-btn" routerLink="/" target="_self">Main</a>
+    </div>
+
     <!-- Hamburger button (mobile only) -->
     <button class="nav-hamburger" (click)="toggleMenu($event)" aria-label="Toggle menu">
       <span [class.open]="menuOpen"></span>
@@ -72,7 +101,7 @@
   </div>
 
   <!-- Mobile menu -->
-  <div class="nav-mobile-menu" [class.open]="menuOpen" (click)="$event.stopPropagation()">
+  <div class="nav-mobile-menu" [class.open]="menuOpen" (click)="$event.stopPropagation()" *ngIf="!cc">
     <a routerLink="/" (click)="closeMenu()">Home</a>
     <div class="nav-mobile-section">
       <span class="nav-mobile-section-title" (click)="toggleDropdown($event)">The Experience</span>
@@ -86,5 +115,14 @@
     <a routerLink="/about-us" (click)="closeMenu()">The Vision</a>
     <a routerLink="/contact" (click)="closeMenu()">Contact</a>
     <a routerLink="/contest" class="nav-mobile-cta" (click)="closeMenu()">Enter Contest</a>
+  </div>
+
+  <!-- CC Mobile menu -->
+  <div class="nav-mobile-menu" [class.open]="menuOpen" (click)="$event.stopPropagation()" *ngIf="cc">
+    <a routerLink="/caribbean-connections" (click)="closeMenu()">Home</a>
+    <a routerLink="/caribbean-connections/experience" (click)="closeMenu()">Experience</a>
+    <a routerLink="/caribbean-connections/about-connections" (click)="closeMenu()">About</a>
+    <a routerLink="/caribbean-connections/contact-connections" (click)="closeMenu()">Contact</a>
+    <a routerLink="/" class="nav-mobile-cta nav-main-btn-mobile" (click)="closeMenu()">Main</a>
   </div>
 </div>
