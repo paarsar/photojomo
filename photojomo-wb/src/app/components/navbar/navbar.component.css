@@ -411,6 +411,12 @@
   }
 }
 
+@media (max-width: 768px) {
+  #container .nav-bar-inner .nav-logo-cc {
+    transform: translate(-10px, 10px) !important;
+  }
+}
+
 /* ── Caribbean Connections "Main" button ─────────────────────────────────── */
 
 #container .nav-links-cc,
@@ -432,7 +438,7 @@
   line-height: 1;
   letter-spacing: 0.02em;
   border: 1.5px solid #ffffff;
-  border-radius: 11px;
+  border-radius: 4px;
   text-decoration: none;
   cursor: pointer;
   transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;

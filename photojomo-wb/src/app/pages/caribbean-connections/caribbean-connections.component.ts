@@ -52,6 +52,14 @@ export class CaribbeanConnectionsComponent {
     }
   }
 
+  scrollToThriving(): void {
+    if (typeof document !== 'undefined') {
+      document
+        .getElementById('thriving-community')
+        ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
   prev(event?: Event): void {
     event?.stopPropagation();
     this.go(-1);

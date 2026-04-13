@@ -42,14 +42,7 @@
 }
 
 :host ::ng-deep .custom-carousel-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-  width: 100%;
-  margin: -40px 0 8px;
-  position: relative;
-  z-index: 20;
+  display: none !important;
 }
 
 :host ::ng-deep .custom-carousel-arrow {
@@ -1025,7 +1018,8 @@
     padding: 20px 0 40px !important;
     margin-top: 0 !important;
     box-sizing: border-box !important;
-    overflow: hidden !important;
+    overflow: visible !important;
+    overflow-x: clip !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -1278,9 +1272,33 @@
     display: block !important;
   }
 
-  /* Hide the bottom footer on mobile */
-  :host ::ng-deep #container .css-bo4u3g {
-    display: none !important;
+  /* Footer bottom row (© 2026 + Back to top) — center on mobile so both
+     ends stay inside the viewport, with the text and button aligned on
+     a single centered row. */
+  :host ::ng-deep #container .css-b0jis2 {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    padding: 12px 16px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+  :host ::ng-deep #container .css-b0jis2 > p,
+  :host ::ng-deep #container .css-b0jis2 > button {
+    margin: 0 !important;
+    text-align: center !important;
+    align-self: center !important;
+  }
+  :host ::ng-deep #container .css-b0jis2 > button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
   }
 
   /* Ready to Join a Thriving Community? — background image must not stretch */
@@ -1554,6 +1572,12 @@
     box-sizing: border-box !important;
   }
 
+  /* Hide the duplicate custom nav on mobile — the ::before pseudo arrows
+     already render under the testimonial via the grid layout above. */
+  :host ::ng-deep #container .css-337j3k .custom-carousel-nav {
+    display: none !important;
+  }
+
   /* Voices of the Caribbean video — fullscreen on mobile */
   :host ::ng-deep #container .css-atgcpy,
   :host ::ng-deep #container .css-atgcpy > .css-gxdil1,
@@ -1800,4 +1824,40 @@
 }
 :host ::ng-deep #container .cc-footer-back-link-text strong {
   font-weight: 700 !important;
+}
+
+/* Footer bottom row (© 2026 + Back to top) — stack centered on tablet too. */
+@media (min-width: 769px) and (max-width: 1100px) {
+  :host ::ng-deep #container .css-b0jis2 {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    padding: 12px 16px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+  :host ::ng-deep #container .css-b0jis2 > p,
+  :host ::ng-deep #container .css-b0jis2 > button {
+    margin: 0 !important;
+    text-align: center !important;
+    align-self: center !important;
+  }
+  :host ::ng-deep #container .css-b0jis2 > button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+  }
+}
+
+/* Tablet only: show the What Our Community Says carousel arrows. */
+@media (min-width: 769px) and (max-width: 1100px) {
+  :host ::ng-deep .custom-carousel-nav {
+    display: flex !important;
+  }
 }

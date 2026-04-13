@@ -22,12 +22,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   firstWaveUrl = environment.firstWaveUrl;
 
   heroSlides: HeroSlide[] = [
-    {
-      src: 'assets/images/beach_image.jpg',
-      objectPosition: '72% center',
-      filter: 'url(#hero-sharpen) saturate(1.34) contrast(1.1) brightness(1.06) hue-rotate(-2deg)'
-    },
     { src: 'assets/images/BG4.jpg' },
+    {
+      src: 'assets/images/summer-day-near-palm.jpg',
+      filter: 'none'
+    },
     { src: 'assets/images/iStock-1316997695.jpg' },
     { src: 'assets/images/iStock-1232115076.jpg' }
   ];
@@ -36,7 +35,16 @@ export class HomeComponent implements OnInit, OnDestroy {
   private autoPlayTimer: any;
 
   ngOnInit(): void {
+    this.preloadSlides();
     this.startAutoPlay();
+  }
+
+  private preloadSlides(): void {
+    if (typeof Image === 'undefined') return;
+    for (const slide of this.heroSlides) {
+      const img = new Image();
+      img.src = slide.src;
+    }
   }
 
   ngOnDestroy(): void {
@@ -60,18 +68,30 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   prev(): void {
-    this.currentIndex = (this.currentIndex - 1 + this.heroSlides.length) % this.heroSlides.length;
-    this.resetAutoPlay();
+    const idx = (this.currentIndex - 1 + this.heroSlides.length) % this.heroSlides.length;
+    this.goTo(idx);
   }
 
   next(): void {
-    this.currentIndex = (this.currentIndex + 1) % this.heroSlides.length;
-    this.resetAutoPlay();
+    const idx = (this.currentIndex + 1) % this.heroSlides.length;
+    this.goTo(idx);
   }
 
   goTo(index: number): void {
-    this.currentIndex = index;
-    this.resetAutoPlay();
+    if (index === this.currentIndex) return;
+    const target = this.heroSlides[index];
+    const swap = () => {
+      this.currentIndex = index;
+      this.resetAutoPlay();
+    };
+    if (typeof Image !== 'undefined') {
+      const probe = new Image();
+      probe.src = target.src;
+      const done = probe.decode ? probe.decode() : Promise.resolve();
+      done.then(swap).catch(swap);
+    } else {
+      swap();
+    }
   }
 
   private startAutoPlay(): void {

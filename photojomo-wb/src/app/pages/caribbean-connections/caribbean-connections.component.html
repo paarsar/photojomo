@@ -66,7 +66,10 @@
                           class="css-tyqn17 css-5knerd"
                           tabindex="0"
                           role="button"
-                          style="border-radius: 1.5px; opacity: 1"
+                          (click)="scrollToThriving()"
+                          (keydown.enter)="scrollToThriving()"
+                          (keydown.space)="scrollToThriving()"
+                          style="border-radius: 1.5px; opacity: 1; cursor: pointer"
                         >
                           <div
                             class="css-trglf0 css-r0azwh"
@@ -1023,7 +1026,7 @@
             </div>
           </div>
         </div>
-        <div class="css-nllq1o css-5knerd">
+        <div id="thriving-community" class="css-nllq1o css-5knerd">
           <div aria-hidden="true" class="css-trglf0 css-r0azwh">
             <div class="css-phc9f9 css-trglf0">
               <img

@@ -481,3 +481,181 @@
   13.53%, 46.87% { transform: rotate(-21deg) translateY(-19px) scale(1.10); }
   13.73%, 47.07% { transform: rotate(9deg) translateY(-11px) scale(1.04); }
 }
+
+/* Footer bottom row (© 2026 + Back to top) — stack centered on mobile. */
+@media (max-width: 768px) {
+  :host ::ng-deep #container .css-b0jis2 {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    padding: 12px 16px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+  :host ::ng-deep #container .css-b0jis2 > p,
+  :host ::ng-deep #container .css-b0jis2 > button {
+    margin: 0 !important;
+    text-align: center !important;
+    align-self: center !important;
+  }
+  :host ::ng-deep #container .css-b0jis2 > button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+  }
+}
+
+/* Footer bottom row (© 2026 + Back to top) — stack centered on tablet too. */
+@media (min-width: 769px) and (max-width: 1100px) {
+  :host ::ng-deep #container .css-b0jis2 {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    padding: 12px 16px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+  :host ::ng-deep #container .css-b0jis2 > p,
+  :host ::ng-deep #container .css-b0jis2 > button {
+    margin: 0 !important;
+    text-align: center !important;
+    align-self: center !important;
+  }
+  :host ::ng-deep #container .css-b0jis2 > button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+  }
+}
+
+/* Ready to Join a Thriving Community? — prevent background image stretch on tablet */
+@media (min-width: 769px) and (max-width: 1100px) {
+  :host ::ng-deep #container .css-nllq1o {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow: hidden !important;
+  }
+
+  :host ::ng-deep #container .css-nllq1o .css-43d4nr {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+}
+
+/* Navbar header — match the Home tablet layout (copied from main CC page). */
+@media (min-width: 769px) and (max-width: 1100px) {
+  :host ::ng-deep #container .css-vhq6dg {
+    width: calc(100% - 64px) !important;
+    max-width: 960px !important;
+    left: 50% !important;
+    top: 28px !important;
+    height: auto !important;
+  }
+}
+
+/* Ready to Join a Thriving Community? — mobile fixups (copied from main CC). */
+@media (max-width: 768px) {
+  :host ::ng-deep #container .css-nllq1o {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow: hidden !important;
+  }
+
+  :host ::ng-deep #container .css-nllq1o > .css-r0azwh,
+  :host ::ng-deep #container .css-nllq1o > .css-r0azwh .css-phc9f9 {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  :host ::ng-deep #container .css-nllq1o .css-43d4nr {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+  }
+
+  :host ::ng-deep #container .css-nllq1o .css-gxdil1,
+  :host ::ng-deep #container .css-nllq1o .css-yiw6sn,
+  :host ::ng-deep #container .css-nllq1o .css-d455ri,
+  :host ::ng-deep #container .css-nllq1o .css-b84j9q,
+  :host ::ng-deep #container .css-nllq1o .css-sotq9e,
+  :host ::ng-deep #container .css-nllq1o .css-6bx0tj,
+  :host ::ng-deep #container .css-nllq1o .css-hdvvn5,
+  :host ::ng-deep #container .css-nllq1o .css-93wn39 {
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+  }
+
+  :host ::ng-deep #container .css-nllq1o * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  :host ::ng-deep #container .css-nllq1o p {
+    white-space: normal !important;
+    max-width: 100% !important;
+  }
+
+  :host ::ng-deep #container .css-nllq1o .css-93wn39 {
+    transform: translateY(-30px) !important;
+  }
+
+  :host ::ng-deep #container .css-nllq1o .css-4wg6y,
+  :host ::ng-deep #container .css-nllq1o .css-h9j71c,
+  :host ::ng-deep #container .css-nllq1o .css-fhhq3m {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    -webkit-text-stroke: 0 !important;
+    text-stroke: 0 !important;
+  }
+
+  :host ::ng-deep #container .css-nllq1o .rtjtc-goals {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+  }
+
+  :host ::ng-deep #container .css-nllq1o .tailwind button,
+  :host ::ng-deep #container .css-nllq1o .tailwind [class*="w-["] {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  :host ::ng-deep #container .css-nllq1o .tailwind [class*="text-nowrap"],
+  :host ::ng-deep #container .css-nllq1o .tailwind [class*="whitespace-pre"] {
+    white-space: normal !important;
+  }
+}

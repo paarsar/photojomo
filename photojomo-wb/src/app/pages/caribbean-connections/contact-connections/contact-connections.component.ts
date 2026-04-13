@@ -15,4 +15,12 @@ export class ContactConnectionsComponent {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
+
+  scrollToThriving(): void {
+    if (typeof document !== 'undefined') {
+      document
+        .getElementById('thriving-community')
+        ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 }
