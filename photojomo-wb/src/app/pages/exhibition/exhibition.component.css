@@ -13,7 +13,7 @@
     height: auto !important;
   }
 
-  /* "The Saint Lucia Exhibition (2030)" — stack text above image on tablet */
+  /* "The Saint Lucia Exhibition (2033)" — stack text above image on tablet */
   :host ::ng-deep #container .css-wa7m9p {
     width: calc(100% - 64px) !important;
     max-width: 100% !important;
@@ -286,7 +286,7 @@
     line-height: inherit;
   }
 
-  /* "The Saint Lucia Exhibition (2030)" section — keep within viewport */
+  /* "The Saint Lucia Exhibition (2033)" section — keep within viewport */
   :host ::ng-deep #container .css-wa7m9p {
     width: 100%;
     max-width: 92vw;

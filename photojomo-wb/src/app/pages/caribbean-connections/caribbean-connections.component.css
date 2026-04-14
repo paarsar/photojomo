@@ -1,0 +1,1863 @@
+/* Styles are in global styles.css */
+
+
+:host ::ng-deep #container .cc-footer-logo {
+  width: 198px !important;
+  height: 58px !important;
+  flex: 0 0 auto !important;
+  overflow: visible !important;
+}
+
+:host ::ng-deep #container .cc-footer-logo .cc-footer-logo-img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: contain !important;
+}
+
+:host ::ng-deep .footer-bonus-copy {
+  color: #ffffff !important;
+  margin: -14px 0 0 !important;
+  font-family: "PP Neue Montreal:Medium", sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1.25 !important;
+  text-align: center !important;
+}
+
+/* Desktop: add a blank line above the hero subtitle */
+@media (min-width: 769px) {
+  :host ::ng-deep #container .css-rhxma0.css-4xz6kg.css-wh4ihv {
+    margin-top: 1.2em !important;
+  }
+}
+
+
+:host ::ng-deep .carousel-arrow {
+  cursor: pointer;
+  user-select: none;
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 10;
+}
+
+:host ::ng-deep .custom-carousel-nav {
+  display: none !important;
+}
+
+:host ::ng-deep .custom-carousel-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #000000;
+  color: #ffffff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-family: sans-serif;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+:host ::ng-deep .custom-carousel-arrow:hover {
+  background: #333333;
+}
+
+:host ::ng-deep .carousel-arrow * {
+  pointer-events: none;
+}
+
+:host ::ng-deep .testimonial-fade {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  filter: blur(0) drop-shadow(0 0 0 rgba(232, 94, 44, 0)) drop-shadow(0 0 0 rgba(64, 180, 255, 0));
+  transition:
+    opacity 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform, filter;
+}
+
+:host ::ng-deep .testimonial-fade--trail {
+  transition-delay: 90ms;
+}
+
+:host ::ng-deep .testimonial-fade.exit-next {
+  opacity: 0;
+  transform: translateX(-56px) scale(0.96);
+  filter: blur(10px) drop-shadow(3px 0 0 rgba(232, 94, 44, 0.55))
+    drop-shadow(-3px 0 0 rgba(64, 180, 255, 0.55));
+}
+
+:host ::ng-deep .testimonial-fade.exit-prev {
+  opacity: 0;
+  transform: translateX(56px) scale(0.96);
+  filter: blur(10px) drop-shadow(-3px 0 0 rgba(232, 94, 44, 0.55))
+    drop-shadow(3px 0 0 rgba(64, 180, 255, 0.55));
+}
+
+:host ::ng-deep .testimonial-fade.enter-next {
+  opacity: 0;
+  transform: translateX(56px) scale(0.96);
+  filter: blur(10px) drop-shadow(-3px 0 0 rgba(232, 94, 44, 0.55))
+    drop-shadow(3px 0 0 rgba(64, 180, 255, 0.55));
+  transition: none;
+}
+
+:host ::ng-deep .testimonial-fade.enter-prev {
+  opacity: 0;
+  transform: translateX(-56px) scale(0.96);
+  filter: blur(10px) drop-shadow(3px 0 0 rgba(232, 94, 44, 0.55))
+    drop-shadow(-3px 0 0 rgba(64, 180, 255, 0.55));
+  transition: none;
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   PROSPECTIVE PARTNERS — copied verbatim from home.component.css so the
+   caribbean-connection page renders the same way. Component styles are
+   view-encapsulated, so these must live in this file to take effect here.
+   ───────────────────────────────────────────────────────────────────── */
+
+:host ::ng-deep .prospective-partners-block {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+}
+
+@media (min-width: 769px) {
+  :host ::ng-deep .prospective-partners-block {
+    gap: 10px !important;
+  }
+
+  :host ::ng-deep .prospective-partners-title {
+    margin: 0 !important;
+  }
+
+  :host ::ng-deep .prospective-partners-subtitle {
+    margin: 0 0 12px !important;
+  }
+
+  :host ::ng-deep .prospective-partners-logos {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 28px !important;
+    width: 100% !important;
+    max-width: 1240px !important;
+    margin: 18px auto 0 !important;
+  }
+
+  :host ::ng-deep .prospective-partners-logos > div {
+    flex: 0 1 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 70px !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    overflow: visible !important;
+  }
+
+  :host ::ng-deep .prospective-partners-logos img {
+    display: block !important;
+    position: static !important;
+    width: auto !important;
+    max-width: 170px !important;
+    max-height: 74px !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+
+  :host ::ng-deep .prospective-partners-logos .css-phc9f9 {
+    position: relative !important;
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  :host ::ng-deep .prospective-partners-logos .css-ce0hlr,
+  :host ::ng-deep .prospective-partners-logos .css-59b3l2 {
+    position: static !important;
+    width: auto !important;
+    max-width: 170px !important;
+    height: auto !important;
+    max-height: 74px !important;
+    object-fit: contain !important;
+  }
+
+  :host ::ng-deep .prospective-partners-logos > div:nth-child(1) img {
+    max-width: 152px !important;
+    max-height: 88px !important;
+  }
+
+  :host ::ng-deep .prospective-partners-logos > div:nth-child(2) img {
+    max-width: 96px !important;
+    max-height: 96px !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1100px) {
+  /* Navbar header — match the Home tablet layout */
+  :host ::ng-deep #container .css-vhq6dg {
+    width: calc(100% - 64px) !important;
+    max-width: 960px !important;
+    left: 50% !important;
+    top: 28px !important;
+    height: auto !important;
+  }
+
+  /* Discover Your Perfect Community — vertical stack, fullscreen images */
+  :host ::ng-deep #container .css-5oquvv {
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow-x: clip !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep #container .css-5oquvv .css-zfhupp {
+    padding: 20px 32px 0 !important;
+    text-align: center !important;
+    align-items: center !important;
+  }
+
+  :host ::ng-deep #container .css-5oquvv .css-zfhupp p {
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  :host ::ng-deep #container .css-5oquvv .css-wcbkz4,
+  :host ::ng-deep #container .css-5oquvv .css-izctj7 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 56px !important;
+    height: auto !important;
+    min-height: fit-content !important;
+    max-height: none !important;
+    padding: 0 !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    overflow: visible !important;
+  }
+
+  :host ::ng-deep #container .css-5oquvv .css-ncagb4,
+  :host ::ng-deep #container .css-5oquvv .css-oujq17,
+  :host ::ng-deep #container .css-5oquvv .css-tprz5u,
+  :host ::ng-deep #container .css-5oquvv .css-vxrn7y,
+  :host ::ng-deep #container .css-5oquvv .css-6y8n5y,
+  :host ::ng-deep #container .css-5oquvv .css-dv5mf9,
+  :host ::ng-deep #container .css-5oquvv .css-nlnxnl {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    height: auto !important;
+    min-height: fit-content !important;
+    max-height: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    gap: 22px !important;
+    overflow: visible !important;
+    flex-shrink: 0 !important;
+    align-items: stretch !important;
+  }
+
+  /* Image container — full-bleed edge-to-edge, 40px taller */
+  :host ::ng-deep #container .css-5oquvv .css-1sn6zj {
+    position: relative !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    height: calc(28.125vw + 20px) !important;
+    min-height: calc(28.125vw + 20px) !important;
+    overflow: hidden !important;
+  }
+
+  :host ::ng-deep #container .css-5oquvv .css-1sn6zj > .css-r0azwh {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+  }
+
+  /* First two cards stack 2 images — hide the first, show the second */
+  :host ::ng-deep #container .css-5oquvv .css-1sn6zj > .css-r0azwh > img.css-ez8men:nth-of-type(1) {
+    display: none !important;
+  }
+
+  :host ::ng-deep #container .css-5oquvv .css-1sn6zj img.css-ez8men {
+    position: absolute !important;
+    inset: 5px 0 0 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: calc(100% - 5px) !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+  }
+
+  /* Text side — padded, centered */
+  :host ::ng-deep #container .css-5oquvv .css-23twqj,
+  :host ::ng-deep #container .css-5oquvv .css-zfhun4,
+  :host ::ng-deep #container .css-5oquvv .css-1r8mru {
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    padding: 0 32px !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  :host ::ng-deep #container .css-5oquvv .css-1r8mru p,
+  :host ::ng-deep #container .css-5oquvv .css-23twqj p {
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  :host ::ng-deep #container .css-5oquvv .css-h5xwa9 {
+    position: relative !important;
+    width: 44px !important;
+    height: 44px !important;
+    margin: 16px auto 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  :host ::ng-deep #container .css-5oquvv .css-h5xwa9 .css-e5xl17 {
+    position: static !important;
+    transform: none !important;
+    width: 44px !important;
+    height: 44px !important;
+    top: auto !important;
+    left: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  :host ::ng-deep #container .css-5oquvv .css-h5xwa9 .css-e5xl17 img {
+    position: static !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 44px !important;
+    max-height: 44px !important;
+    object-fit: contain !important;
+    transform: none !important;
+  }
+
+  /* Voices of the Caribbean video — fullscreen on tablet */
+  :host ::ng-deep #container .css-atgcpy {
+    padding-top: 60px !important;
+  }
+
+  :host ::ng-deep #container .css-atgcpy,
+  :host ::ng-deep #container .css-atgcpy > .css-gxdil1,
+  :host ::ng-deep #container .css-atgcpy .css-lkdw5v {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep #container .css-atgcpy > .css-gxdil1,
+  :host ::ng-deep #container .css-atgcpy .css-lkdw5v {
+    padding: 0 !important;
+  }
+
+  :host ::ng-deep #container .css-atgcpy .css-ve8l3g {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    min-width: 0 !important;
+    position: relative !important;
+  }
+
+  :host ::ng-deep #container .css-atgcpy .css-ve8l3g > div,
+  :host ::ng-deep #container .css-atgcpy .css-ve8l3g iframe {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* Why Our Community Stands Out — move text closer to image on tablet */
+  :host ::ng-deep #container .css-cfaotp {
+    gap: 20px !important;
+    min-width: 0 !important;
+  }
+
+  :host ::ng-deep #container .css-cfaotp .css-umyxx0,
+  :host ::ng-deep #container .css-cfaotp .css-umyxx0 * {
+    min-width: 0 !important;
+  }
+
+  :host ::ng-deep #container .css-cfaotp .css-umyxx0 {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 2px !important;
+    box-sizing: border-box !important;
+    flex: 1 1 0 !important;
+    width: auto !important;
+    max-width: 100% !important;
+  }
+
+  :host ::ng-deep #container .css-cfaotp .css-umyxx0 p {
+    font-size: calc(1em - 2px) !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+    width: auto !important;
+    max-width: 100% !important;
+  }
+
+  :host ::ng-deep #container .css-cfaotp .css-2hxbmz,
+  :host ::ng-deep #container .css-cfaotp .css-6vp3ws,
+  :host ::ng-deep #container .css-cfaotp .css-wr2x4o,
+  :host ::ng-deep #container .css-cfaotp .css-eipe8a {
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+    width: auto !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  :host ::ng-deep #container .css-cfaotp p.css-2hxbmz,
+  :host ::ng-deep #container .css-cfaotp p.css-6vp3ws,
+  :host ::ng-deep #container .css-cfaotp .css-2hxbmz,
+  :host ::ng-deep #container .css-cfaotp .css-6vp3ws,
+  :host ::ng-deep #container .css-cfaotp .css-2hxbmz *,
+  :host ::ng-deep #container .css-cfaotp .css-6vp3ws * {
+    font-size: 40px !important;
+    line-height: 1.15 !important;
+    max-width: 50% !important;
+  }
+
+  :host ::ng-deep #container .css-cfaotp .css-wr2x4o,
+  :host ::ng-deep #container .css-cfaotp .css-eipe8a {
+    max-width: 70% !important;
+  }
+
+  :host ::ng-deep .prospective-partners-logos {
+    gap: 18px !important;
+    max-width: 100% !important;
+  }
+
+  :host ::ng-deep .prospective-partners-logos > div {
+    padding: 6px !important;
+    min-height: 58px !important;
+  }
+
+  :host ::ng-deep .prospective-partners-logos img,
+  :host ::ng-deep .prospective-partners-logos .css-ce0hlr,
+  :host ::ng-deep .prospective-partners-logos .css-59b3l2 {
+    max-width: 138px !important;
+    max-height: 62px !important;
+  }
+
+  :host ::ng-deep .prospective-partners-logos > div:nth-child(1) img {
+    max-width: 126px !important;
+    max-height: 74px !important;
+  }
+
+  :host ::ng-deep .prospective-partners-logos > div:nth-child(2) img {
+    max-width: 80px !important;
+    max-height: 80px !important;
+  }
+
+  /* Footer — copied from home tablet rules so content stays in the viewport */
+  :host ::ng-deep #container .css-p70z91 {
+    width: 100% !important;
+    padding: 48px 32px 32px !important;
+    box-sizing: border-box !important;
+    gap: 28px !important;
+  }
+
+  :host ::ng-deep #container .css-p70z91 .css-ra9f2e {
+    width: 100% !important;
+  }
+
+  :host ::ng-deep #container .css-p70z91 .css-jvpnk3 {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr) minmax(0, 1fr) !important;
+    align-items: start !important;
+    gap: 28px !important;
+  }
+
+  :host ::ng-deep #container .css-p70z91 .css-49kvq1,
+  :host ::ng-deep #container .css-p70z91 .css-pr5rfd,
+  :host ::ng-deep #container .css-p70z91 .css-dczajm.css-paq0kv {
+    min-width: 0 !important;
+  }
+
+  :host ::ng-deep #container .css-p70z91 .css-7xhp8u,
+  :host ::ng-deep #container .css-p70z91 .css-eyahki {
+    width: auto !important;
+  }
+
+  :host ::ng-deep #container .css-p70z91 .css-eyahki {
+    gap: 24px !important;
+    flex-wrap: wrap !important;
+  }
+
+  :host ::ng-deep #container .css-p70z91 .css-h5oqay {
+    justify-content: flex-start !important;
+    gap: 28px 36px !important;
+  }
+
+  :host ::ng-deep #container .css-p70z91 .css-ogcvv7,
+  :host ::ng-deep #container .css-p70z91 .css-gzmw6b {
+    width: 100% !important;
+  }
+
+  :host ::ng-deep #container .css-p70z91 .css-ro9fcw,
+  :host ::ng-deep #container .css-p70z91 .css-bv2n15 {
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+  /* Ready to Join a Thriving Community? — prevent background image stretch on tablet */
+  :host ::ng-deep #container .css-nllq1o {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow: hidden !important;
+  }
+
+  :host ::ng-deep #container .css-nllq1o .css-43d4nr {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Page wrapper — override Figma's fixed desktop height and overflow:clip
+     so sections that grow taller on mobile can actually render.
+     Use `overflow-x: clip` (not hidden) so we don't create a scroll
+     container — sticky children (e.g. stacking cards) rely on the viewport
+     being the nearest scroll ancestor. */
+  :host ::ng-deep #container,
+  :host ::ng-deep #container .css-i9h3z,
+  :host ::ng-deep #container .css-50jkpj,
+  :host ::ng-deep #container .css-rn2hh9,
+  :host ::ng-deep #container .css-3tcx9o {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    overflow-x: clip !important;
+  }
+
+  /* Hero image — prevent stretching on mobile */
+  :host ::ng-deep #container .css-stwrzw {
+    height: auto !important;
+    min-height: 60vh !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    position: relative !important;
+  }
+
+  :host ::ng-deep #container .css-stwrzw .css-r0azwh,
+  :host ::ng-deep #container .css-stwrzw .css-phc9f9 {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  :host ::ng-deep #container .css-stwrzw .css-frzniw {
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+
+  /* Hero content — left-align everything on mobile */
+  :host ::ng-deep #container .css-stwrzw .css-r3og54,
+  :host ::ng-deep #container .css-stwrzw .css-2dqx77,
+  :host ::ng-deep #container .css-stwrzw .css-ks1xrq,
+  :host ::ng-deep #container .css-stwrzw .css-uhys88,
+  :host ::ng-deep #container .css-stwrzw .css-c20z98,
+  :host ::ng-deep #container .css-stwrzw .css-aa2rly,
+  :host ::ng-deep #container .css-stwrzw .css-sz2f8,
+  :host ::ng-deep #container .css-stwrzw .css-zfhtxa,
+  :host ::ng-deep #container .css-stwrzw .css-ft4d0g,
+  :host ::ng-deep #container .css-stwrzw .css-liobgr {
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+
+  :host ::ng-deep #container .css-stwrzw .css-zfhtxa p,
+  :host ::ng-deep #container .css-stwrzw .css-liobgr p {
+    text-align: left !important;
+  }
+
+  :host ::ng-deep #container .css-stwrzw .css-z8tzya {
+    justify-content: flex-start !important;
+  }
+
+  /* Push hero content further left — zero horizontal spacing on every wrapper */
+  :host ::ng-deep #container .css-stwrzw .css-r3og54,
+  :host ::ng-deep #container .css-stwrzw .css-2dqx77,
+  :host ::ng-deep #container .css-stwrzw .css-ks1xrq,
+  :host ::ng-deep #container .css-stwrzw .css-uhys88,
+  :host ::ng-deep #container .css-stwrzw .css-c20z98,
+  :host ::ng-deep #container .css-stwrzw .css-aa2rly,
+  :host ::ng-deep #container .css-stwrzw .css-sz2f8,
+  :host ::ng-deep #container .css-stwrzw .css-zfhtxa,
+  :host ::ng-deep #container .css-stwrzw .css-ft4d0g,
+  :host ::ng-deep #container .css-stwrzw .css-liobgr,
+  :host ::ng-deep #container .css-stwrzw .css-z8tzya {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    left: 0 !important;
+    right: auto !important;
+  }
+
+  /* Nudge the whole content layer a bit further toward the viewport edge */
+  :host ::ng-deep #container .css-stwrzw .css-r3og54 {
+    padding-left: 17px !important;
+  }
+
+  /* Push the title block and everything below down 40px */
+  :host ::ng-deep #container .css-stwrzw .css-c20z98 {
+    margin-top: 180px !important;
+  }
+
+  /* Match Figma reference: "Beyond the Contest" is the big italic serif headline */
+  :host ::ng-deep #container .css-stwrzw .css-bqwcu6 {
+    font-family: "Calvino Grande Trial:Light Italic", serif !important;
+    font-style: italic !important;
+    font-weight: 300 !important;
+    font-size: 51px !important;
+    line-height: 0.95 !important;
+    letter-spacing: -0.01em !important;
+    text-transform: none !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    max-width: 11ch !important;
+    margin: 0 0 14px 0 !important;
+  }
+
+  /* Supporting caption — small under the headline */
+  :host ::ng-deep #container .css-stwrzw .css-w9lend,
+  :host ::ng-deep #container .css-stwrzw .css-mly5wr,
+  :host ::ng-deep #container .css-stwrzw .css-ueucp2 {
+    font-size: 19px !important;
+    line-height: 1.4 !important;
+    font-weight: 500 !important;
+    letter-spacing: 0 !important;
+    margin: 0 0 18px 0 !important;
+  }
+
+  /* Subtitle body copy — smaller on mobile */
+  :host ::ng-deep #container .css-stwrzw .css-rhxma0,
+  :host ::ng-deep #container .css-stwrzw .css-4xz6kg,
+  :host ::ng-deep #container .css-stwrzw .css-wh4ihv {
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    max-width: 65ch !important;
+    white-space: normal !important;
+  }
+
+  /* ─────────────────────────────────────────────────────────────────────
+     DISCOVER YOUR PERFECT COMMUNITY — mobile
+     Keep everything inside the viewport and make each card's image span
+     the full width of the screen.
+     ───────────────────────────────────────────────────────────────────── */
+  :host ::ng-deep #container .css-5oquvv {
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    overflow-x: clip !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+
+  :host ::ng-deep #container .css-5oquvv .css-zfhupp {
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    padding: 0 20px !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+
+  :host ::ng-deep #container .css-5oquvv .css-zfhupp p {
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+    text-align: left !important;
+  }
+
+  :host ::ng-deep #container .css-5oquvv .css-wcbkz4,
+  :host ::ng-deep #container .css-5oquvv .css-izctj7 {
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 48px !important;
+    height: auto !important;
+    min-height: fit-content !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+  }
+
+  :host ::ng-deep #container .css-5oquvv .css-ncagb4,
+  :host ::ng-deep #container .css-5oquvv .css-oujq17,
+  :host ::ng-deep #container .css-5oquvv .css-tprz5u,
+  :host ::ng-deep #container .css-5oquvv .css-vxrn7y,
+  :host ::ng-deep #container .css-5oquvv .css-6y8n5y,
+  :host ::ng-deep #container .css-5oquvv .css-dv5mf9,
+  :host ::ng-deep #container .css-5oquvv .css-nlnxnl,
+  :host ::ng-deep #container .css-5oquvv .css-6y8n5y.css-tprz5u {
+    width: 100% !important;
+    max-width: 100vw !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    height: auto !important;
+    min-height: fit-content !important;
+    max-height: none !important;
+    overflow: visible !important;
+    gap: 18px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Card image container — full-bleed to viewport edges */
+  :host ::ng-deep #container .css-5oquvv .css-1sn6zj {
+    position: relative !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  :host ::ng-deep #container .css-5oquvv .css-1sn6zj > .css-r0azwh {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+  /* Cards 1 & 2 have 2 stacked images inside a .css-r0azwh wrapper —
+     hide the first so the second (1398… / be1c… prefix) shows.
+     Card 3 has a single image that IS .css-r0azwh itself (no wrapper), so
+     it's untouched by this rule and continues to render (a8c4… prefix). */
+  :host ::ng-deep #container .css-5oquvv .css-1sn6zj > .css-r0azwh > img.css-ez8men:nth-of-type(1) {
+    display: none !important;
+  }
+
+  /* Primary image — fullscreen width, natural height */
+  :host ::ng-deep #container .css-5oquvv .css-1sn6zj img.css-ez8men,
+  :host ::ng-deep #container .css-5oquvv .css-1sn6zj > img {
+    position: static !important;
+    inset: auto !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: auto !important;
+    min-height: 0 !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+  }
+
+  /* Why Our Community Stands Out — single white card column on mobile */
+  :host ::ng-deep #container .css-cfaotp {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 40px 20px 0 !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    overflow: visible !important;
+  }
+
+  /* Decorative image container — move below the card, show only the 95db image */
+  :host ::ng-deep #container .css-cfaotp .css-15tmrm {
+    position: relative !important;
+    order: 2 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(50% - 50vw - 17px) !important;
+    margin-right: calc(50% - 50vw + 17px) !important;
+    max-height: none !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    margin-top: -36px !important;
+    height: 380px !important;
+    min-height: 380px !important;
+    overflow: hidden !important;
+  }
+
+  :host ::ng-deep #container .css-cfaotp .css-15tmrm .css-r0azwh {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+  }
+
+  /* Hide the first (ed029…) image, show only the 95db one */
+  :host ::ng-deep #container .css-cfaotp .css-15tmrm .css-r0azwh > img.css-ez8men:nth-of-type(1) {
+    display: none !important;
+  }
+
+  :host ::ng-deep #container .css-cfaotp .css-15tmrm img.css-ez8men {
+    position: absolute !important;
+    inset: 0 !important;
+    top: 5px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    display: block !important;
+  }
+
+  :host ::ng-deep #container .css-cfaotp .css-umyxx0 {
+    order: 1 !important;
+  }
+
+  :host ::ng-deep #container .css-cfaotp .css-umyxx0 {
+    position: relative !important;
+    width: calc(100% + 17px) !important;
+    max-width: calc(100% + 17px) !important;
+    margin-left: -17px !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    background-color: #ffffff !important;
+    border-radius: 12px !important;
+    padding: 28px 22px !important;
+    box-sizing: border-box !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+  }
+
+  :host ::ng-deep #container .css-cfaotp .css-a8ckuu,
+  :host ::ng-deep #container .css-cfaotp .css-umfsb6,
+  :host ::ng-deep #container .css-cfaotp .css-a8cja0 {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+  }
+
+  /* Each list item row */
+  :host ::ng-deep #container .css-cfaotp .css-ehannn,
+  :host ::ng-deep #container .css-cfaotp .css-bp5ajl,
+  :host ::ng-deep #container .css-cfaotp .css-jrz419 {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+  }
+
+  /* Icon bubble */
+  :host ::ng-deep #container .css-cfaotp .css-ehannn .css-h5xwa9,
+  :host ::ng-deep #container .css-cfaotp .css-jrz419 .css-h5xwa9 {
+    position: relative !important;
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    flex-shrink: 0 !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    margin: 2px 0 0 0 !important;
+  }
+
+  :host ::ng-deep #container .css-cfaotp .css-ehannn .css-h5xwa9 img,
+  :host ::ng-deep #container .css-cfaotp .css-jrz419 .css-h5xwa9 img {
+    position: static !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 28px !important;
+    max-height: 28px !important;
+    object-fit: contain !important;
+    transform: none !important;
+  }
+
+  /* Item text side */
+  :host ::ng-deep #container .css-cfaotp .css-boob2k {
+    position: relative !important;
+    flex: 1 1 auto !important;
+    width: auto !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+  }
+
+  :host ::ng-deep #container .css-cfaotp .css-boob2k p,
+  :host ::ng-deep #container .css-cfaotp .css-snkgse p {
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+  }
+
+  :host ::ng-deep #container .css-cfaotp .css-snkgse {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    padding: 0 !important;
+  }
+
+  /* Section title + subtitle */
+  :host ::ng-deep #container .css-cfaotp .css-2hxbmz,
+  :host ::ng-deep #container .css-cfaotp .css-6vp3ws {
+    font-size: 25px !important;
+    line-height: 1.15 !important;
+    text-align: left !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  :host ::ng-deep #container .css-cfaotp .css-2hxbmz span,
+  :host ::ng-deep #container .css-cfaotp .css-6vp3ws span,
+  :host ::ng-deep #container .css-cfaotp span.wocso-small {
+    font-size: 12.5px !important;
+    line-height: 1 !important;
+    color: inherit !important;
+    display: inline !important;
+  }
+
+  :host ::ng-deep #container .css-cfaotp .css-xapyva,
+  :host ::ng-deep #container .css-cfaotp .css-8ul25a {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    text-align: left !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
+
+  /* A Platform That Showcases Your Talent — vertical stack on mobile */
+  :host ::ng-deep #container .css-unouix {
+    position: relative !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    left: auto !important;
+    right: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 20px 0 40px !important;
+    margin-top: 0 !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+    overflow-x: clip !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+  }
+
+  :host ::ng-deep #container .css-unouix * {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep #container .css-unouix .css-k8aai4 {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 360px !important;
+    margin: 0 auto !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 32px !important;
+  }
+
+  :host ::ng-deep #container .css-unouix .css-zfhupp {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 20px !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep #container .css-unouix .css-zfhupp p {
+    text-align: left !important;
+    white-space: normal !important;
+    max-width: 100% !important;
+  }
+
+  :host ::ng-deep #container .css-unouix .css-ghzu67 {
+    width: 100% !important;
+    max-width: 100vw !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 40px !important;
+  }
+
+  /* Each row is a sticky white card that stacks as you scroll (mirrors desktop) */
+  :host ::ng-deep #container .css-unouix .css-ghzu67 {
+    gap: 0 !important;
+  }
+
+  :host ::ng-deep #container .css-unouix .css-khdjro {
+    position: sticky !important;
+    align-self: flex-start !important;
+    top: 16px !important;
+    width: calc(100% - 32px) !important;
+    max-width: calc(100% - 32px) !important;
+    margin: 0 16px 20px !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 22px 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+    text-align: left !important;
+    left: auto !important;
+    transform: none !important;
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
+    background-color: #ffffff !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 22px rgba(0, 0, 0, 0.08) !important;
+  }
+
+  /* Offset each successive card so they stack visibly like desktop */
+  :host ::ng-deep #container .css-unouix .css-ghzu67 > .css-khdjro:nth-child(2) {
+    top: 26px !important;
+  }
+  :host ::ng-deep #container .css-unouix .css-ghzu67 > .css-khdjro:nth-child(3) {
+    top: 36px !important;
+  }
+
+  :host ::ng-deep #container .css-unouix .css-kf6ape {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    text-align: left !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+  }
+
+  :host ::ng-deep #container .css-unouix .css-a8ck2f {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+    padding: 0 !important;
+  }
+
+  :host ::ng-deep #container .css-unouix .css-gq10l4 p,
+  :host ::ng-deep #container .css-unouix .css-lf01z4 p,
+  :host ::ng-deep #container .css-unouix .css-nsap9t p {
+    text-align: left !important;
+  }
+
+  :host ::ng-deep #container .css-unouix .css-snkgse {
+    width: auto !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Number badge — small circle next to title */
+  :host ::ng-deep #container .css-unouix .css-kirr4r,
+  :host ::ng-deep #container .css-unouix .css-cyaly3 {
+    position: relative !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    flex-shrink: 0 !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+  }
+
+  :host ::ng-deep #container .css-unouix .css-o0azw2,
+  :host ::ng-deep #container .css-unouix .css-l6afda {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 50% !important;
+  }
+
+  :host ::ng-deep #container .css-unouix .css-uphm4n,
+  :host ::ng-deep #container .css-unouix .css-mctk5l {
+    position: absolute !important;
+    inset: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transform: none !important;
+    left: auto !important;
+    top: auto !important;
+  }
+
+  :host ::ng-deep #container .css-unouix .css-uphm4n p,
+  :host ::ng-deep #container .css-unouix .css-mctk5l p {
+    margin: 0 !important;
+    font-size: 12px !important;
+    line-height: 1 !important;
+  }
+
+  /* Title + description */
+  :host ::ng-deep #container .css-unouix .css-nsap9t {
+    width: auto !important;
+    padding: 0 !important;
+  }
+
+  :host ::ng-deep #container .css-unouix .css-nsap9t p {
+    font-size: 18px !important;
+    line-height: 1.25 !important;
+    margin: 0 !important;
+    white-space: normal !important;
+  }
+
+  :host ::ng-deep #container .css-unouix .css-gq10l4,
+  :host ::ng-deep #container .css-unouix .css-lf01z4 {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  :host ::ng-deep #container .css-unouix .css-gq10l4 p,
+  :host ::ng-deep #container .css-unouix .css-lf01z4 p {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+    white-space: normal !important;
+    max-width: 100% !important;
+  }
+
+  /* Kill the outer section's text padding since card itself is padded */
+  :host ::ng-deep #container .css-unouix .css-kf6ape {
+    padding: 0 !important;
+  }
+
+  /* Image side — contained inside the card */
+  :host ::ng-deep #container .css-unouix .css-iq9f6i {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    height: auto !important;
+    min-height: 180px !important;
+    max-height: none !important;
+    padding: 0 !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+    border-radius: 8px !important;
+  }
+
+  :host ::ng-deep #container .css-unouix .css-iq9f6i > .css-r0azwh {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 180px !important;
+    display: block !important;
+  }
+
+  /* Each row has 2 stacked images — hide first, show second */
+  :host ::ng-deep #container .css-unouix .css-iq9f6i > .css-r0azwh > img.css-ez8men:nth-of-type(1) {
+    display: none !important;
+  }
+
+  :host ::ng-deep #container .css-unouix .css-iq9f6i img.css-ez8men {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    min-height: 180px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+  }
+
+  /* Footer bottom row (© 2026 + Back to top) — center on mobile so both
+     ends stay inside the viewport, with the text and button aligned on
+     a single centered row. */
+  :host ::ng-deep #container .css-b0jis2 {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    padding: 12px 16px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+  :host ::ng-deep #container .css-b0jis2 > p,
+  :host ::ng-deep #container .css-b0jis2 > button {
+    margin: 0 !important;
+    text-align: center !important;
+    align-self: center !important;
+  }
+  :host ::ng-deep #container .css-b0jis2 > button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+  }
+
+  /* Ready to Join a Thriving Community? — background image must not stretch */
+  :host ::ng-deep #container .css-nllq1o {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow: hidden !important;
+  }
+
+  :host ::ng-deep #container .css-nllq1o > .css-r0azwh,
+  :host ::ng-deep #container .css-nllq1o > .css-r0azwh .css-phc9f9 {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  :host ::ng-deep #container .css-nllq1o .css-43d4nr {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+  }
+
+  /* Constrain every text/form child so nothing overflows the viewport */
+  :host ::ng-deep #container .css-nllq1o .css-gxdil1,
+  :host ::ng-deep #container .css-nllq1o .css-yiw6sn,
+  :host ::ng-deep #container .css-nllq1o .css-d455ri,
+  :host ::ng-deep #container .css-nllq1o .css-b84j9q,
+  :host ::ng-deep #container .css-nllq1o .css-sotq9e,
+  :host ::ng-deep #container .css-nllq1o .css-6bx0tj,
+  :host ::ng-deep #container .css-nllq1o .css-hdvvn5,
+  :host ::ng-deep #container .css-nllq1o .css-93wn39 {
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+  }
+
+  :host ::ng-deep #container .css-nllq1o * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  :host ::ng-deep #container .css-nllq1o p {
+    white-space: normal !important;
+    max-width: 100% !important;
+  }
+
+  /* Shift the title + subtitle block up 20px (visual only) */
+  :host ::ng-deep #container .css-nllq1o .css-93wn39 {
+    transform: translateY(-30px) !important;
+  }
+
+  /* "Take the first step..." subtitle — black with "your goals" in white */
+  :host ::ng-deep #container .css-nllq1o .css-4wg6y,
+  :host ::ng-deep #container .css-nllq1o .css-h9j71c,
+  :host ::ng-deep #container .css-nllq1o .css-fhhq3m {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    -webkit-text-stroke: 0 !important;
+    text-stroke: 0 !important;
+  }
+
+  :host ::ng-deep #container .css-nllq1o .rtjtc-goals {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+  }
+
+  /* Form button + expected launch — kill fixed tailwind widths */
+  :host ::ng-deep #container .css-nllq1o .tailwind button,
+  :host ::ng-deep #container .css-nllq1o .tailwind [class*="w-["] {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  :host ::ng-deep #container .css-nllq1o .tailwind [class*="text-nowrap"],
+  :host ::ng-deep #container .css-nllq1o .tailwind [class*="whitespace-pre"] {
+    white-space: normal !important;
+  }
+
+  /* Decorative background SVG — don't stretch on mobile */
+  :host ::ng-deep #container .css-337j3k .css-x5zj6c {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: auto !important;
+    left: 50% !important;
+    top: 0 !important;
+  }
+
+  :host ::ng-deep #container .css-337j3k .css-x5zj6c img,
+  :host ::ng-deep #container .css-337j3k .css-x5zj6c svg {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+
+  /* What our Community Says — constrain to viewport */
+  :host ::ng-deep #container .css-337j3k,
+  :host ::ng-deep #container .css-337j3k .css-attli9 {
+    width: 100% !important;
+    max-width: 100vw !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 4px !important;
+    box-sizing: border-box !important;
+    overflow-x: clip !important;
+  }
+
+  :host ::ng-deep #container .css-337j3k .css-gw4qyc {
+    transform: translateY(30px) !important;
+  }
+
+  :host ::ng-deep #container .css-337j3k .css-yxvwf7 {
+    font-size: 31.68px !important;
+    line-height: 1.15 !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    max-width: 92vw !important;
+  }
+
+  /* Subtitle wrapper is a flex item (column parent .css-wbr9p4 with
+     align-items: center). Without align-self: stretch or an explicit
+     width, the p takes content-width and won't wrap. */
+  :host ::ng-deep #container .css-337j3k .css-gw4qyc,
+  :host ::ng-deep #container .css-337j3k .css-wbr9p4 {
+    height: auto !important;
+    min-height: 0 !important;
+    max-width: calc(100vw - 16px) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep #container .css-337j3k .css-yxvwf7,
+  :host ::ng-deep #container .css-337j3k .css-59rdls,
+  :host ::ng-deep #container .css-337j3k .css-e5cn3h {
+    display: block !important;
+    align-self: stretch !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: calc(100vw - 16px) !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+  }
+
+  :host ::ng-deep #container .css-337j3k .css-e5cn3h {
+    font-size: 14.52px !important;
+    line-height: 1.4 !important;
+    transform: translateY(4px) !important;
+  }
+
+  /* Carousel: .css-2acloa is the row wrapper containing prev-svg, testimonial, next-btn */
+  :host ::ng-deep #container .css-337j3k .css-2acloa {
+    transform: translateY(-20px) !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-areas:
+      "content content"
+      "prev next" !important;
+    row-gap: 16px !important;
+    column-gap: 10px !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 0 12px !important;
+    box-sizing: border-box !important;
+    justify-items: center !important;
+    align-items: center !important;
+    gap: 16px 10px !important;
+  }
+
+  /* Hide Figma's original prev-arrow SVG (direct child .css-bhht40 of .css-2acloa) */
+  :host ::ng-deep #container .css-337j3k .css-2acloa > .css-bhht40 {
+    display: none !important;
+  }
+
+  /* Testimonial spans the top row */
+  :host ::ng-deep #container .css-337j3k .css-2acloa > .css-i5cthg {
+    grid-area: content !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    justify-self: stretch !important;
+  }
+
+  /* Next button wrapper keeps its grid slot */
+  :host ::ng-deep #container .css-337j3k .css-2acloa > .css-uyiyxe {
+    grid-area: next !important;
+    justify-self: center !important;
+    width: 44px !important;
+    height: 44px !important;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+  }
+
+  /* Hide the SVG chrome inside the next button */
+  :host ::ng-deep #container .css-337j3k .css-2acloa > .css-uyiyxe > * {
+    display: none !important;
+  }
+
+  /* Draw a circular prev button via a ::before on the row, placed in the prev grid area */
+  :host ::ng-deep #container .css-337j3k .css-2acloa::before {
+    content: "‹" !important;
+    grid-area: prev !important;
+    justify-self: center !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    background: #000000 !important;
+    color: #ffffff !important;
+    font-size: 24px !important;
+    line-height: 44px !important;
+    text-align: center !important;
+    font-family: sans-serif !important;
+    display: block !important;
+    cursor: pointer !important;
+  }
+
+  /* Draw a circular next button via a ::before on the next wrapper */
+  :host ::ng-deep #container .css-337j3k .css-2acloa > .css-uyiyxe::before {
+    content: "›" !important;
+    display: block !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    background: #000000 !important;
+    color: #ffffff !important;
+    font-size: 24px !important;
+    line-height: 44px !important;
+    text-align: center !important;
+    font-family: sans-serif !important;
+    cursor: pointer !important;
+  }
+
+  :host ::ng-deep #container .css-337j3k .css-i5eprx {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Arrow hit areas — keep them on-screen */
+  :host ::ng-deep #container .css-337j3k .css-2acloa > .carousel-arrow,
+  :host ::ng-deep #container .css-337j3k .css-uyiyxe {
+    flex-shrink: 0 !important;
+    width: auto !important;
+  }
+
+  :host ::ng-deep #container .css-337j3k .css-2acloa .css-bhht40 {
+    width: 28px !important;
+    height: 28px !important;
+    flex-shrink: 0 !important;
+  }
+
+  :host ::ng-deep #container .css-337j3k *,
+  :host ::ng-deep #container .css-337j3k .css-attli9 * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Hide the duplicate custom nav on mobile — the ::before pseudo arrows
+     already render under the testimonial via the grid layout above. */
+  :host ::ng-deep #container .css-337j3k .custom-carousel-nav {
+    display: none !important;
+  }
+
+  /* Voices of the Caribbean video — fullscreen on mobile */
+  :host ::ng-deep #container .css-atgcpy,
+  :host ::ng-deep #container .css-atgcpy > .css-gxdil1,
+  :host ::ng-deep #container .css-atgcpy .css-lkdw5v {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep #container .css-atgcpy .css-ve8l3g {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    min-width: 0 !important;
+    position: relative !important;
+  }
+
+  :host ::ng-deep #container .css-atgcpy .css-ve8l3g > div,
+  :host ::ng-deep #container .css-atgcpy .css-ve8l3g iframe {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* Text side — keep inside viewport, centered */
+  :host ::ng-deep #container .css-5oquvv .css-23twqj,
+  :host ::ng-deep #container .css-5oquvv .css-zfhun4,
+  :host ::ng-deep #container .css-5oquvv .css-1r8mru {
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    padding: 0 4px !important;
+    min-width: 0 !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  :host ::ng-deep #container .css-5oquvv .css-23twqj p,
+  :host ::ng-deep #container .css-5oquvv .css-1r8mru p {
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+
+  /* Icon box — small circular icon beneath each card image */
+  :host ::ng-deep #container .css-5oquvv .css-h5xwa9 {
+    position: relative !important;
+    width: 36px !important;
+    height: 36px !important;
+    max-width: 100% !important;
+    margin: 20px auto 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    overflow: visible !important;
+  }
+
+  :host ::ng-deep #container .css-5oquvv .css-h5xwa9 .css-e5xl17 {
+    position: static !important;
+    transform: none !important;
+    width: 36px !important;
+    height: 36px !important;
+    top: auto !important;
+    left: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  :host ::ng-deep #container .css-5oquvv .css-h5xwa9 .css-e5xl17 img {
+    position: static !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 36px !important;
+    max-height: 36px !important;
+    object-fit: contain !important;
+  }
+
+  :host ::ng-deep #container .css-g9qt8c {
+    gap: 32px !important;
+    padding: 64px 24px !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep .prospective-partners-block {
+    gap: 6px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  :host ::ng-deep .prospective-partners-title {
+    margin: 0 !important;
+  }
+
+  :host ::ng-deep .prospective-partners-subtitle {
+    margin: 0 0 10px !important;
+  }
+
+  :host ::ng-deep .prospective-partners-logos {
+    display: grid !important;
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    gap: 28px 10px !important;
+    width: 100% !important;
+    margin-top: 14px;
+    justify-items: center !important;
+    align-items: center !important;
+  }
+
+  :host ::ng-deep #container .css-4i2lzp {
+    display: grid !important;
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    gap: 28px 10px !important;
+    padding: 0 !important;
+    justify-content: stretch !important;
+    align-items: center !important;
+  }
+
+  :host ::ng-deep #container .css-4i2lzp > div {
+    grid-column: span 2 !important;
+    width: 100% !important;
+    max-width: none !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: auto !important;
+    min-height: 54px !important;
+    padding: 6px !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep #container .css-4i2lzp > div:nth-child(7) {
+    grid-column: 2 / span 2 !important;
+    justify-self: center !important;
+  }
+
+  :host ::ng-deep #container .css-4i2lzp > div:nth-child(8) {
+    grid-column: 4 / span 2 !important;
+    justify-self: center !important;
+  }
+
+  :host ::ng-deep #container .css-4i2lzp img {
+    width: auto !important;
+    max-width: 86px !important;
+    height: auto !important;
+    max-height: 52px !important;
+    object-fit: contain !important;
+  }
+
+  :host ::ng-deep #container .css-4i2lzp > div:nth-child(8) img {
+    max-width: 132px !important;
+    max-height: 72px !important;
+  }
+}
+
+/* Hero button hover states — applied on all viewports so mobile taps
+   get the same sticky-hover behavior as desktop pointer hover. */
+:host ::ng-deep .css-z8tzya > .css-tyqn17,
+:host ::ng-deep .css-z8tzya > .css-tyqn17 .css-r0azwh,
+:host ::ng-deep .css-z8tzya > .css-tyqn17 .css-ggwoeh,
+:host ::ng-deep .css-z8tzya > .css-tyqn17 .css-v88b74,
+:host ::ng-deep .css-z8tzya > .css-tyqn17 .css-f7juvu,
+:host ::ng-deep .css-z8tzya > .css-tyqn17 .css-v88b74 p,
+:host ::ng-deep .css-z8tzya > .css-tyqn17 .css-f7juvu p {
+  cursor: pointer;
+  transition:
+    background-color 420ms ease,
+    border-color 420ms ease,
+    color 420ms ease,
+    -webkit-text-fill-color 420ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:host ::ng-deep .css-z8tzya > .css-tyqn17 {
+  outline: none !important;
+}
+
+/* Button 1 (Join the Waitlist) — swap inner yellow bg to orange on hover */
+:host ::ng-deep .css-z8tzya > .css-tyqn17:nth-child(1):hover .css-r0azwh {
+  background-color: #e85e2c !important;
+}
+
+/* Button 2 (Explore Communities) — fill the transparent button with orange on hover */
+:host ::ng-deep .css-z8tzya > .css-tyqn17:nth-child(2):hover {
+  background-color: #e85e2c !important;
+  border-radius: 1.5px !important;
+}
+
+:host ::ng-deep .css-z8tzya > .css-tyqn17:nth-child(2):hover .css-ggwoeh {
+  border-color: #e85e2c !important;
+}
+
+/* Hover text → black on both buttons */
+:host ::ng-deep .css-z8tzya > .css-tyqn17:hover .css-v88b74,
+:host ::ng-deep .css-z8tzya > .css-tyqn17:hover .css-f7juvu,
+:host ::ng-deep .css-z8tzya > .css-tyqn17:hover .css-v88b74 p,
+:host ::ng-deep .css-z8tzya > .css-tyqn17:hover .css-f7juvu p {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+
+/* Footer bottom row — copyright + Back to top — shrunken */
+:host ::ng-deep #container .css-b0jis2 p {
+  font-size: 10px !important;
+}
+:host ::ng-deep #container .css-b0jis2 .css-u7g7t {
+  transform: scale(0.8);
+  transform-origin: center;
+}
+
+/* Footer spacing tightening */
+:host ::ng-deep #container .css-z8tvcy {
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 36px !important;
+}
+:host ::ng-deep #container .css-zfhta1 {
+  gap: 14px !important;
+}
+:host ::ng-deep #container .css-cf1rk {
+  gap: 28px !important;
+}
+
+/* Footer "Back to Capture Caribbean" link */
+:host ::ng-deep #container .cc-footer-back-link {
+  flex-basis: 100% !important;
+  width: 100% !important;
+  margin-top: 2px !important;
+  text-align: center !important;
+}
+:host ::ng-deep #container .cc-footer-back-link p {
+  text-align: center !important;
+}
+:host ::ng-deep #container .cc-footer-back-link-text,
+:host ::ng-deep #container .cc-footer-back-link-text strong {
+  color: #b8b8b8 !important;
+  -webkit-text-fill-color: #b8b8b8 !important;
+  font-size: 11px !important;
+  line-height: 1.2 !important;
+}
+:host ::ng-deep #container .cc-footer-back-link-text strong {
+  font-weight: 700 !important;
+}
+
+/* Footer bottom row (© 2026 + Back to top) — stack centered on tablet too. */
+@media (min-width: 769px) and (max-width: 1100px) {
+  :host ::ng-deep #container .css-b0jis2 {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    padding: 12px 16px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+  :host ::ng-deep #container .css-b0jis2 > p,
+  :host ::ng-deep #container .css-b0jis2 > button {
+    margin: 0 !important;
+    text-align: center !important;
+    align-self: center !important;
+  }
+  :host ::ng-deep #container .css-b0jis2 > button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+  }
+}
+
+/* Tablet only: show the What Our Community Says carousel arrows. */
+@media (min-width: 769px) and (max-width: 1100px) {
+  :host ::ng-deep .custom-carousel-nav {
+    display: flex !important;
+  }
+}

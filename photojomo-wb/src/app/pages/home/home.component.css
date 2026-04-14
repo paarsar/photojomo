@@ -428,6 +428,10 @@
     display: none;
   }
 
+  .hero-main-image[src*="summer-day"] {
+    object-position: calc(50% - 50px) center !important;
+  }
+
   #tri-path-sm {
     display: flex !important;
     flex-direction: column !important;

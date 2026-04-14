@@ -1,5 +1,12 @@
 /* Styles are in global styles.css */
 
+:host ::ng-deep .footer-bonus-copy {
+  color: #ffffff !important;
+  margin-top: 2px !important;
+  margin-bottom: 2px !important;
+  line-height: 1.2 !important;
+}
+
 :host ::ng-deep #container .css-8fq6lu {
   position: relative;
 }
@@ -44,5 +51,680 @@
   width: min(372px, 82vw);
   height: auto;
   margin: 0 auto;
+}
+
+@media (min-width: 769px) and (max-width: 1100px) {
+  :host ::ng-deep #container .css-vhq6dg {
+    width: calc(100% - 64px) !important;
+    max-width: 960px !important;
+    left: 50% !important;
+    top: 28px !important;
+    height: auto !important;
+  }
+
+  :host ::ng-deep #container .css-vuhhsd .css-a7a9bu {
+    font-size: 28px !important;
+    line-height: 1.2 !important;
+  }
+
+  :host ::ng-deep #container .css-vuhhsd .css-2gbjjk {
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    gap: 8px !important;
+  }
+
+  :host ::ng-deep #container .css-vuhhsd .css-1h3yy0 {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  :host ::ng-deep #container .css-vuhhsd .css-1h3yy0 .css-r7uvbe,
+  :host ::ng-deep #container .css-vuhhsd .css-1h3yy0 .css-b8nnks {
+    font-size: 43px !important;
+    line-height: 1.15 !important;
+  }
+
+  :host ::ng-deep #container .css-vuhhsd .css-kvxdad {
+    font-size: 17px !important;
+    line-height: 1.55 !important;
+  }
+
+  :host ::ng-deep #container .css-vuhhsd .css-z8tyjh {
+    width: 100% !important;
+    max-width: calc(100vw - 64px) !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    gap: 16px !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep #container .css-vuhhsd .css-3h04gc,
+  :host ::ng-deep #container .css-vuhhsd .css-thdnum {
+    flex: 1 1 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    height: auto !important;
+    aspect-ratio: 3 / 2 !important;
+    position: relative !important;
+  }
+
+  :host ::ng-deep #container .css-vuhhsd .css-3h04gc img,
+  :host ::ng-deep #container .css-vuhhsd .css-thdnum img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-72kw6x {
+    white-space: nowrap !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-72kw6x .css-r7uvbe {
+    white-space: nowrap !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-72kw6x .css-r7uvbe br {
+    display: none !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-72kw6x .css-r7uvbe strong::before {
+    content: " ";
+    white-space: pre;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-5idbcs.css-jvpnk3 {
+    width: 100% !important;
+    max-width: calc(100vw - 64px) !important;
+    margin: -40px auto 0 !important;
+    padding: 0 !important;
+    gap: 16px !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-zfhtxa {
+    flex: 1 1 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-u2sh78 {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 302.25 / 189.052 !important;
+    position: relative !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-u2sh78 img,
+  :host ::ng-deep #container .css-cff8ov .css-u2sh78 .css-r0azwh,
+  :host ::ng-deep #container .css-cff8ov .css-u2sh78 .css-phc9f9 {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-u2sh78 .css-hf8lmr {
+    background-color: transparent !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-jm9nns {
+    display: block !important;
+    transform: scale(calc((100vw - 64px) / 1216.5px)) !important;
+    transform-origin: top center !important;
+  }
+
+  /* Guided by Visionaries */
+  :host ::ng-deep #container .css-dwyaap {
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 56px 32px 0 !important;
+    margin-bottom: -24px !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep #container .css-dwyaap .css-xxs0ka {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+
+  :host ::ng-deep #container .css-dwyaap .css-zfhscg {
+    width: 100% !important;
+    max-width: 100% !important;
+    align-items: center !important;
+    margin-top: -32px !important;
+  }
+
+  :host ::ng-deep #container .css-dwyaap .css-ke54z0 {
+    width: 100% !important;
+    max-width: 720px !important;
+    text-align: center !important;
+    white-space: normal !important;
+  }
+
+  :host ::ng-deep #container .css-dwyaap .css-22itc5,
+  :host ::ng-deep #container .css-dwyaap .css-yz2z5y {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  :host ::ng-deep #container .css-dwyaap .css-yz2z5y {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    gap: 40px !important;
+    flex-wrap: nowrap !important;
+  }
+
+  :host ::ng-deep #container .css-dwyaap .css-i5gr7j,
+  :host ::ng-deep #container .css-dwyaap .css-az206m {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    width: auto !important;
+    max-width: 50% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  :host ::ng-deep #container .css-dwyaap .css-ox9wsj,
+  :host ::ng-deep #container .css-dwyaap .css-cnvdmg {
+    width: 100% !important;
+    max-width: 320px !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    position: relative !important;
+  }
+
+  :host ::ng-deep #container .css-dwyaap .css-ox9wsj img,
+  :host ::ng-deep #container .css-dwyaap .css-cnvdmg img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  :host ::ng-deep #container .css-dwyaap .css-crhnqz {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  :host ::ng-deep #container .css-dwyaap .css-31x1tg,
+  :host ::ng-deep #container .css-dwyaap .css-i5gqhp {
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* Footer — from home.component.css tablet block */
+  :host ::ng-deep #container .css-p70z91 {
+    width: 100% !important;
+    padding: 48px 32px 32px !important;
+    box-sizing: border-box !important;
+    gap: 28px !important;
+  }
+
+  :host ::ng-deep #container .css-p70z91 .css-ra9f2e {
+    width: 100% !important;
+  }
+
+  :host ::ng-deep #container .css-p70z91 .css-jvpnk3 {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr) minmax(0, 1fr) !important;
+    align-items: start !important;
+    gap: 28px !important;
+  }
+
+  :host ::ng-deep #container .css-p70z91 .css-49kvq1,
+  :host ::ng-deep #container .css-p70z91 .css-pr5rfd,
+  :host ::ng-deep #container .css-p70z91 .css-dczajm.css-paq0kv {
+    min-width: 0 !important;
+  }
+
+  :host ::ng-deep #container .css-p70z91 .css-7xhp8u,
+  :host ::ng-deep #container .css-p70z91 .css-eyahki {
+    width: auto !important;
+  }
+
+  :host ::ng-deep #container .css-p70z91 .css-eyahki {
+    gap: 24px !important;
+    flex-wrap: wrap !important;
+  }
+
+  :host ::ng-deep #container .css-p70z91 .css-h5oqay {
+    justify-content: flex-start !important;
+    gap: 28px 36px !important;
+  }
+
+  :host ::ng-deep #container .css-p70z91 .css-ogcvv7,
+  :host ::ng-deep #container .css-p70z91 .css-gzmw6b {
+    width: 100% !important;
+  }
+
+  :host ::ng-deep #container .css-p70z91 .css-ro9fcw,
+  :host ::ng-deep #container .css-p70z91 .css-bv2n15 {
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+  :host ::ng-deep .footer-bonus-copy {
+    color: #ffffff !important;
+    font-size: 0.78em !important;
+    margin-top: -6px !important;
+    margin-bottom: -6px !important;
+    line-height: 1 !important;
+    padding: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  :host ::ng-deep #container .css-8fq6lu img {
+    object-position: calc(50% - 110px) calc(50% - 30px) !important;
+    filter: saturate(1.12) contrast(1.04) !important;
+  }
+
+  :host ::ng-deep #container .css-zfhukj,
+  :host ::ng-deep #container .css-3ftvts {
+    width: auto !important;
+    max-width: 92vw !important;
+    margin: 0 auto !important;
+  }
+
+  :host ::ng-deep #container .css-lb0d0l {
+    font-size: clamp(28px, 9.5vw, 52px) !important;
+    line-height: 1.15 !important;
+    white-space: nowrap !important;
+    max-width: 96vw !important;
+  }
+
+  :host ::ng-deep #container .css-4hz9sg {
+    font-size: clamp(10px, 3.3vw, 16px) !important;
+    line-height: 1.4 !important;
+    white-space: nowrap !important;
+    max-width: 96vw !important;
+  }
+
+  :host ::ng-deep #container .css-vuhhsd {
+    margin-top: -80px !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  :host ::ng-deep #container .css-vuhhsd .css-hxrp4x {
+    height: auto !important;
+    padding-top: 40px !important;
+    gap: 48px !important;
+  }
+
+  /* About the Vision — keep title/body within viewport */
+  :host ::ng-deep #container .css-vuhhsd,
+  :host ::ng-deep #container .css-vuhhsd .css-5knerd,
+  :host ::ng-deep #container .css-vuhhsd .css-gxdil1,
+  :host ::ng-deep #container .css-vuhhsd .css-vykoy5,
+  :host ::ng-deep #container .css-vuhhsd .css-vykoy5 > *,
+  :host ::ng-deep #container .css-vuhhsd .css-dyuwb8,
+  :host ::ng-deep #container .css-vuhhsd .css-dczajm,
+  :host ::ng-deep #container .css-vuhhsd .css-bdcjwj {
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep #container .css-vuhhsd .css-vykoy5 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    align-items: center !important;
+  }
+
+  :host ::ng-deep #container .css-vuhhsd .css-dyuwb8.css-dczajm {
+    padding: 0 24px !important;
+  }
+
+  :host ::ng-deep #container .css-vuhhsd .css-a7a9bu,
+  :host ::ng-deep #container .css-vuhhsd .css-1h3yy0,
+  :host ::ng-deep #container .css-vuhhsd .css-59rdls {
+    width: 100% !important;
+    max-width: calc(100vw - 48px) !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  :host ::ng-deep #container .css-vuhhsd .css-a7a9bu {
+    font-size: clamp(16px, 5vw, 24px) !important;
+    line-height: 1.2 !important;
+  }
+
+  :host ::ng-deep #container .css-vuhhsd .css-1h3yy0 {
+    font-size: 0 !important;
+    line-height: 1.2 !important;
+  }
+
+  :host ::ng-deep #container .css-vuhhsd .css-1h3yy0 .css-r7uvbe,
+  :host ::ng-deep #container .css-vuhhsd .css-1h3yy0 .css-b8nnks {
+    font-size: clamp(22px, 7vw, 34px) !important;
+    line-height: 1.2 !important;
+  }
+
+  /* About the Vision — stack the 4 images vertically */
+  :host ::ng-deep #container .css-vuhhsd .css-z8tyjh {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 28px !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 6px 0 0 !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep #container .css-vuhhsd .css-3h04gc,
+  :host ::ng-deep #container .css-vuhhsd .css-thdnum {
+    width: 88vw !important;
+    max-width: 88vw !important;
+    height: auto !important;
+    aspect-ratio: 3 / 2 !important;
+    margin: 0 auto !important;
+    position: relative !important;
+  }
+
+  :host ::ng-deep #container .css-vuhhsd .css-3h04gc img,
+  :host ::ng-deep #container .css-vuhhsd .css-thdnum img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-72kw6x {
+    white-space: normal !important;
+    line-height: 1.15 !important;
+    text-align: center !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-72kw6x .css-r7uvbe {
+    font-size: clamp(22px, 7vw, 32px) !important;
+    line-height: 1.15 !important;
+  }
+
+  /* The Journey — stack 4 timeline items vertically */
+  :host ::ng-deep #container .css-cff8ov,
+  :host ::ng-deep #container .css-zfhqws,
+  :host ::ng-deep #container .css-otjbs4 {
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    padding: 0 20px !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-5idbcs {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-5idbcs.css-jvpnk3 {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 36px !important;
+    justify-content: flex-start !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-zfhtxa {
+    width: 100% !important;
+    max-width: 100% !important;
+    align-items: center !important;
+    gap: 14px !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-u2sh78 {
+    width: 88vw !important;
+    max-width: 88vw !important;
+    height: auto !important;
+    aspect-ratio: 302.25 / 189.052 !important;
+    position: relative !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-u2sh78 img,
+  :host ::ng-deep #container .css-cff8ov .css-u2sh78 .css-r0azwh,
+  :host ::ng-deep #container .css-cff8ov .css-u2sh78 .css-phc9f9 {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-u2sh78 .css-hf8lmr {
+    background-color: transparent !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-nc9rp1 {
+    gap: 4px !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-nc9rp1 .css-oqw3rp {
+    margin-top: -6px !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-oqw3rp {
+    width: 100% !important;
+    max-width: 88vw !important;
+    text-align: center !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-oqw3rp p {
+    max-width: 100% !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* Journey — hide the connector line graphic on mobile */
+  :host ::ng-deep #container .css-cff8ov .css-jm9nns {
+    display: none !important;
+  }
+
+  /* Capture Saint Lucia International Tour section */
+  :host ::ng-deep #container .css-mzafbe {
+    height: auto !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+
+  :host ::ng-deep #container .css-mzafbe .css-zfhqyi {
+    gap: 28px !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep #container .css-mzafbe .css-zfhtsz {
+    width: 100% !important;
+    max-width: calc(100vw - 40px) !important;
+    gap: 12px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+
+  :host ::ng-deep #container .css-mzafbe .css-i5dhxi {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    white-space: normal !important;
+    line-height: 1.15 !important;
+    margin-bottom: 3px !important;
+  }
+
+  :host ::ng-deep #container .css-mzafbe .css-i5dhxi .css-4srw5j {
+    font-size: clamp(24px, 7.2vw, 36px) !important;
+    line-height: 1.15 !important;
+    display: block !important;
+  }
+
+  :host ::ng-deep #container .css-mzafbe .css-i5dhxi .css-j52n5 {
+    font-size: clamp(26px, 8vw, 40px) !important;
+    line-height: 1.15 !important;
+    display: block !important;
+  }
+
+  :host ::ng-deep #container .css-mzafbe .css-bwgi78 {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: clamp(15px, 4.2vw, 18px) !important;
+    line-height: 1.55 !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  :host ::ng-deep #container .css-mzafbe .css-rkn5y0 {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: calc(62.75vw + 200px) !important;
+    min-height: calc(62.75vw + 200px) !important;
+    margin: 0 auto !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  :host ::ng-deep #container .css-mzafbe .css-1wyj9q {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    left: 0 !important;
+    top: 0 !important;
+  }
+
+  /* Guided by Visionaries section */
+  :host ::ng-deep #container .css-dwyaap {
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 40px 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep #container .css-dwyaap .css-xxs0ka,
+  :host ::ng-deep #container .css-dwyaap .css-zfhscg,
+  :host ::ng-deep #container .css-dwyaap .css-22itc5,
+  :host ::ng-deep #container .css-dwyaap .css-yz2z5y,
+  :host ::ng-deep #container .css-dwyaap .css-i5gr7j,
+  :host ::ng-deep #container .css-dwyaap .css-az206m,
+  :host ::ng-deep #container .css-dwyaap .css-crhnqz,
+  :host ::ng-deep #container .css-dwyaap .css-f632k4 {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep #container .css-dwyaap .css-xxs0ka {
+    text-align: center !important;
+    white-space: normal !important;
+    line-height: 1.15 !important;
+    margin-bottom: 2px !important;
+  }
+
+  :host ::ng-deep #container .css-dwyaap .css-xxs0ka .css-r7uvbe,
+  :host ::ng-deep #container .css-dwyaap .css-xxs0ka .css-34iesg {
+    font-size: clamp(26px, 8vw, 40px) !important;
+    line-height: 1.15 !important;
+  }
+
+  :host ::ng-deep #container .css-dwyaap .css-ke54z0 {
+    width: 100% !important;
+    max-width: 92vw !important;
+    margin: 0 auto 24px !important;
+    margin-top: 0 !important;
+  }
+
+  :host ::ng-deep #container .css-dwyaap .css-zfhscg {
+    gap: 18px !important;
+    margin-top: -35px !important;
+    text-align: center !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    font-size: clamp(15px, 4.2vw, 18px) !important;
+    line-height: 1.5 !important;
+  }
+
+  :host ::ng-deep #container .css-dwyaap .css-yz2z5y {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 40px !important;
+  }
+
+  :host ::ng-deep #container .css-dwyaap .css-az206m {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 14px !important;
+  }
+
+  :host ::ng-deep #container .css-dwyaap .css-ox9wsj,
+  :host ::ng-deep #container .css-dwyaap .css-cnvdmg {
+    width: 78vw !important;
+    max-width: 78vw !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    position: relative !important;
+    margin: 0 auto !important;
+  }
+
+  :host ::ng-deep #container .css-dwyaap .css-ox9wsj img,
+  :host ::ng-deep #container .css-dwyaap .css-cnvdmg img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  :host ::ng-deep #container .css-dwyaap .css-crhnqz {
+    text-align: center !important;
+  }
+
+  :host ::ng-deep #container .css-dwyaap .css-nnm6d8 {
+    font-size: clamp(20px, 5.6vw, 26px) !important;
+    line-height: 1.2 !important;
+  }
+
+  :host ::ng-deep #container .css-dwyaap .css-eenlam,
+  :host ::ng-deep #container .css-dwyaap .css-g08z43 {
+    font-size: clamp(10px, 2.8vw, 12px) !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  :host ::ng-deep #container .css-dwyaap .css-31x1tg,
+  :host ::ng-deep #container .css-dwyaap .css-i5gqhp {
+    width: 100% !important;
+    max-width: 88vw !important;
+    font-size: clamp(11px, 3vw, 13px) !important;
+    line-height: 1.45 !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  :host ::ng-deep #container .css-dwyaap .css-bz2tic {
+    display: none !important;
+  }
+
+  :host ::ng-deep #container .css-mzafbe .css-1wyj9q img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transform: scale(1.05) !important;
+    transform-origin: center top !important;
+    object-position: center top !important;
+  }
 }
 

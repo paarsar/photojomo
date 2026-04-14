@@ -44,7 +44,7 @@
                               <p
                                 class="css-tzn6qh css-w9lend css-mly5wr css-ueucp2 textContents"
                               >
-                                A home for the Caribbean Creative Spirit.
+                                A home for the<br />Caribbean Creative Spirit.
                               </p>
                             </div>
                           </div>
@@ -56,15 +56,20 @@
                         <p
                           class="css-nf5ac4 css-rhxma0 css-4xz6kg css-wh4ihv textContents"
                         >
-                          Join thousands of passionate creators, learners, and
-                          innovators in a community where your ideas come to
-                          life
+                          Join thousands of passionate creators,<br />
+                          learners, and innovators in a community where<br />
+                          your ideas come to life
                         </p>
                       </div>
                       <div class="css-z8tzya css-paq0kv">
                         <div
                           class="css-tyqn17 css-5knerd"
-                          style="border-radius: 1.5px; opacity: 1"
+                          tabindex="0"
+                          role="button"
+                          (click)="scrollToThriving()"
+                          (keydown.enter)="scrollToThriving()"
+                          (keydown.space)="scrollToThriving()"
+                          style="border-radius: 1.5px; opacity: 1; cursor: pointer"
                         >
                           <div
                             class="css-trglf0 css-r0azwh"
@@ -105,6 +110,8 @@
                         </div>
                         <div
                           class="css-tyqn17 css-5knerd"
+                          tabindex="0"
+                          role="button"
                           style="border-radius: 1.5px; opacity: 1"
                         >
                           <div
@@ -139,70 +146,7 @@
                     </div>
                   </div>
                 </div>
-                <div
-                  class="css-hdvvn5 css-9xoj0x css-yptomi"
-                  style="transform: translateX(-50%)"
-                >
-                  <div class="css-3ywmdr css-wc1msa" data-isimage="true">
-                    <img
-                      src="https://capturecaribbean.figma.site/_assets/v11/d196a89933d233d080f383a83ef6e21b89580e9a.png"
-                      alt=""
-                      width="247"
-                      height="72"
-                      class="css-tzn6qh css-ez8men"
-                      srcset="
-                        https://capturecaribbean.figma.site/_assets/v11/d196a89933d233d080f383a83ef6e21b89580e9a.png 247w
-                      "
-                      sizes="247px"
-                    />
-                  </div>
-                  <div class="css-b18ji2 css-paq0kv">
-                    <a
-                      class="textContents css-wc1msa css-q6rpi1 css-m4lklc"
-                      routerLink="/"
-                      target="_self"
-                      ><p class="css-8zr56v css-4i1sn1">Home</p></a
-                    >
-                    <div class="css-810pz8 css-paq0kv">
-                      <p class="css-nf5ac4 css-igl7nu css-ueucp2 textContents">
-                        The Experience
-                      </p>
-                      <div
-                        class="css-xpqoi5 css-bhht40"
-                        style="
-                          --transform-inner-width: 5.328125;
-                          --transform-inner-height: 9.6875;
-                        "
-                      >
-                        <div class="css-ayg824 css-dyglrz">
-                          <div
-                            class="css-vf8mzy css-q2sxy2"
-                            data-isimage="true"
-                          >
-                            <img
-                              src="https://capturecaribbean.figma.site/_assets/v11/855df609e9491a81693ad7994a7777cc2f900e06.svg"
-                              alt=""
-                              class="css-tzn6qh css-ez8men"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <a
-                      class="css-810pz8 css-hf9sha"
-                      routerLink="/about-us"
-                      target="_self"
-                      ><p class="css-nf5ac4 css-igl7nu css-ueucp2 textContents">
-                        The Vision
-                      </p></a
-                    ><a
-                      class="textContents css-wc1msa css-q6rpi1 css-m4lklc"
-                      routerLink="/contact"
-                      target="_self"
-                      ><p class="css-8zr56v css-4i1sn1">Contact</p></a
-                    >
-                  </div>
-                </div>
+                <app-navbar [wrapperClass]="'css-vhq6dg css-8hhw9a css-trglf0'" [cc]="true" />
               </div>
             </div>
           </div>
@@ -458,7 +402,7 @@
                   <p
                     class="css-nf5ac4 css-v27th6 css-2hxbmz css-6vp3ws textContents"
                   >
-                    Why Our Community Stands Out
+                    <span class="wocso-small">Why Our Community</span> Stands Out
                   </p>
                 </div>
               </div>
@@ -490,8 +434,8 @@
                       <p
                         class="css-nf5ac4 css-u5xyic css-w3vc85 css-tbg1gm textContents"
                       >
-                        Connect instantly with Caribbean creators who share your
-                        vibe. Collaborate, chat, and create projects together!
+                        Connect instantly with Caribbean<br>creators who share your
+                        vibe.<br>Collaborate, chat, and create<br>projects together!
                       </p>
                     </div>
                   </div>
@@ -517,8 +461,8 @@
                       <p
                         class="css-nf5ac4 css-tqgiyl css-w3vc85 css-tbg1gm textContents"
                       >
-                        Get featured in our spotlight! We celebrate your
-                        journey, your art, and your unique Caribbean story.
+                        Get featured in our spotlight!<br>We celebrate your
+                        journey,<br>your art, and your unique<br>Caribbean story.
                       </p>
                     </div>
                   </div>
@@ -544,8 +488,7 @@
                       <p
                         class="css-nf5ac4 css-tqgiyl css-w3vc85 css-tbg1gm textContents"
                       >
-                        Be the first to experience live workshops, exhibitions
-                        and community meetups.
+                        Be the first to experience<br>live workshops, exhibitions<br>and community meetups.
                       </p>
                     </div>
                   </div>
@@ -572,9 +515,7 @@
                         <p
                           class="css-nf5ac4 css-boob2k css-w3vc85 css-tbg1gm textContents"
                         >
-                          From contests to collaborations to brand partnerships
-                          - we bring amazing opportunities straight to your
-                          inbox.
+                          From contests to collaborations<br>to brand partnerships - we<br>bring amazing opportunities<br>straight to your inbox.
                         </p>
                       </div>
                     </div>
@@ -802,7 +743,7 @@
               </p>
             </div>
             <div class="css-zfhsjc css-v27th6 css-paq0kv">
-              <div class="css-2acloa css-v27th6 css-paq0kv">
+              <div class="css-2acloa css-v27th6 css-paq0kv carousel-arrow" (click)="prev($event)" role="button" tabindex="0" aria-label="Previous testimonial">
                 <div class="css-bhht40">
                   <div class="css-ayg824 css-2yjztp">
                     <div class="css-vf8mzy css-h0icx9 css-p97bky">
@@ -863,31 +804,26 @@
                     </div>
                   </div>
                 </div>
-                <div class="css-i5cthg css-zfhsjc css-paq0kv">
+                <div class="css-i5cthg css-zfhsjc css-paq0kv testimonial-fade" [class.exit-next]="slideState === 'exit-next'" [class.exit-prev]="slideState === 'exit-prev'" [class.enter-next]="slideState === 'enter-next'" [class.enter-prev]="slideState === 'enter-prev'">
                   <div class="css-sme8gt css-wc1msa" data-isimage="true">
                     <img
                       loading="lazy"
-                      src="https://capturecaribbean.figma.site/_assets/v11/c750c0042ff0d38ae0247c453ad5a8117c0263ec.png"
+                      [src]="current.avatar"
                       alt=""
                       width="140.138"
                       height="140"
                       class="css-tzn6qh css-ez8men"
-                      srcset="
-                        https://capturecaribbean.figma.site/_assets/v11/c750c0042ff0d38ae0247c453ad5a8117c0263ec.png 141w
-                      "
-                      sizes="auto,140.138259887695px"
                     />
                   </div>
                   <div class="css-zfhum9 css-v27th6 css-paq0kv">
                     <p
                       class="css-nf5ac4 css-i5eprx css-u2n6j1 css-iguuiu textContents"
                     >
-                      “Finally, a space that celebrates our unique Caribbean
-                      perspective and connects us across islands.”
+                      {{ current.quote }}
                     </p>
                   </div>
                 </div>
-                <div class="css-uyiyxe css-paq0kv">
+                <div class="css-uyiyxe css-paq0kv carousel-arrow" (click)="next($event)" role="button" tabindex="0" aria-label="Next testimonial">
                   <div class="css-bhht40">
                     <div class="css-ayg824 css-2yjztp">
                       <div class="css-vf8mzy css-h0icx9 css-gxdil1">
@@ -950,144 +886,147 @@
                   </div>
                 </div>
               </div>
-              <div class="css-i5hwnu css-ynw1x8 css-paq0kv">
+              <div class="css-i5hwnu css-ynw1x8 css-paq0kv testimonial-fade testimonial-fade--trail" [class.exit-next]="slideState === 'exit-next'" [class.exit-prev]="slideState === 'exit-prev'" [class.enter-next]="slideState === 'enter-next'" [class.enter-prev]="slideState === 'enter-prev'">
                 <p
                   class="css-nf5ac4 css-i5i0cg css-tzanbm css-iguuiu textContents"
                 >
-                  Harry Maguire
+                  {{ current.name }}
                 </p>
                 <p
                   class="css-nf5ac4 css-59rdls css-9hkj74 css-6xk42u textContents"
                 >
-                  Visual Artist, Trinidad
+                  {{ current.role }}
                 </p>
               </div>
               <div class="css-22itc5 css-paq0kv"></div>
+              <div class="custom-carousel-nav">
+                <button type="button" class="custom-carousel-arrow custom-carousel-prev" (click)="prev($event)" aria-label="Previous testimonial">&#8249;</button>
+                <button type="button" class="custom-carousel-arrow custom-carousel-next" (click)="next($event)" aria-label="Next testimonial">&#8250;</button>
+              </div>
             </div>
           </div>
-          <div class="css-refvur css-v27th6 css-paq0kv">
-            <div class="css-zfhum9 css-v27th6 css-2gbjjk">
-              <p class="css-nf5ac4 css-iytmq0 css-6vp3ws textContents">
-                Prospective Partners
-              </p>
-              <p
-                class="css-nf5ac4 css-59rdls css-a9npxo css-8ul25a textContents"
-              >
-                Building partnership with leading Caribbean cultural
-                organizations
-              </p>
-            </div>
-            <div class="css-dczajm css-v27th6 css-paq0kv">
-              <div class="css-2acil7 css-v27th6 css-paq0kv">
-                <div class="css-lramjm css-wc1msa">
+          <div class="css-g9qt8c css-v27th6 css-paq0kv prospective-partners-block">
+            <p class="css-wc1msa css-59rdls css-zde9d4 css-6vp3ws textContents prospective-partners-title">
+              <span class="css-rrrqnv">Prospective </span
+              ><span class="css-4kha33 css-xuf7pg">Partners</span>
+            </p>
+            <p class="css-nf5ac4 css-59rdls css-wb9eri css-uot4si textContents prospective-partners-subtitle">
+              Collaborating with industry leaders
+            </p>
+            <div class="css-4i2lzp css-paq0kv prospective-partners-logos">
+              <div class="css-e29oh2 css-wc1msa">
+                <img
+                  alt=""
+                  loading="lazy"
+                  class="css-ez8men css-qhd53h css-trglf0 css-trglf0 css-r0azwh css-qhd53h"
+                  src="https://capturecaribbean.figma.site/_assets/v11/96fe9d3de52b1a7c85bc24be4e661acdcfd48729.png"
+                  srcset="
+                    https://capturecaribbean.figma.site/_assets/v11/96fe9d3de52b1a7c85bc24be4e661acdcfd48729.png       313w,
+                    https://capturecaribbean.figma.site/_assets/v11/96fe9d3de52b1a7c85bc24be4e661acdcfd48729.png?w=128 128w,
+                    https://capturecaribbean.figma.site/_assets/v11/96fe9d3de52b1a7c85bc24be4e661acdcfd48729.png?w=256 256w
+                  "
+                  sizes="auto,126.227005004883px"
+                />
+              </div>
+              <div class="css-6w0oly css-wc1msa">
+                <img
+                  alt=""
+                  loading="lazy"
+                  class="css-ez8men css-qhd53h css-trglf0 css-trglf0 css-r0azwh css-qhd53h"
+                  src="https://capturecaribbean.figma.site/_assets/v11/979e765b34198ed79d6216887a5e57fc8d60d951.png"
+                  srcset="
+                    https://capturecaribbean.figma.site/_assets/v11/979e765b34198ed79d6216887a5e57fc8d60d951.png      96w,
+                    https://capturecaribbean.figma.site/_assets/v11/979e765b34198ed79d6216887a5e57fc8d60d951.png?h=64 61w
+                  "
+                  sizes="auto,59.9890823364258px"
+                />
+              </div>
+              <div class="css-raxn8g css-wc1msa">
+                <div class="css-phc9f9 css-trglf0 css-trglf0 css-r0azwh">
                   <img
                     alt=""
                     loading="lazy"
-                    class="css-ez8men css-qhd53h css-trglf0 css-trglf0 css-r0azwh css-qhd53h"
-                    src="https://capturecaribbean.figma.site/_assets/v11/96fe9d3de52b1a7c85bc24be4e661acdcfd48729.png"
+                    class="css-trglf0 css-ce0hlr"
+                    src="https://capturecaribbean.figma.site/_assets/v11/123727d85474b1e168753a91c84991f091b02df4.png"
                     srcset="
-                      https://capturecaribbean.figma.site/_assets/v11/96fe9d3de52b1a7c85bc24be4e661acdcfd48729.png       313w,
-                      https://capturecaribbean.figma.site/_assets/v11/96fe9d3de52b1a7c85bc24be4e661acdcfd48729.png?w=256 256w
+                      https://capturecaribbean.figma.site/_assets/v11/123727d85474b1e168753a91c84991f091b02df4.png       163w,
+                      https://capturecaribbean.figma.site/_assets/v11/123727d85474b1e168753a91c84991f091b02df4.png?w=141 141w
                     "
-                    sizes="auto,165.760620117188px"
+                    sizes="auto,101.85646237291525px"
                   />
                 </div>
-                <div class="css-tj1e02 css-wc1msa">
+              </div>
+              <div class="css-i7mj08 css-wc1msa">
+                <img
+                  alt=""
+                  loading="lazy"
+                  class="css-ez8men css-qhd53h css-trglf0 css-trglf0 css-r0azwh css-qhd53h"
+                  src="https://capturecaribbean.figma.site/_assets/v11/069c1ff1ad5edb79ced5e2887a8f0369d0bb233c.png"
+                  srcset="
+                    https://capturecaribbean.figma.site/_assets/v11/069c1ff1ad5edb79ced5e2887a8f0369d0bb233c.png       244w,
+                    https://capturecaribbean.figma.site/_assets/v11/069c1ff1ad5edb79ced5e2887a8f0369d0bb233c.png?w=128 128w
+                  "
+                  sizes="auto,110.917304992676px"
+                />
+              </div>
+              <div class="css-hjvj1z css-wc1msa">
+                <img
+                  alt=""
+                  loading="lazy"
+                  class="css-ez8men css-qhd53h css-trglf0 css-trglf0 css-r0azwh css-qhd53h"
+                  src="https://capturecaribbean.figma.site/_assets/v11/3b40373edf666a3c24ff9669d4e6c571e2026655.png"
+                  srcset="
+                    https://capturecaribbean.figma.site/_assets/v11/3b40373edf666a3c24ff9669d4e6c571e2026655.png       312w,
+                    https://capturecaribbean.figma.site/_assets/v11/3b40373edf666a3c24ff9669d4e6c571e2026655.png?w=128 128w,
+                    https://capturecaribbean.figma.site/_assets/v11/3b40373edf666a3c24ff9669d4e6c571e2026655.png?w=256 256w
+                  "
+                  sizes="auto,97.4822540283203px"
+                />
+              </div>
+              <div class="css-ugejt6 css-wc1msa">
+                <img
+                  alt=""
+                  loading="lazy"
+                  class="css-ez8men css-qhd53h css-trglf0 css-trglf0 css-r0azwh css-qhd53h"
+                  src="https://capturecaribbean.figma.site/_assets/v11/43ff66b3e17a67d2dd23ea73b396b725ecbbd8b0.png"
+                  srcset="
+                    https://capturecaribbean.figma.site/_assets/v11/43ff66b3e17a67d2dd23ea73b396b725ecbbd8b0.png 81w
+                  "
+                  sizes="auto,88.8179779052734px"
+                />
+              </div>
+              <div class="css-l2mcbo css-wc1msa">
+                <img
+                  alt=""
+                  loading="lazy"
+                  class="css-ez8men css-qhd53h css-trglf0 css-trglf0 css-r0azwh css-qhd53h"
+                  src="https://capturecaribbean.figma.site/_assets/v11/118bced758759980ef5d66abc63a78d04c542649.png"
+                  srcset="
+                    https://capturecaribbean.figma.site/_assets/v11/118bced758759980ef5d66abc63a78d04c542649.png       389w,
+                    https://capturecaribbean.figma.site/_assets/v11/118bced758759980ef5d66abc63a78d04c542649.png?w=256 256w
+                  "
+                  sizes="auto,131.226135253906px"
+                />
+              </div>
+              <div class="css-pshpum css-wc1msa">
+                <div class="css-phc9f9 css-trglf0 css-trglf0 css-r0azwh">
                   <img
                     alt=""
                     loading="lazy"
-                    class="css-ez8men css-qhd53h css-trglf0 css-trglf0 css-r0azwh css-qhd53h"
-                    src="https://capturecaribbean.figma.site/_assets/v11/979e765b34198ed79d6216887a5e57fc8d60d951.png"
+                    class="css-trglf0 css-59b3l2"
+                    src="https://capturecaribbean.figma.site/_assets/v11/01278cd602328bac74ddcffe992c94728fcae6b9.png"
                     srcset="
-                      https://capturecaribbean.figma.site/_assets/v11/979e765b34198ed79d6216887a5e57fc8d60d951.png 96w
+                      https://capturecaribbean.figma.site/_assets/v11/01278cd602328bac74ddcffe992c94728fcae6b9.png       374w,
+                      https://capturecaribbean.figma.site/_assets/v11/01278cd602328bac74ddcffe992c94728fcae6b9.png?w=271 271w
                     "
-                    sizes="auto,78.7773284912109px"
+                    sizes="auto,179.7064752904746px"
                   />
-                </div>
-                <div class="css-x2th6j css-wc1msa">
-                  <div class="css-phc9f9 css-trglf0 css-trglf0 css-r0azwh">
-                    <img
-                      alt=""
-                      loading="lazy"
-                      class="css-trglf0 css-ce0hlr"
-                      src="https://capturecaribbean.figma.site/_assets/v11/123727d85474b1e168753a91c84991f091b02df4.png"
-                      srcset="
-                        https://capturecaribbean.figma.site/_assets/v11/123727d85474b1e168753a91c84991f091b02df4.png 163w
-                      "
-                      sizes="auto,133.75733965745442px"
-                    />
-                  </div>
-                </div>
-                <div class="css-k1o8zl css-wc1msa">
-                  <img
-                    alt=""
-                    loading="lazy"
-                    class="css-ez8men css-qhd53h css-trglf0 css-trglf0 css-r0azwh css-qhd53h"
-                    src="https://capturecaribbean.figma.site/_assets/v11/069c1ff1ad5edb79ced5e2887a8f0369d0bb233c.png"
-                    srcset="
-                      https://capturecaribbean.figma.site/_assets/v11/069c1ff1ad5edb79ced5e2887a8f0369d0bb233c.png 244w
-                    "
-                    sizes="auto,145.655990600586px"
-                  />
-                </div>
-                <div class="css-s57dii css-wc1msa">
-                  <img
-                    alt=""
-                    loading="lazy"
-                    class="css-ez8men css-qhd53h css-trglf0 css-trglf0 css-r0azwh css-qhd53h"
-                    src="https://capturecaribbean.figma.site/_assets/v11/3b40373edf666a3c24ff9669d4e6c571e2026655.png"
-                    srcset="
-                      https://capturecaribbean.figma.site/_assets/v11/3b40373edf666a3c24ff9669d4e6c571e2026655.png       312w,
-                      https://capturecaribbean.figma.site/_assets/v11/3b40373edf666a3c24ff9669d4e6c571e2026655.png?w=256 256w
-                    "
-                    sizes="auto,128.013153076172px"
-                  />
-                </div>
-                <div class="css-jjz8e8 css-wc1msa">
-                  <img
-                    alt=""
-                    loading="lazy"
-                    class="css-ez8men css-qhd53h css-trglf0 css-trglf0 css-r0azwh css-qhd53h"
-                    src="https://capturecaribbean.figma.site/_assets/v11/43ff66b3e17a67d2dd23ea73b396b725ecbbd8b0.png"
-                    srcset="
-                      https://capturecaribbean.figma.site/_assets/v11/43ff66b3e17a67d2dd23ea73b396b725ecbbd8b0.png 81w
-                    "
-                    sizes="auto,116.635269165039px"
-                  />
-                </div>
-                <div class="css-y7kk4h css-wc1msa">
-                  <img
-                    alt=""
-                    loading="lazy"
-                    class="css-ez8men css-qhd53h css-trglf0 css-trglf0 css-r0azwh css-qhd53h"
-                    src="https://capturecaribbean.figma.site/_assets/v11/118bced758759980ef5d66abc63a78d04c542649.png"
-                    srcset="
-                      https://capturecaribbean.figma.site/_assets/v11/118bced758759980ef5d66abc63a78d04c542649.png       389w,
-                      https://capturecaribbean.figma.site/_assets/v11/118bced758759980ef5d66abc63a78d04c542649.png?w=256 256w
-                    "
-                    sizes="auto,172.325408935547px"
-                  />
-                </div>
-                <div class="css-wngu0k css-wc1msa">
-                  <div class="css-phc9f9 css-trglf0 css-trglf0 css-r0azwh">
-                    <img
-                      alt=""
-                      loading="lazy"
-                      class="css-trglf0 css-59b3l2"
-                      src="https://capturecaribbean.figma.site/_assets/v11/01278cd602328bac74ddcffe992c94728fcae6b9.png"
-                      srcset="
-                        https://capturecaribbean.figma.site/_assets/v11/01278cd602328bac74ddcffe992c94728fcae6b9.png       374w,
-                        https://capturecaribbean.figma.site/_assets/v11/01278cd602328bac74ddcffe992c94728fcae6b9.png?w=271 271w
-                      "
-                      sizes="auto,235.98954639458947px"
-                    />
-                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="css-nllq1o css-5knerd">
+        <div id="thriving-community" class="css-nllq1o css-5knerd">
           <div aria-hidden="true" class="css-trglf0 css-r0azwh">
             <div class="css-phc9f9 css-trglf0">
               <img
@@ -1235,13 +1174,13 @@
                   <p
                     class="css-nf5ac4 css-59rdls css-k88o5y css-6vp3ws textContents"
                   >
-                    Ready to Join a Thriving Community?
+                    Ready to Join a <span class="css-4kha33 css-xuf7pg">Thriving Community</span>?
                   </p>
                   <p
                     class="css-nf5ac4 css-4wg6y css-h9j71c css-fhhq3m textContents"
                   >
                     Take the first step toward connecting with amazing people
-                    and achieving your goals
+                    and achieving <span class="rtjtc-goals">your goals</span>
                   </p>
                 </div>
               </div>
@@ -1252,44 +1191,73 @@
           <div class="css-gxdil1 css-mesbg2 css-j9f0op">
             <div class="css-8y6ltl css-paq0kv css-v27th6">
               <div class="css-cf1rk css-5dba7r css-paq0kv">
-                <div class="css-3ywmdr css-wc1msa" data-isimage="true">
+                <div class="css-3ywmdr css-wc1msa cc-footer-logo" data-isimage="true">
                   <img
                     loading="lazy"
-                    src="https://capturecaribbean.figma.site/_assets/v11/d196a89933d233d080f383a83ef6e21b89580e9a.png"
-                    alt=""
-                    width="247"
-                    height="72"
-                    class="css-tzn6qh css-ez8men"
-                    srcset="
-                      https://capturecaribbean.figma.site/_assets/v11/d196a89933d233d080f383a83ef6e21b89580e9a.png 247w
-                    "
-                    sizes="auto,247px"
+                    src="/assets/images/caribbean-connections-footer-logo.png"
+                    alt="Caribbean Connections"
+                    class="cc-footer-logo-img"
                   />
                 </div>
                 <div class="css-zfhta1 css-v27th6 css-paq0kv">
                   <div class="css-dczajm css-paq0kv">
                     <div class="css-dczajm css-paq0kv">
                       <div class="css-z8tvcy css-paq0kv">
-                        <p
-                          class="css-nf5ac4 css-liyv20 css-ueucp2 textContents"
+                        <a
+                          class="textContents css-wc1msa"
+                          routerLink="/caribbean-connections"
+                          target="_self"
                         >
-                          Home
-                        </p>
-                        <p
-                          class="css-nf5ac4 css-liyv20 css-ueucp2 textContents"
+                          <p
+                            class="css-nf5ac4 css-liyv20 css-ueucp2 textContents"
+                          >
+                            Home
+                          </p>
+                        </a>
+                        <a
+                          class="textContents css-wc1msa"
+                          routerLink="/caribbean-connections/experience"
+                          target="_self"
                         >
-                          Experience
-                        </p>
-                        <p
-                          class="css-nf5ac4 css-liyv20 css-ueucp2 textContents"
+                          <p
+                            class="css-nf5ac4 css-liyv20 css-ueucp2 textContents"
+                          >
+                            Experience
+                          </p>
+                        </a>
+                        <a
+                          class="textContents css-wc1msa"
+                          routerLink="/caribbean-connections/about-connections"
+                          target="_self"
                         >
-                          About
-                        </p>
-                        <p
-                          class="css-nf5ac4 css-liyv20 css-ueucp2 textContents"
+                          <p
+                            class="css-nf5ac4 css-liyv20 css-ueucp2 textContents"
+                          >
+                            About
+                          </p>
+                        </a>
+                        <a
+                          class="textContents css-wc1msa"
+                          routerLink="/caribbean-connections/contact-connections"
+                          target="_self"
                         >
-                          Contact
-                        </p>
+                          <p
+                            class="css-nf5ac4 css-liyv20 css-ueucp2 textContents"
+                          >
+                            Contact
+                          </p>
+                        </a>
+                        <a
+                          class="textContents css-wc1msa cc-footer-back-link"
+                          routerLink="/"
+                          target="_self"
+                        >
+                          <p
+                            class="css-nf5ac4 css-liyv20 css-ueucp2 textContents cc-footer-back-link-text"
+                          >
+                            Back to <strong>Capture Caribbean</strong>
+                          </p>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -1317,7 +1285,11 @@
                       <p class="css-nf5ac4 css-h266w3 css-ueucp2 textContents">
                         © 2026 Capture Caribbean
                       </p>
-                      <button class="css-z8tzvp css-hf9sha">
+                      <button
+                        class="css-z8tzvp css-hf9sha"
+                        type="button"
+                        (click)="scrollToTop()"
+                      >
                         <p
                           class="css-nf5ac4 css-o1ldy6 css-9jtq1y textContents"
                         >
