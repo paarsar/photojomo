@@ -66,7 +66,10 @@
                           class="css-tyqn17 css-5knerd"
                           tabindex="0"
                           role="button"
-                          style="border-radius: 1.5px; opacity: 1"
+                          (click)="scrollToThriving()"
+                          (keydown.enter)="scrollToThriving()"
+                          (keydown.space)="scrollToThriving()"
+                          style="border-radius: 1.5px; opacity: 1; cursor: pointer"
                         >
                           <div
                             class="css-trglf0 css-r0azwh"
@@ -143,7 +146,7 @@
                     </div>
                   </div>
                 </div>
-                <app-navbar [wrapperClass]="'css-vhq6dg css-8hhw9a css-trglf0'" />
+                <app-navbar [wrapperClass]="'css-vhq6dg css-8hhw9a css-trglf0'" [cc]="true" />
               </div>
             </div>
           </div>
@@ -1023,7 +1026,7 @@
             </div>
           </div>
         </div>
-        <div class="css-nllq1o css-5knerd">
+        <div id="thriving-community" class="css-nllq1o css-5knerd">
           <div aria-hidden="true" class="css-trglf0 css-r0azwh">
             <div class="css-phc9f9 css-trglf0">
               <img
@@ -1184,194 +1187,156 @@
             </div>
           </div>
         </div>
-            <div class="css-5knerd css-v27th6 css-sfem9u">
-              <div class="css-gxdil1 css-e1d1o2 css-j9f0op">
-                <div class="css-p70z91 css-paq0kv css-v27th6">
-                  <div class="css-ra9f2e css-jvpnk3 css-paq0kv">
-                    <div class="css-49kvq1 css-paq0kv">
-                      <a
-                        class="css-khrh60 css-wc1msa css-134pm3"
-                        routerLink="/"
-                        target="_self"
-                        ><div
-                          class="css-phc9f9 css-trglf0 css-trglf0 css-r0azwh"
-                        >
-                          <img
-                            alt=""
-                            loading="lazy"
-                            class="css-trglf0 css-js0xyv"
-                            src="https://capturecaribbean.figma.site/_assets/v11/4e15e14d4fa44a8fb814bd0e24df338980d991cc.png"
-                            srcset="
-                              https://capturecaribbean.figma.site/_assets/v11/4e15e14d4fa44a8fb814bd0e24df338980d991cc.png       1655w,
-                              https://capturecaribbean.figma.site/_assets/v11/4e15e14d4fa44a8fb814bd0e24df338980d991cc.png?w=322  322w,
-                              https://capturecaribbean.figma.site/_assets/v11/4e15e14d4fa44a8fb814bd0e24df338980d991cc.png?w=643  643w
-                            "
-                            sizes="auto,251.33215623111008px"
-                          /></div
-                      ></a>
-                      <p class="footer-bonus-copy">
-                        Share with Friends for Bonus Entries!
-                      </p>
-                      <div class="css-7xhp8u css-nertwn css-paq0kv">
-                        <a
-                          class="css-456nzv css-wc1msa css-134pm3"
-                          href="https://x.com/takecaribphotos"
-                          target="_self"
-                          data-isimage="true"
-                          ><img
-                            loading="lazy"
-                            src="https://capturecaribbean.figma.site/_assets/v11/b2074916c4b3fb08fdb1513db29f423f555a529e.svg"
-                            alt=""
-                            class="css-tzn6qh css-ez8men" /></a
-                        ><a
-                          class="css-456nzv css-wc1msa css-134pm3"
-                          href="https://www.facebook.com/caribbeanphotocontest"
-                          target="_self"
-                          data-isimage="true"
-                          ><img
-                            loading="lazy"
-                            src="https://capturecaribbean.figma.site/_assets/v11/6cfbca3ae939308c21eba8d2209aba2c9cadf9c1.svg"
-                            alt=""
-                            class="css-tzn6qh css-ez8men" /></a
-                        ><a
-                          class="css-456nzv css-wc1msa css-134pm3"
-                          href="https://www.instagram.com/caribbean_photo_contest/"
-                          target="_self"
-                          data-isimage="true"
-                          ><img
-                            loading="lazy"
-                            src="https://capturecaribbean.figma.site/_assets/v11/914c9e68c89e91e97e44705afe83598089682c14.svg"
-                            alt=""
-                            class="css-tzn6qh css-ez8men" /></a
-                        ><a
-                          class="css-456nzv css-wc1msa css-134pm3"
-                          href="https://www.youtube.com/@CaribbeanPhotoContest"
-                          target="_self"
-                          data-isimage="true"
-                          ><img
-                            loading="lazy"
-                            src="https://capturecaribbean.figma.site/_assets/v11/8bb5dbe313965b16558257ea276738547f01e5b3.svg"
-                            alt=""
-                            class="css-tzn6qh css-ez8men"
-                        /></a>
-                      </div>
-                    </div>
-                    <div class="css-pr5rfd css-paq0kv">
-                      <p class="css-nf5ac4 css-2rawmj css-szvueg textContents">
-                        Capture Initiatives
-                      </p>
-                      <div class="css-eyahki css-paq0kv">
-                        <a
-                          class="css-95o4tl css-wc1msa css-134pm3"
-                          routerLink="/first-wave-challenge"
-                          target="_self"
-                          data-isimage="true"
-                          ><img
-                            loading="lazy"
-                            src="https://capturecaribbean.figma.site/_assets/v11/a09c292d8df41590b68575ee1c83dd84ed673f43.svg"
-                            alt=""
-                            class="css-tzn6qh css-ez8men" /></a
-                        ><a
-                          class="css-3zz5a0 css-wc1msa css-134pm3"
-                          routerLink="/contest"
-                          target="_self"
-                          data-isimage="true"
-                          ><img
-                            loading="lazy"
-                            src="https://capturecaribbean.figma.site/_assets/v11/782bc67995f21e42c44ea577c99e43b41ad4bd3a.png"
-                            alt=""
-                            width="65.021"
-                            height="52.601"
-                            class="css-tzn6qh css-ez8men"
-                            srcset="
-                              https://capturecaribbean.figma.site/_assets/v11/782bc67995f21e42c44ea577c99e43b41ad4bd3a.png 66w
-                            "
-                            sizes="auto,65.02027702331543px" /></a
-                        ><a
-                          class="css-q7nfxi css-wc1msa css-134pm3"
-                          routerLink="/caribbean-connection"
-                          target="_self"
-                          data-isimage="true"
-                          ><img
-                            loading="lazy"
-                            src="https://capturecaribbean.figma.site/_assets/v11/c1f905b2220b94e506a75024168eaad79cee0364.svg"
-                            alt=""
-                            class="css-tzn6qh css-ez8men"
-                        /></a>
-                      </div>
-                    </div>
+        <div class="css-5knerd css-v27th6 css-bo4u3g">
+          <div class="css-gxdil1 css-mesbg2 css-j9f0op">
+            <div class="css-8y6ltl css-paq0kv css-v27th6">
+              <div class="css-cf1rk css-5dba7r css-paq0kv">
+                <div class="css-3ywmdr css-wc1msa cc-footer-logo" data-isimage="true">
+                  <img
+                    loading="lazy"
+                    src="/assets/images/caribbean-connections-footer-logo.png"
+                    alt="Caribbean Connections"
+                    class="cc-footer-logo-img"
+                  />
+                </div>
+                <div class="css-zfhta1 css-v27th6 css-paq0kv">
+                  <div class="css-dczajm css-paq0kv">
                     <div class="css-dczajm css-paq0kv">
-                      <div class="css-h5oqay css-3vj1k">
-                        <div class="css-8byg4f css-paq0kv">
-                          <a
-                            class="textContents css-wc1msa css-q6rpi1 css-c93nhn"
-                            routerLink="/saint-lucia"
-                            target="_self"
-                            ><p class="css-8zr56v css-4i1sn1">
-                              The Capture Saint Lucia™ Invitational
-                            </p></a
-                          ><a
-                            class="textContents css-wc1msa css-q6rpi1 css-c93nhn"
-                            routerLink="/residency"
-                            target="_self"
-                            ><p class="css-8zr56v css-4i1sn1">
-                              Artist in Residency Program
-                            </p></a
-                          ><a
-                            class="textContents css-wc1msa css-q6rpi1 css-c93nhn"
-                            routerLink="/exhibition"
-                            target="_self"
-                            ><p class="css-8zr56v css-4i1sn1">
-                              The Saint Lucia Exhibition
-                            </p></a
-                          ><a
-                            class="textContents css-wc1msa css-q6rpi1 css-c93nhn"
-                            routerLink="/global-tour"
-                            target="_self"
-                            ><p class="css-8zr56v css-4i1sn1">
-                              The Global Tour
-                            </p></a
+                      <div class="css-z8tvcy css-paq0kv">
+                        <a
+                          class="textContents css-wc1msa"
+                          routerLink="/caribbean-connections"
+                          target="_self"
+                        >
+                          <p
+                            class="css-nf5ac4 css-liyv20 css-ueucp2 textContents"
                           >
-                        </div>
-                        <div class="css-8byg4f css-paq0kv">
-                          <a
-                            class="textContents css-wc1msa css-q6rpi1 css-c93nhn"
-                            routerLink="/about-us"
-                            target="_self"
-                            ><p class="css-8zr56v css-4i1sn1">The Vision</p></a
-                          ><a
-                            class="textContents css-wc1msa css-q6rpi1 css-c93nhn"
-                            routerLink="/contact"
-                            target="_self"
-                            ><p class="css-8zr56v css-4i1sn1">Contact</p></a
+                            Home
+                          </p>
+                        </a>
+                        <a
+                          class="textContents css-wc1msa"
+                          routerLink="/caribbean-connections/experience"
+                          target="_self"
+                        >
+                          <p
+                            class="css-nf5ac4 css-liyv20 css-ueucp2 textContents"
                           >
-                        </div>
+                            Experience
+                          </p>
+                        </a>
+                        <a
+                          class="textContents css-wc1msa"
+                          routerLink="/caribbean-connections/about-connections"
+                          target="_self"
+                        >
+                          <p
+                            class="css-nf5ac4 css-liyv20 css-ueucp2 textContents"
+                          >
+                            About
+                          </p>
+                        </a>
+                        <a
+                          class="textContents css-wc1msa"
+                          routerLink="/caribbean-connections/contact-connections"
+                          target="_self"
+                        >
+                          <p
+                            class="css-nf5ac4 css-liyv20 css-ueucp2 textContents"
+                          >
+                            Contact
+                          </p>
+                        </a>
+                        <a
+                          class="textContents css-wc1msa cc-footer-back-link"
+                          routerLink="/"
+                          target="_self"
+                        >
+                          <p
+                            class="css-nf5ac4 css-liyv20 css-ueucp2 textContents cc-footer-back-link-text"
+                          >
+                            Back to <strong>Capture Caribbean</strong>
+                          </p>
+                        </a>
                       </div>
                     </div>
                   </div>
-                  <div class="css-ra9f2e css-djsg1y css-paq0kv">
+                  <div class="css-dczajm css-v27th6 css-paq0kv"></div>
+                  <div class="css-5icr55 css-zfhtxa css-paq0kv">
+                    <div class="css-lhny1b css-wc1msa" data-isimage="true">
+                      <img
+                        loading="lazy"
+                        src="https://capturecaribbean.figma.site/_assets/v11/5fd865dc2ca5b91dddac59d7b9d084216cd0efb1.svg"
+                        alt=""
+                        class="css-tzn6qh css-ez8men"
+                      />
+                    </div>
                     <div class="css-ogcvv7 css-wc1msa" data-isimage="true">
-                      <div class="css-trglf0 css-3bt97v">
+                      <div class="css-trglf0 css-z6q6gt">
                         <img
                           loading="lazy"
-                          src="https://capturecaribbean.figma.site/_assets/v11/8c2c2d78cc224bde5745ca949e3d8072c434b739.svg"
+                          src="https://capturecaribbean.figma.site/_assets/v11/c706b9a599d4bde56411cbce199bf27133cdf484.svg"
                           alt=""
                           class="css-8zr56v css-ez8men"
                         />
                       </div>
                     </div>
-                    <div class="css-gzmw6b css-jvpnk3 css-paq0kv">
-                      <p class="css-nf5ac4 css-ro9fcw css-e3tv12 textContents">
-                        Capture Caribbean: Where the World Meets Caribbean
-                        Creativity
-                      </p>
-                      <p class="css-nf5ac4 css-bv2n15 css-e3tv12 textContents">
+                    <div class="css-b0jis2 css-jvpnk3 css-paq0kv">
+                      <p class="css-nf5ac4 css-h266w3 css-ueucp2 textContents">
                         © 2026 Capture Caribbean
                       </p>
+                      <button
+                        class="css-z8tzvp css-hf9sha"
+                        type="button"
+                        (click)="scrollToTop()"
+                      >
+                        <p
+                          class="css-nf5ac4 css-o1ldy6 css-9jtq1y textContents"
+                        >
+                          Back to top
+                        </p>
+                        <div class="css-u7g7t">
+                          <div class="css-4szaq4 css-2gbjjk">
+                            <div class="css-tahzax css-wc1msa">
+                              <div class="css-grtgjx css-ncscp3">
+                                <div
+                                  class="css-ayg824 css-mg3gna css-wfs30m"
+                                  style="
+                                    width: 8.047px;
+                                    height: 10.016px;
+                                    transform: matrix(-1, 0, 0, -1, 0, 0);
+                                  "
+                                >
+                                  <div
+                                    class="css-vf8mzy css-j9f0op"
+                                    data-isimage="true"
+                                  >
+                                    <div class="css-trglf0 css-mwes21">
+                                      <img
+                                        loading="lazy"
+                                        src="https://capturecaribbean.figma.site/_assets/v11/24a91aa7e7e16b52dd01e2733154aa10ab660cd6.svg"
+                                        alt=""
+                                        class="css-8zr56v css-ez8men"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-hidden="true"
+                            class="css-m7zj2c css-ggwoeh css-5eam1e"
+                          ></div>
+                        </div>
+                      </button>
                     </div>
                   </div>
+                  <div class="css-hq55li css-wc1msa"></div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
       </div>
     </div>

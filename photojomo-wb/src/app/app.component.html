@@ -1,5 +1,5 @@
 <router-outlet />
 
-<div class="app-shell-mobile-footer">
+<div class="app-shell-mobile-footer" *ngIf="showMobileFooter$ | async">
   <app-site-footer />
 </div>

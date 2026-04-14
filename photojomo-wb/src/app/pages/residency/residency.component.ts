@@ -196,8 +196,8 @@ export class ResidencyComponent implements AfterViewInit, OnDestroy {
     {
       question: 'Key Dates',
       answerLines: [
-        'Residency Launch: Early–Mid 2026',
-        'Finalist Review: Following 2025 Contest',
+        'Finalist Review: Following Q4-2027 Contest',
+        'Residency Launch: Early–Mid 2028',
         'Fellows Showcase: Hosted on CaribbeanConnections.world',
       ],
     },
