@@ -1699,6 +1699,14 @@
     margin-top: 170px !important;
   }
 
+  /* Hero title: 25% smaller than mobile (36→27, 33→25) */
+  #container .css-k1oxlm {
+    font-size: 27px !important;
+  }
+  #container .css-366pmd {
+    font-size: 25px !important;
+  }
+
   /* Push Presented in Partnership + everything below down 10px */
   .partnership-bridge {
     margin-top: 10px !important;
