@@ -150,6 +150,36 @@
   }
 }
 
+/* Hero image — prevent stretching on tablet (same fix as mobile). The
+   Figma-exported desktop sizing assumes a 1440px viewport, which forces the
+   image to an aspect ratio that stretches at 769–1100px widths. */
+@media (min-width: 769px) and (max-width: 1100px) {
+  :host ::ng-deep #container .css-stwrzw {
+    height: auto !important;
+    min-height: 70vh !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    position: relative !important;
+  }
+
+  :host ::ng-deep #container .css-stwrzw .css-r0azwh,
+  :host ::ng-deep #container .css-stwrzw .css-phc9f9 {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  :host ::ng-deep #container .css-stwrzw .css-frzniw {
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+}
+
 /* Hero button hover states — applied on all viewports so mobile taps
    get the same sticky-hover behavior as desktop pointer hover. */
 :host ::ng-deep .css-z8tzya > .css-tyqn17,
@@ -402,12 +432,13 @@
   background: #eee;
 }
 
-:host ::ng-deep .polaroid-r1 { transform: rotate(-3deg) translateY(2px); }
-:host ::ng-deep .polaroid-r2 { transform: rotate(2.2deg) translateY(-4px); }
-:host ::ng-deep .polaroid-r3 { transform: rotate(-1.4deg) translateY(6px); }
-:host ::ng-deep .polaroid-r4 { transform: rotate(3deg) translateY(-2px); }
-:host ::ng-deep .polaroid-r5 { transform: rotate(-2.6deg) translateY(4px); }
-:host ::ng-deep .polaroid-r6 { transform: rotate(1.8deg) translateY(-5px); }
+/* Base pose per tilt variant — consumed via CSS vars by the shared wiggle keyframe. */
+:host ::ng-deep .polaroid-r1 { --polaroid-base-rot: -3deg;   --polaroid-base-y:  2px; }
+:host ::ng-deep .polaroid-r2 { --polaroid-base-rot:  2.2deg; --polaroid-base-y: -4px; }
+:host ::ng-deep .polaroid-r3 { --polaroid-base-rot: -1.4deg; --polaroid-base-y:  6px; }
+:host ::ng-deep .polaroid-r4 { --polaroid-base-rot:  3deg;   --polaroid-base-y: -2px; }
+:host ::ng-deep .polaroid-r5 { --polaroid-base-rot: -2.6deg; --polaroid-base-y:  4px; }
+:host ::ng-deep .polaroid-r6 { --polaroid-base-rot:  1.8deg; --polaroid-base-y: -5px; }
 
 @keyframes polaroid-scroll {
   from { transform: translateX(0); }
@@ -415,71 +446,62 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :host ::ng-deep .polaroid-track {
+  :host ::ng-deep .polaroid-track,
+  :host ::ng-deep .polaroid {
     animation: none;
   }
 }
 
-
-/* Quick randomized polaroid wiggles — one polaroid every 4s across the 60s
-   loop, order shuffled so it doesn't feel sequential. Each wiggle is ~0.4s. */
-:host ::ng-deep .polaroid.polaroid-r1 { animation: polaroid-wiggle-r1 60s linear infinite; transform-origin: center center; }
-:host ::ng-deep .polaroid.polaroid-r2 { animation: polaroid-wiggle-r2 60s linear infinite; transform-origin: center center; }
-:host ::ng-deep .polaroid.polaroid-r3 { animation: polaroid-wiggle-r3 60s linear infinite; transform-origin: center center; }
-:host ::ng-deep .polaroid.polaroid-r4 { animation: polaroid-wiggle-r4 60s linear infinite; transform-origin: center center; }
-:host ::ng-deep .polaroid.polaroid-r5 { animation: polaroid-wiggle-r5 60s linear infinite; transform-origin: center center; }
-:host ::ng-deep .polaroid.polaroid-r6 { animation: polaroid-wiggle-r6 60s linear infinite; transform-origin: center center; }
-
-/* Schedule (t = seconds into 60s cycle):
-   4s r3 · 8s r6 · 12s r1 · 16s r4 · 20s r2 · 24s r5
-   28s r6 · 32s r2 · 36s r4 · 40s r1 · 44s r5 · 48s r3  */
-
-/* r1 base rotate(-3deg) translateY(2px) — wiggles at 12s (20%) and 40s (66.67%) */
-@keyframes polaroid-wiggle-r1 {
-  0%, 19.7%, 20.7%, 66.37%, 67.37%, 100% { transform: rotate(-3deg) translateY(2px) scale(1); }
-  20%, 66.67%   { transform: rotate(-22deg) translateY(-8px) scale(1.08); }
-  20.2%, 66.87% { transform: rotate(22deg) translateY(-13px) scale(1.10); }
-  20.4%, 67.07% { transform: rotate(-12deg) translateY(-5px) scale(1.05); }
+/* Shared wiggle animation — every polaroid runs the same keyframe but each has a
+   unique animation-delay (see .polaroid-pN below), so no two wiggle at the same
+   moment and DOM-adjacent polaroids are always 15s apart in time. */
+:host ::ng-deep .polaroid.polaroid-r1,
+:host ::ng-deep .polaroid.polaroid-r2,
+:host ::ng-deep .polaroid.polaroid-r3,
+:host ::ng-deep .polaroid.polaroid-r4,
+:host ::ng-deep .polaroid.polaroid-r5,
+:host ::ng-deep .polaroid.polaroid-r6 {
+  transform: rotate(var(--polaroid-base-rot, 0deg)) translateY(var(--polaroid-base-y, 0px));
+  transform-origin: center center;
+  animation: polaroid-wiggle 42s linear infinite;
+  animation-delay: var(--polaroid-wiggle-delay, 0s);
 }
 
-/* r2 base rotate(2.2deg) translateY(-4px) — wiggles at 20s (33.33%) and 32s (53.33%) */
-@keyframes polaroid-wiggle-r2 {
-  0%, 33%, 34%, 53%, 54%, 100% { transform: rotate(2.2deg) translateY(-4px) scale(1); }
-  33.33%, 53.33% { transform: rotate(22deg) translateY(-14px) scale(1.08); }
-  33.53%, 53.53% { transform: rotate(-22deg) translateY(-18px) scale(1.10); }
-  33.73%, 53.73% { transform: rotate(10deg) translateY(-10px) scale(1.04); }
-}
+/* Per-position delays on a 42s cycle. Sorted: 0, 3, 6, 9, 12, 15, 18, 21, 24,
+   27, 30, 33, 36, 39 — 14 unique values, 3s apart, so one polaroid wiggles
+   every 3s. Shuffled by a step of 9 (coprime with 14) so DOM-adjacent polaroids
+   are always 15s apart (no two neighbors ever wiggle close in time). */
+:host ::ng-deep .polaroid-p0  { --polaroid-wiggle-delay:  0s; }
+:host ::ng-deep .polaroid-p1  { --polaroid-wiggle-delay: 27s; }
+:host ::ng-deep .polaroid-p2  { --polaroid-wiggle-delay: 12s; }
+:host ::ng-deep .polaroid-p3  { --polaroid-wiggle-delay: 39s; }
+:host ::ng-deep .polaroid-p4  { --polaroid-wiggle-delay: 24s; }
+:host ::ng-deep .polaroid-p5  { --polaroid-wiggle-delay:  9s; }
+:host ::ng-deep .polaroid-p6  { --polaroid-wiggle-delay: 36s; }
+:host ::ng-deep .polaroid-p7  { --polaroid-wiggle-delay: 21s; }
+:host ::ng-deep .polaroid-p8  { --polaroid-wiggle-delay:  6s; }
+:host ::ng-deep .polaroid-p9  { --polaroid-wiggle-delay: 33s; }
+:host ::ng-deep .polaroid-p10 { --polaroid-wiggle-delay: 18s; }
+:host ::ng-deep .polaroid-p11 { --polaroid-wiggle-delay:  3s; }
+:host ::ng-deep .polaroid-p12 { --polaroid-wiggle-delay: 30s; }
+:host ::ng-deep .polaroid-p13 { --polaroid-wiggle-delay: 15s; }
 
-/* r3 base rotate(-1.4deg) translateY(6px) — wiggles at 4s (6.67%) and 48s (80%) */
-@keyframes polaroid-wiggle-r3 {
-  0%, 6.37%, 7.37%, 79.7%, 80.7%, 100% { transform: rotate(-1.4deg) translateY(6px) scale(1); }
-  6.67%, 80%     { transform: rotate(-24deg) translateY(-2px) scale(1.08); }
-  6.87%, 80.2%   { transform: rotate(20deg) translateY(-7px) scale(1.10); }
-  7.07%, 80.4%   { transform: rotate(-8deg) translateY(1px) scale(1.04); }
-}
-
-/* r4 base rotate(3deg) translateY(-2px) — wiggles at 16s (26.67%) and 36s (60%) */
-@keyframes polaroid-wiggle-r4 {
-  0%, 26.37%, 27.37%, 59.7%, 60.7%, 100% { transform: rotate(3deg) translateY(-2px) scale(1); }
-  26.67%, 60%    { transform: rotate(24deg) translateY(-12px) scale(1.08); }
-  26.87%, 60.2%  { transform: rotate(-20deg) translateY(-17px) scale(1.10); }
-  27.07%, 60.4%  { transform: rotate(12deg) translateY(-8px) scale(1.04); }
-}
-
-/* r5 base rotate(-2.6deg) translateY(4px) — wiggles at 24s (40%) and 44s (73.33%) */
-@keyframes polaroid-wiggle-r5 {
-  0%, 39.7%, 40.7%, 73%, 74%, 100% { transform: rotate(-2.6deg) translateY(4px) scale(1); }
-  40%, 73.33%    { transform: rotate(-23deg) translateY(-6px) scale(1.08); }
-  40.2%, 73.53%  { transform: rotate(21deg) translateY(-10px) scale(1.10); }
-  40.4%, 73.73%  { transform: rotate(-10deg) translateY(-1px) scale(1.04); }
-}
-
-/* r6 base rotate(1.8deg) translateY(-5px) — wiggles at 8s (13.33%) and 28s (46.67%) */
-@keyframes polaroid-wiggle-r6 {
-  0%, 13%, 14%, 46.37%, 47.37%, 100% { transform: rotate(1.8deg) translateY(-5px) scale(1); }
-  13.33%, 46.67% { transform: rotate(23deg) translateY(-15px) scale(1.08); }
-  13.53%, 46.87% { transform: rotate(-21deg) translateY(-19px) scale(1.10); }
-  13.73%, 47.07% { transform: rotate(9deg) translateY(-11px) scale(1.04); }
+/* Wiggle burst ~0.6s at the start of each 42s cycle (≈1.43%); the rest of the
+   cycle the polaroid sits at its base pose. Base rotation/translate come from
+   the --polaroid-base-* variables, so each tilt variant keeps its own character. */
+@keyframes polaroid-wiggle {
+  0%, 1.43%, 100% {
+    transform: rotate(var(--polaroid-base-rot, 0deg)) translateY(var(--polaroid-base-y, 0px)) scale(1);
+  }
+  0.43% {
+    transform: rotate(calc(var(--polaroid-base-rot, 0deg) - 20deg)) translateY(calc(var(--polaroid-base-y, 0px) - 10px)) scale(1.08);
+  }
+  0.72% {
+    transform: rotate(calc(var(--polaroid-base-rot, 0deg) + 22deg)) translateY(calc(var(--polaroid-base-y, 0px) - 15px)) scale(1.10);
+  }
+  1.00% {
+    transform: rotate(calc(var(--polaroid-base-rot, 0deg) - 10deg)) translateY(calc(var(--polaroid-base-y, 0px) - 7px)) scale(1.05);
+  }
 }
 
 /* Footer bottom row (© 2026 + Back to top) — stack centered on mobile. */
