@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router, RouterOutlet } from '@angular/router';
 import { filter, map, startWith } from 'rxjs/operators';
 import { SiteFooterComponent } from './components/site-footer/site-footer.component';
 
@@ -21,5 +21,22 @@ export class AppComponent {
       startWith(null),
       map(() => !router.url.startsWith('/caribbean-connections')),
     );
+
+    router.events
+      .pipe(filter((e): e is NavigationStart => e instanceof NavigationStart))
+      .subscribe((event) => {
+        const currentUrl = router.url;
+        if (event.url.startsWith('/info/') && !currentUrl.startsWith('/info/')) {
+          try {
+            sessionStorage.setItem(
+              'legalModalReturnState',
+              JSON.stringify({
+                returnUrl: currentUrl,
+                returnScrollY: typeof window !== 'undefined' ? window.scrollY : 0,
+              }),
+            );
+          } catch {}
+        }
+      });
   }
 }

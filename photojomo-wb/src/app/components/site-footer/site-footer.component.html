@@ -53,6 +53,11 @@
 
     <div class="site-footer__bottom">
       <p>Capture Caribbean: Where the World Meets Caribbean Creativity</p>
+      <nav class="site-footer__legal" aria-label="Legal">
+        <a routerLink="/info/rules" [state]="legalModalState()" [replaceUrl]="true">Official Rules</a>
+        <a routerLink="/info/privacy-policy" [state]="legalModalState()" [replaceUrl]="true">Privacy Policy</a>
+        <a routerLink="/info/terms-and-conditions" [state]="legalModalState()" [replaceUrl]="true">Terms of Service</a>
+      </nav>
       <p>&copy; 2026 Capture Caribbean</p>
     </div>
   </div>
