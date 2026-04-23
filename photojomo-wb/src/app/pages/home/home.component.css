@@ -1,3 +1,92 @@
+/* ── Rotate-to-portrait prompt (phone landscape only) ────────────────────── */
+.rotate-prompt {
+  display: none;
+}
+
+@media (orientation: landscape) and (max-height: 500px),
+       (min-width: 1000px) and (max-width: 1200px) and (min-height: 1600px) and (max-height: 1760px) {
+  .rotate-prompt {
+    display: flex !important;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100dvw;
+    height: 100dvh;
+    z-index: 2147483647;
+    align-items: stretch;
+    justify-content: space-between;
+    background: #0a0a0a;
+    color: #fff;
+    padding-top: max(16px, env(safe-area-inset-top));
+    padding-right: max(24px, env(safe-area-inset-right));
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
+    padding-left: max(24px, env(safe-area-inset-left));
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .rotate-prompt__header,
+  .rotate-prompt__footer {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .rotate-prompt__main {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 0;
+  }
+
+  .rotate-prompt__logo {
+    width: clamp(120px, 28vw, 200px);
+    height: auto;
+    display: block;
+  }
+
+  .rotate-prompt__icon {
+    color: #d8a74d;
+    animation: rotate-prompt-wiggle 1.8s ease-in-out infinite;
+  }
+
+  .rotate-prompt__title {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .rotate-prompt__body {
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.4;
+    opacity: 0.85;
+  }
+
+  .rotate-prompt__footer p {
+    font-size: 12px;
+    margin: 0;
+    opacity: 0.7;
+    letter-spacing: 0.02em;
+  }
+
+  /* Lock background scroll while overlay is visible */
+  :host {
+    overflow: hidden !important;
+  }
+}
+
+@keyframes rotate-prompt-wiggle {
+  0%, 60%, 100% { transform: rotate(-90deg); }
+  30% { transform: rotate(0deg); }
+}
+
 /* ── tri-path visibility ──────────────────────────────────────────────────── */
 #tri-path-sm {
   display: none !important;
@@ -13,6 +102,36 @@
 }
 
 .hero-main-image {
+}
+
+.hero-photo-credit {
+  position: absolute;
+  right: 329px;
+  bottom: 130px;
+  z-index: 3;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: 'Open Sauce One', system-ui, sans-serif;
+  font-size: clamp(10px, 1.05vw, 13px);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+  .hero-photo-credit {
+    right: 118px;
+    bottom: calc(49vh - 140px);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-photo-credit {
+    right: 42px;
+    bottom: calc(50vh - 170px);
+    font-size: 10px;
+  }
 }
 
 .hero-image-shell::after {
@@ -1553,6 +1672,191 @@
 
   .tri-path-lg {
     display: none !important;
+  }
+}
+
+/* ── Phone landscape ─────────────────────────────────────────────────────
+   Only applies to phones held sideways (short viewport, any width).
+   Leaves portrait mobile, tablet, and desktop untouched.
+   ────────────────────────────────────────────────────────────────────── */
+@media (orientation: landscape) and (max-height: 500px) {
+
+  /* Hero: stop it from consuming the entire landscape viewport */
+  #container .hero-image-shell {
+    height: 100svh !important;
+    min-height: 320px !important;
+    max-height: 520px !important;
+  }
+
+  /* Reposition photo credit for landscape (portrait rule uses 50vh math) */
+  .hero-photo-credit {
+    right: 18px !important;
+    bottom: 14px !important;
+    font-size: 10px !important;
+  }
+
+  /* Shorten bottom fade + drop it below hero content */
+  .hero-image-shell::after {
+    height: 14vh !important;
+    z-index: 1 !important;
+  }
+
+  /* Lift the entire hero overlay (title + CTAs) above the gradient */
+  .hero-image-shell .css-x82mwy {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  /* Lift hero CTA buttons above the bottom fade */
+  .hero-primary-cta,
+  .css-wbynap {
+    position: relative !important;
+    z-index: 5 !important;
+  }
+
+  /* Keep top fade off in landscape too (matches mobile portrait intent) */
+  .hero-image-shell::before {
+    display: none !important;
+  }
+
+  /* Main hero title: push down 170px (was 140, +30) */
+  #container .css-l1ge5b {
+    margin-top: 170px !important;
+  }
+
+  /* Hero title: 25% smaller than mobile (36→27, 33→25) */
+  #container .css-k1oxlm {
+    font-size: 27px !important;
+  }
+  #container .css-366pmd {
+    font-size: 25px !important;
+  }
+
+  /* Push Presented in Partnership + everything below down 10px */
+  .partnership-bridge {
+    margin-top: 10px !important;
+  }
+
+  /* Tri-path (mobile variant): reclaim width with side-by-side cards */
+  #tri-path-sm {
+    padding: 32px 24px 12px !important;
+    margin-top: -14px !important;
+  }
+
+  #tri-path-sm .css-jff7uw {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 12px !important;
+  }
+
+  #tri-path-sm .tri-card--mobile {
+    flex: 1 1 calc(50% - 12px) !important;
+    min-width: 260px !important;
+    max-width: 360px !important;
+  }
+
+  /* Shift content inside each tri-path panel down 60px */
+  /* Mobile variant: align-items flex-start, so add top padding */
+  #tri-path-sm .tri-card--mobile .tri-card__surface {
+    padding-top: 75px !important;
+  }
+
+  /* Large variant: content is pinned to bottom via justify-end, so
+     shrinking bottom padding is what visually shifts content down */
+  #tri-path-lg [class*="pb-[168px]"],
+  #tri-path-lg [class*="pb-[166px]"],
+  #tri-path-lg [class*="pb-[165px]"] {
+    padding-bottom: 50px !important;
+  }
+
+  /* Tighten gap between logo and label text inside each large panel */
+  #tri-path-lg [class*="gap-[35px]"],
+  #tri-path-lg [class*="gap-[32px]"] {
+    gap: 16px !important;
+  }
+
+  /* Prospective Partners: keep all logos inside the viewport in landscape.
+     Tablet rule uses flex-nowrap + 170px logos + 28px gap (≈8 logos × ~200px
+     ≈ 1600px) which overflows every phone landscape width. Allow wrap and
+     shrink logos so they fit within the visible row. */
+  .prospective-partners-logos {
+    flex-wrap: wrap !important;
+    gap: 10px 18px !important;
+    max-width: 100% !important;
+    padding: 0 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  .prospective-partners-logos > div {
+    min-height: 56px !important;
+    padding: 4px !important;
+  }
+
+  .prospective-partners-logos img,
+  .prospective-partners-logos .css-ce0hlr,
+  .prospective-partners-logos .css-59b3l2 {
+    max-width: 96px !important;
+    max-height: 54px !important;
+  }
+
+  .prospective-partners-logos > div:nth-child(1) img {
+    max-width: 92px !important;
+    max-height: 60px !important;
+  }
+
+  .prospective-partners-logos > div:nth-child(2) img {
+    max-width: 64px !important;
+    max-height: 64px !important;
+  }
+
+}
+
+/* Artist Residency: 70px closer to the section above.
+   Per-width rules since mobile (50px) and tablet (-92px) bases differ. */
+@media (orientation: landscape) and (max-height: 500px) and (max-width: 768px) {
+  .artist-residency-clean {
+    margin-top: -20px !important; /* was 50 */
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) and (min-width: 769px) {
+  .artist-residency-clean {
+    margin: -162px auto 92px !important; /* was -92 92 */
+  }
+}
+
+/* ── MacBook Pro 16" (default scaling ~1728×1117) ─────────────────────────
+   Keep the navbar and footer strictly within the viewport bounds on this
+   size only. Scoped by both width and height so 1920×1080, 1440×900, and
+   other desktops are untouched.
+   ──────────────────────────────────────────────────────────────────────── */
+@media (min-width: 1600px) and (max-width: 1760px) and (min-height: 1000px) and (max-height: 1200px) {
+  :host,
+  :host ::ng-deep #container {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Header: navbar wrapper centered, capped to viewport width */
+  :host ::ng-deep #container .css-vhq6dg {
+    width: min(calc(100vw - 64px), 1320px) !important;
+    max-width: calc(100vw - 64px) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Footer: full-width block that cannot exceed the viewport */
+  :host ::ng-deep #container .css-p70z91 {
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep #container .css-p70z91 > * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 }
 

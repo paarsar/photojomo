@@ -37305,3 +37305,42 @@
 
 }
 
+/* Footer legal links (Official Rules / Privacy Policy / Terms of Service) */
+.footer-legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 20px;
+  margin: 6px 0 4px;
+  font-family: "Inter:Regular", "Sora:Regular", sans-serif;
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.footer-legal-links a {
+  color: #d4d5d9;
+  text-decoration: none;
+}
+
+.footer-legal-links a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+#container .footer-legal-links a,
+#container .residency-footer-section .footer-legal-links a,
+#container .residency-footer-section--exported .footer-legal-links a,
+#container .css-sfem9u .footer-legal-links a,
+#container .css-p70z91 .footer-legal-links a {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+@media (max-width: 768px) {
+  .footer-legal-links {
+    gap: 4px 14px;
+    font-size: 11px;
+  }
+}
+
+

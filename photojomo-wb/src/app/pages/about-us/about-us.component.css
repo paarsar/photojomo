@@ -1,5 +1,46 @@
 /* Styles are in global styles.css */
 
+/* Journey — legacy note below the 4 description slots */
+:host ::ng-deep .journey-legacy-note {
+  font-family: "PP Neue Montreal:Book", sans-serif;
+  font-size: 13.5px;
+  line-height: 19.5px;
+  text-align: center;
+  color: #000;
+  margin: 32px auto 0;
+  max-width: 720px;
+  padding: 0 20px;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+:host ::ng-deep .journey-legacy-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  max-width: 480px;
+  margin: -14px auto 0;
+  padding: 0 20px;
+}
+
+:host ::ng-deep .journey-legacy-divider__line {
+  flex: 1 1 auto;
+  display: block;
+  min-width: 40px;
+  height: 1.5px;
+  background-color: #c4dcec;
+}
+
+:host ::ng-deep .journey-legacy-icon {
+  flex: 0 0 auto;
+  display: block;
+  width: 48px;
+  height: 48px;
+}
+
+
 :host ::ng-deep .footer-bonus-copy {
   color: #ffffff !important;
   margin-top: 2px !important;
@@ -165,11 +206,22 @@
   :host ::ng-deep #container .css-cff8ov .css-u2sh78 .css-phc9f9 {
     width: 100% !important;
     height: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
     object-fit: cover !important;
   }
 
   :host ::ng-deep #container .css-cff8ov .css-u2sh78 .css-hf8lmr {
     background-color: transparent !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-nc9rp1 {
+    height: auto !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-oqw3rp .css-kg6uhx {
+    font-size: 16.438px !important;
+    white-space: nowrap !important;
   }
 
   :host ::ng-deep #container .css-cff8ov .css-jm9nns {
@@ -725,6 +777,66 @@
     transform: scale(1.05) !important;
     transform-origin: center top !important;
     object-position: center top !important;
+  }
+}
+
+/* Guided by Visionaries — prevent clipping so full descriptions are visible */
+:host ::ng-deep #container .css-dwyaap {
+  overflow: visible !important;
+  height: auto !important;
+  max-height: none !important;
+}
+
+/* Journey — uniform icon centering across all 4 slots on wide desktop */
+@media (min-width: 1101px) {
+  :host ::ng-deep #container .css-cff8ov .css-5idbcs.css-jvpnk3 {
+    align-items: flex-start !important;
+    justify-content: center !important;
+    gap: 40px !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-zfhtxa {
+    align-items: center !important;
+    justify-content: flex-start !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-nc9rp1 {
+    height: auto !important;
+  }
+
+  :host ::ng-deep #container .css-cff8ov .css-u2sh78 {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Capture Saint Lucia International Tour — nudge up 40px on desktop */
+  :host ::ng-deep #container .css-mzafbe {
+    margin-top: -40px !important;
+  }
+
+  /* Guided by Visionaries — pull subtitle closer to title on desktop */
+  :host ::ng-deep #container .css-dwyaap .css-zfhscg {
+    margin-top: -45px !important;
+  }
+
+  /* Journey — pull images + descriptions closer to subtitle on desktop */
+  :host ::ng-deep #container .css-cff8ov .css-otjbs4 {
+    margin-top: -40px !important;
+  }
+
+  /* More Than an Island — pull 4 images closer to the text above on desktop */
+  :host ::ng-deep #container .css-z8tyjh {
+    margin-top: -40px !important;
+  }
+}
+
+/* ── Phone landscape ─────────────────────────────────────────────────────
+   Hero: move "Presented in Partnership" section down 30px relative to its
+   current position (base margin-top is -168px).
+   ────────────────────────────────────────────────────────────────────── */
+@media (orientation: landscape) and (max-height: 500px) {
+  .partnership-bridge {
+    margin-top: -108px !important; /* was -168 */
   }
 }
 
