@@ -15,6 +15,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContestComponent } from './pages/contest/contest.component';
 import { ContestEntryComponent } from './pages/contest-entry/contest-entry.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { SweepstakesComponent } from './pages/sweepstakes/sweepstakes.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -33,6 +34,7 @@ export const routes: Routes = [
   { path: 'contest', component: ContestComponent },
   { path: 'contest-entry/:id', component: ContestEntryComponent },
   { path: 'checkout/:contestId/:tierId', component: CheckoutComponent },
+  { path: 'sweepstakes', component: SweepstakesComponent },
   { path: 'info/rules', loadComponent: () => import('./pages/info/rules/rules.component').then(m => m.RulesComponent) },
   { path: 'info/privacy-policy', loadComponent: () => import('./pages/info/privacy-policy/privacy-policy.component').then(m => m.PrivacyPolicyComponent) },
   { path: 'info/terms-and-conditions', loadComponent: () => import('./pages/info/terms-and-conditions/terms-and-conditions.component').then(m => m.TermsAndConditionsComponent) },
