@@ -6,9 +6,9 @@ DIST        = dist
 
 # ── Targets ───────────────────────────────────────────────────────────────────
 
-.PHONY: all clean $(DIST) build-contact deploy-contact build-submission deploy-submission build-contest-entry deploy-contest-entry build-stripe-webhook deploy-stripe-webhook build-payment-intent deploy-payment-intent build-paypal-order deploy-paypal-order build-paypal-capture deploy-paypal-capture build-paypal-webhook deploy-paypal-webhook
+.PHONY: all clean $(DIST) build-contact deploy-contact build-submission deploy-submission build-contest-entry deploy-contest-entry build-stripe-webhook deploy-stripe-webhook build-payment-intent deploy-payment-intent build-paypal-order deploy-paypal-order build-paypal-capture deploy-paypal-capture build-paypal-webhook deploy-paypal-webhook build-sweepstakes deploy-sweepstakes
 
-all: build-contact build-submission build-contest-entry build-stripe-webhook build-payment-intent build-paypal-order build-paypal-capture build-paypal-webhook
+all: build-contact build-submission build-contest-entry build-stripe-webhook build-payment-intent build-paypal-order build-paypal-capture build-paypal-webhook build-sweepstakes
 
 # ── Build ─────────────────────────────────────────────────────────────────────
 
@@ -78,6 +78,13 @@ build-paypal-webhook: $(DIST)
 	zip -j $(DIST)/paypal-webhook.zip bootstrap
 	rm bootstrap
 	@echo "Built: $(DIST)/paypal-webhook.zip"
+
+build-sweepstakes: $(DIST)
+	GOOS=$(GOOS) GOARCH=$(GOARCH) CGO_ENABLED=$(CGO_ENABLED) \
+		go build $(LDFLAGS) -o bootstrap ./cmd/sweepstakes/
+	zip -j $(DIST)/sweepstakes.zip bootstrap
+	rm bootstrap
+	@echo "Built: $(DIST)/sweepstakes.zip"
 
 # Add future lambdas here following the same pattern:
 # build-<name>: $(DIST)
@@ -157,6 +164,17 @@ deploy-paypal-webhook: build-paypal-webhook
 		--s3-key paypal-webhook-service/paypal-webhook.zip \
 		--region $(REGION)
 	@echo "Deployed paypal-webhook lambda to $(ENV)"
+
+deploy-sweepstakes: build-sweepstakes
+	aws s3 cp $(DIST)/sweepstakes.zip \
+		s3://$(PROJECT)-$(ENV)-lambda-artifacts/sweepstakes-service/sweepstakes.zip \
+		--region $(REGION)
+	aws lambda update-function-code \
+		--function-name $(PROJECT)-$(ENV)-sweepstakes-service \
+		--s3-bucket $(PROJECT)-$(ENV)-lambda-artifacts \
+		--s3-key sweepstakes-service/sweepstakes.zip \
+		--region $(REGION)
+	@echo "Deployed sweepstakes lambda to $(ENV)"
 
 deploy-contact: build-contact
 	aws s3 cp $(DIST)/contact.zip \
