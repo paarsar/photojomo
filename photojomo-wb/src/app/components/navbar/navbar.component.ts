@@ -15,6 +15,7 @@ import { environment } from '../../../environments/environment';
 export class NavbarComponent {
   firstWaveUrl = environment.firstWaveUrl;
   @Input() wrapperClass = 'css-fbgm56 css-8hhw9a css-roiesn';
+  @Input() cc = false;
   dropdownOpen = false;
   menuOpen = false;
   scrolled = false;

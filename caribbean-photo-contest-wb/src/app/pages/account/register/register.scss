@@ -1,0 +1,721 @@
+// White schema for the Caribbean Photo Contest registration page.
+// Mirrors the structure from photojomo-first-wave-wb but inverts the palette.
+
+$ink: #1a1a1a;
+$muted: #4a4a4a;
+$soft-text: #6b7280;
+$border: #e2e2e2;
+$soft-bg: #f7f9fb;
+$gold: #DEAD54;
+$gold-hover: #c8973e;
+$danger: #d83a3a;
+
+.reg-page {
+  background: #fff;
+  min-height: 100vh;
+  padding: 0 2rem 3rem;
+  color: $ink;
+
+  @media (max-width: 640px) {
+    padding-right: calc(2rem + 4px);
+  }
+
+  // 70px hero band with a thin light-grey bottom border separating it from the page
+  &__hero {
+    height: 70px;
+    width: calc(100% + 4rem);
+    margin: 0 -2rem 0;
+    background: url('/images/hero-marigot.jpg') center 38% / cover no-repeat;
+    border-bottom: 1px solid $border;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.10), rgba(255,255,255,0.05));
+      pointer-events: none;
+    }
+  }
+
+  &__header {
+    text-align: center;
+    padding-bottom: 80px;
+    position: relative;
+  }
+
+  // Circular badge around the logo: white interior + thin grey stroke
+  &__logo-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    height: 110px;
+    background: #fff;
+    border-radius: 50%;
+    padding: 11px;
+    box-sizing: border-box;
+    margin-top: -45px;      // keeps the badge top overlap on the 70px hero strip
+    position: relative;
+    z-index: 2;
+    animation: regLogoEntry 900ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+
+  &__logo {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  &__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+    align-items: flex-start;
+
+    @media (max-width: 860px) {
+      grid-template-columns: 1fr;
+
+      // Promote the Order Summary above the form on mobile
+      .order-summary { order: -1; position: static; margin-top: -40px; margin-bottom: 0.5rem; }
+      .reg-form      { order: 0; }
+    }
+
+    @media (max-width: 640px) {
+      padding-right: 4px;
+    }
+  }
+}
+
+// FORM
+.reg-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+}
+
+.reg-section {
+  border-bottom: 1px solid $border;
+  padding: 2rem 0;
+
+  &:first-child { padding-top: 0; }
+
+  &__title {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 1rem;
+    color: $ink;
+    margin: 0 0 0.25rem;
+  }
+
+  &__sub {
+    font-size: 0.8rem;
+    color: $soft-text;
+    margin: 0 0 1.5rem;
+  }
+
+  &--with-total {
+    padding-bottom: 0.9rem;
+  }
+
+  &--privacy-rules .reg-section__title {
+    margin-bottom: 1rem;
+  }
+}
+
+.reg-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  @media (max-width: 560px) { grid-template-columns: 1fr; }
+}
+
+.reg-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+
+  label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: $muted;
+  }
+
+  input, select {
+    padding: 0.65rem 0.85rem;
+    background: #fff;
+    border: 1px solid $border;
+    border-radius: 4px;
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
+    color: $ink;
+    transition: border-color 0.15s, box-shadow 0.15s;
+
+    &::placeholder { color: $soft-text; }
+
+    &:focus {
+      outline: none;
+      border-color: $ink;
+      box-shadow: 0 0 0 3px rgba(26,26,26,0.08);
+    }
+
+    option { background: #fff; color: $ink; }
+  }
+}
+
+.req { color: $danger; }
+
+// UPLOAD GRID
+.upload-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.upload-slot {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+
+  &__label {
+    font-size: 0.78rem;
+    color: $muted;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.85rem;
+    background: #fff;
+    border: 1px solid $border;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    color: $ink;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    width: fit-content;
+
+    &:hover { background: $soft-bg; border-color: rgb(180,180,180); }
+  }
+
+  &__none {
+    font-size: 0.75rem;
+    color: $soft-text;
+  }
+
+  &__preview {
+    width: 100%;
+    max-height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid $border;
+  }
+
+  &__remove {
+    background: none;
+    border: 1px solid $border;
+    border-radius: 3px;
+    color: $muted;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.65rem;
+    cursor: pointer;
+    width: fit-content;
+
+    &:hover { color: $danger; border-color: $danger; }
+  }
+
+  &__hint {
+    font-size: 0.7rem;
+    color: $soft-text;
+    margin: 0;
+    line-height: 1.4;
+  }
+}
+
+// CONFIRMATIONS
+.reg-checks {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.reg-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: $muted;
+  line-height: 1.5;
+
+  input {
+    margin-top: 3px;
+    flex-shrink: 0;
+    accent-color: $ink;
+  }
+
+  a {
+    color: $ink;
+    text-decoration: underline;
+    font-weight: 600;
+    &:hover { color: $gold; }
+  }
+}
+
+.reg-checks .reg-check:last-child {
+  margin-bottom: 0.65rem;
+}
+
+.reg-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.65rem;
+  padding-top: 0.35rem;
+  border-top: 1px solid $border;
+
+  &__label {
+    font-size: 0.85rem;
+    color: $muted;
+  }
+
+  &__price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $ink;
+  }
+}
+
+// PAYMENT
+.payment-options {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.payment-opt {
+  cursor: pointer;
+  input { display: none; }
+
+  span {
+    display: block;
+    padding: 0.55rem 1.5rem;
+    border: 1px solid $border;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: $muted;
+    background: #fff;
+    transition: all 0.15s;
+  }
+
+  &--active span {
+    border-color: $ink;
+    color: $ink;
+    background: $soft-bg;
+  }
+}
+
+.card-fields {
+  border: 1px solid $border;
+  border-radius: 6px;
+  padding: 1.25rem;
+  background: #fff;
+}
+
+.card-fields--hidden { display: none; }
+
+.paypal-section {
+  &--hidden { display: none; }
+}
+
+.stripe-loading {
+  font-size: 0.85rem;
+  color: $soft-text;
+  text-align: center;
+  padding: 1.5rem 0;
+  margin: 0;
+}
+
+.stripe-element--hidden {
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+}
+
+// SUBMIT
+.reg-submit-wrapper {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.reg-submit {
+  width: 100%;
+  background: $ink;
+  color: #fff;
+  border: 1px solid $ink;
+  padding: 1rem;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+
+  &:hover:not(:disabled) {
+    background: #fff;
+    color: $ink;
+  }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+}
+
+// ORDER SUMMARY SIDEBAR
+.order-summary {
+  background: $soft-bg;
+  border: 1px solid $border;
+  border-radius: 8px;
+  padding: 1.75rem 1.5rem 1.1rem;
+  position: sticky;
+  top: 2rem;
+  min-width: 0;
+
+  &__heading {
+    font-family: var(--font-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: $muted;
+    margin: 0 0 1.25rem;
+  }
+
+  &__division {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: $ink;
+    line-height: 1.2;
+    margin: 0 0 0.4rem;
+  }
+
+  &__tier {
+    font-size: 0.88rem;
+    color: $gold;
+    margin: 0 0 0.2rem;
+    font-weight: 600;
+  }
+
+  &__images {
+    font-size: 0.8rem;
+    color: $muted;
+    margin: 0 0 1.25rem;
+  }
+
+  &__benefits {
+    p { display: none; }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.25rem;
+
+      li {
+        font-size: 0.82rem;
+        color: $muted;
+        padding: 0.3rem 0 0.3rem 1.2rem;
+        position: relative;
+        line-height: 1.4;
+
+        &::before {
+          content: '✓';
+          position: absolute;
+          left: 0;
+          color: $gold;
+          font-size: 0.75rem;
+        }
+      }
+    }
+  }
+
+  &__golden {
+    color: $gold !important;
+    font-weight: 600;
+
+    &::before { content: '' !important; }
+  }
+
+  &__divider {
+    border-top: 1px solid $border;
+    margin: 0.5rem 0 1rem;
+  }
+
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    span:first-child {
+      font-size: 0.82rem;
+      color: $muted;
+    }
+
+    span:last-child {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: $ink;
+    }
+  }
+}
+
+// BOTTOM DISCLAIMER
+.reg-disclaimer {
+  max-width: 860px;
+  margin: 5rem auto 0;
+  padding: 3rem 2rem;
+  border-top: 1px solid $border;
+  text-align: center;
+
+  @media (max-width: 640px) {
+    padding-right: calc(2rem + 4px);
+  }
+
+  &__logo {
+    width: 64px;
+    height: auto;
+    margin-bottom: 2rem;
+  }
+
+  p {
+    font-size: 0.78rem;
+    color: $muted;
+    line-height: 1.7;
+    margin: 0 0 0.75rem;
+  }
+
+  a {
+    color: $ink;
+    text-decoration: underline;
+    font-weight: 600;
+    &:hover { color: $gold; }
+  }
+
+  &__legal-links {
+    margin-top: 1.75rem;
+    font-size: 11px;
+    line-height: 1.4;
+    color: #1d6f9c;
+
+    a {
+      color: #1d6f9c;
+      text-decoration: none;
+      font-weight: 500;
+      &:hover { text-decoration: underline; }
+    }
+  }
+
+  &__copy {
+    margin-top: 0.5rem;
+    font-size: 11px;
+    color: $soft-text !important;
+  }
+}
+
+// ERROR MODAL
+.reg-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.reg-modal {
+  background: #fff;
+  border: 1px solid $border;
+  border-radius: 10px;
+  padding: 2.5rem 2rem;
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+
+  &__icon {
+    width: 52px;
+    height: 52px;
+    background: $danger;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+  }
+
+  &__title {
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $ink;
+    margin: 0 0 0.75rem;
+  }
+
+  &__message {
+    font-size: 0.9rem;
+    color: $muted;
+    line-height: 1.6;
+    margin: 0 0 1.75rem;
+  }
+
+  &__btn {
+    background: $ink;
+    color: #fff;
+    border: 1px solid $ink;
+    padding: 0.7rem 2rem;
+    border-radius: 4px;
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+
+    &:hover { background: #fff; color: $ink; }
+  }
+}
+
+// SUCCESS STATE
+.reg-success-page {
+  background: #fff;
+  min-height: 100vh;
+  padding: 0 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: 640px) {
+    padding-right: calc(2rem + 4px);
+  }
+
+  // 70px hero strip identical to the register form's hero
+  &__hero {
+    height: 70px;
+    width: calc(100% + 4rem);
+    margin: 0 -2rem 0;
+    background: url('/images/hero-marigot.jpg') center 38% / cover no-repeat;
+    border-bottom: 1px solid $border;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.10), rgba(255,255,255,0.05));
+      pointer-events: none;
+    }
+  }
+
+  &__header {
+    text-align: center;
+    padding-bottom: 2rem;
+    width: 100%;
+  }
+
+  &__logo-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    height: 110px;
+    background: #fff;
+    border-radius: 50%;
+    padding: 11px;
+    box-sizing: border-box;
+    margin-top: -45px;
+    position: relative;
+    z-index: 2;
+    animation: regLogoEntry 900ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+
+  &__logo {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.reg-success {
+  max-width: 520px;
+  margin: 1rem auto 5rem;
+  text-align: center;
+  padding: 3rem 2rem;
+  background: #fff;
+  border: 1px solid $border;
+  border-radius: 12px;
+  color: $ink;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+
+  &__icon {
+    width: 64px;
+    height: 64px;
+    background: $gold;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+  }
+
+  h2 { font-size: 1.75rem; margin: 0 0 1rem; color: $ink; }
+
+  p {
+    font-size: 0.95rem;
+    color: $muted;
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  &__btn {
+    display: inline-block;
+    margin-top: 1rem;
+    background: $ink;
+    color: #fff;
+    border: 1px solid $ink;
+    padding: 0.75rem 2rem;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background 0.2s, color 0.2s;
+
+    &:hover { background: #fff; color: $ink; }
+  }
+}
+
+.reg-error {
+  color: $danger;
+  font-size: 0.85rem;
+  margin: 1rem 0 0;
+}
+
+// Subtle fade + bounce entry animation for the hanging logo
+@keyframes regLogoEntry {
+  0%   { opacity: 0; transform: translateY(-14px) scale(0.94); }
+  60%  { opacity: 1; transform: translateY(3px)   scale(1.02); }
+  80%  {              transform: translateY(-1px) scale(1);    }
+  100% { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reg-page__logo-wrap { animation: none; }
+}
