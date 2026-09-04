@@ -1,41 +1,93 @@
 <section class="tiers">
-  <h2 class="tiers__heading">Contest Submission <i>Tier & Fees</i></h2>
+  <h2 class="tiers__heading">
+    {{ divisionLabel }} Contest Submission
+    <span class="tiers__heading-break"></span>
+    <i>Tier &amp; Fees</i>
+  </h2>
+  @if (tiersLoading) {
+    <p class="tiers__loading">Loading tiers…</p>
+  } @else if (tiersError) {
+    <p class="tiers__error">Unable to load tiers. Please refresh the page.</p>
+  } @else {
   <div class="tiers__grid">
-    @for (tier of tiers; track tier.name) {
+    @for (tier of tiers; track tier.id) {
       <div class="tier-card" [class.tier-card--featured]="tier.golden">
         @if (tier.golden) {
           <div class="tier-card__badge">Most Popular</div>
         }
         <div class="tier-card__header">
           <h3 class="tier-card__name">{{ tier.name }}</h3>
-          <div class="tier-card__price">{{ tier.price }}</div>
-          <div class="tier-card__images">{{ tier.images }}</div>
+          <div class="tier-card__price">{{ formatPrice(tier.price) }}</div>
+          <div class="tier-card__images">{{ formatImages(tier.maxImages) }}</div>
         </div>
         <div class="tier-card__body">
           <p class="tier-card__benefits-label">Benefits</p>
           <ul class="tier-card__benefits">
             @for (benefit of tier.benefits; track $index) {
-              <li>{{ benefit }}</li>
+              <li>
+                <span class="tier-card__benefit-icon" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none">
+                    <circle cx="8" cy="8" r="7" />
+                    <path d="M5 8.2 7 10.2 11 6.2" />
+                  </svg>
+                </span>
+                <span>{{ benefit }}</span>
+              </li>
             }
             @if (tier.golden) {
               <li class="tier-card__golden">
-                <span class="golden-icon">🎟</span> Golden Ticket
+                <span class="golden-icon" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none">
+                    <path d="M2 4.5A1.5 1.5 0 0 1 3.5 3h9A1.5 1.5 0 0 1 14 4.5v1.2a1.8 1.8 0 0 0 0 3.6v1.2a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 10.5V9.3a1.8 1.8 0 0 0 0-3.6V4.5Z" />
+                    <path d="M8 4.2v7.6" />
+                  </svg>
+                </span>
+                <span>Includes <strong class="tier-card__golden-emphasis">Golden Ticket</strong></span>
+                <button
+                  type="button"
+                  class="golden-info"
+                  aria-label="About the Golden Ticket"
+                  (click)="openGoldenInfo($event)"
+                >i</button>
               </li>
             }
           </ul>
         </div>
         <div class="tier-card__footer">
-          <a [routerLink]="['/account/register']"
-             [queryParams]="{ division: division, tier: tier.name }"
-             class="tier-btn">
-            Register Now
+          <a
+            [routerLink]="['/account/register']"
+            [queryParams]="{ division: division, tier: tier.name, tierId: tier.id }"
+            class="tier-btn"
+          >
+            <span>Register Now</span>
+            <span class="tier-btn__arrow" aria-hidden="true">
+              <svg viewBox="0 0 18 18" fill="none">
+                <path d="M3.5 9h10" />
+                <path d="m9.5 4 5 5-5 5" />
+              </svg>
+            </span>
           </a>
         </div>
       </div>
     }
   </div>
   <p class="tiers__footer-note">
-    By registering you agree to the <a routerLink="/info/rules">Rules</a> and
-    <a routerLink="/info/terms-and-conditions">Terms & Conditions</a>.
+    By registering you agree to the <a routerLink="/info/rules" [state]="legalModalState()" [replaceUrl]="true">Rules</a> and
+    <a routerLink="/info/terms-and-conditions" [state]="legalModalState()" [replaceUrl]="true">Terms &amp; Conditions</a>.
   </p>
+  }
+
+  @if (goldenInfoOpen) {
+    <div class="golden-modal" role="dialog" aria-modal="true" aria-labelledby="golden-modal-title" (click)="closeGoldenInfo()">
+      <div class="golden-modal__panel" (click)="$event.stopPropagation()">
+        <button type="button" class="golden-modal__close" aria-label="Close" (click)="closeGoldenInfo()">×</button>
+        <h3 id="golden-modal-title" class="golden-modal__title">Exclusive: The Golden Ticket</h3>
+        <ul class="golden-modal__list">
+          <li>One (1) standard entry fee waived for the Official Capture Caribbean Contest (Summer 2026)</li>
+          <li>Eligible to compete for the Summer 2026 Grand Prize vacation package</li>
+          <li>High-tier performance may qualify creators for invitation consideration to the Capture Saint Lucia Invitational (Invite-Only)</li>
+        </ul>
+      </div>
+    </div>
+  }
 </section>

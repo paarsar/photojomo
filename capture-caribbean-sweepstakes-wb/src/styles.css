@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --sw-orange: #df5e26;
+  --sw-dark: #2d3134;
+  --sw-gray: #505050;
+  --sw-gray-light: #a3a3a3;
+  --sw-border: #d4d5d9;
+  --sw-footer-bg: #131313;
+}
+
+body {
+  margin: 0;
+  font-family: 'Sora', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--sw-dark);
+  background: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+p { margin: 0; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

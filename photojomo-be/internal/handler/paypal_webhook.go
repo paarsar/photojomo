@@ -13,6 +13,7 @@ import (
 	"time"
 
 	"github.com/aws/aws-lambda-go/events"
+	"github.com/photojomo/photojomo-be/internal/mailchimp"
 	"github.com/photojomo/photojomo-be/internal/repository"
 )
 
@@ -20,16 +21,24 @@ type PaypalWebhookHandler struct {
 	clientID     string
 	clientSecret string
 	webhookID    string
+	baseURL      string
 	submissions  *repository.SubmissionRepository
+	mailchimp    *mailchimp.Client
 	httpClient   *http.Client
 }
 
-func NewPaypalWebhookHandler(clientID, clientSecret, webhookID string, submissions *repository.SubmissionRepository) *PaypalWebhookHandler {
+func NewPaypalWebhookHandler(clientID, clientSecret, webhookID string, live bool, submissions *repository.SubmissionRepository, mc *mailchimp.Client) *PaypalWebhookHandler {
+	baseURL := paypalSandboxBaseURL
+	if live {
+		baseURL = paypalLiveBaseURL
+	}
 	return &PaypalWebhookHandler{
 		clientID:     clientID,
 		clientSecret: clientSecret,
 		webhookID:    webhookID,
+		baseURL:      baseURL,
 		submissions:  submissions,
+		mailchimp:    mc,
 		httpClient:   &http.Client{Timeout: 10 * time.Second},
 	}
 }
@@ -113,7 +122,7 @@ func (h *PaypalWebhookHandler) verifyWebhook(req events.APIGatewayV2HTTPRequest)
 		return fmt.Errorf("marshalling verify payload: %w", err)
 	}
 
-	verifyReq, err := http.NewRequest("POST", paypalBaseURL+"/v1/notifications/verify-webhook-signature", bytes.NewReader(payloadBytes))
+	verifyReq, err := http.NewRequest("POST", h.baseURL+"/v1/notifications/verify-webhook-signature", bytes.NewReader(payloadBytes))
 	if err != nil {
 		return fmt.Errorf("building verify request: %w", err)
 	}
@@ -149,7 +158,7 @@ func (h *PaypalWebhookHandler) getWebhookAccessToken() (string, error) {
 	form := url.Values{}
 	form.Set("grant_type", "client_credentials")
 
-	req, err := http.NewRequest("POST", paypalBaseURL+"/v1/oauth2/token", bytes.NewBufferString(form.Encode()))
+	req, err := http.NewRequest("POST", h.baseURL+"/v1/oauth2/token", bytes.NewBufferString(form.Encode()))
 	if err != nil {
 		return "", fmt.Errorf("building token request: %w", err)
 	}
@@ -192,7 +201,25 @@ func (h *PaypalWebhookHandler) handleCaptureCompleted(ctx context.Context, resou
 	}
 	orderID := capture.SupplementaryData.RelatedIDs.OrderID
 	log.Printf("PAYMENT.CAPTURE.COMPLETED: orderID=%s", orderID)
-	return h.submissions.UpdatePaymentStatusByPaypalOrderID(ctx, orderID, "paid")
+
+	if err := h.submissions.UpdatePaymentStatusByPaypalOrderID(ctx, orderID, "paid"); err != nil {
+		return err
+	}
+
+	contact, err := h.submissions.FindContactByPaypalOrderID(ctx, orderID)
+	if err != nil {
+		log.Printf("warning: could not fetch contact for mailchimp after paypal order %s: %v", orderID, err)
+		return nil
+	}
+
+	tags := mailchimpTags(contact.ContestID, contact.CategoryName)
+	if err := h.mailchimp.SubscribeWithTags(contact.Email, contact.FirstName, contact.LastName, tags); err != nil {
+		log.Printf("warning: mailchimp subscribe failed for %s: %v", contact.Email, err)
+	} else {
+		log.Printf("mailchimp: subscribed %s with tags %v", contact.Email, tags)
+	}
+
+	return nil
 }
 
 func (h *PaypalWebhookHandler) handleCaptureFailed(ctx context.Context, resource json.RawMessage) error {

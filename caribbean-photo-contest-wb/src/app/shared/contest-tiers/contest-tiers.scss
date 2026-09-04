@@ -1,0 +1,255 @@
+// White schema for the Caribbean Photo Contest tier pages.
+// Mirrors first-wave structure but inverts the palette to a light theme,
+// consistent with the home page typography and CTA patterns.
+
+$gold: #DEAD54;
+$ink: #1a1a1a;
+$muted: #4a4a4a;
+$border: #e2e2e2;
+
+.tiers {
+  position: relative;
+  padding: 0.5rem 2rem 3.8rem;
+  background: transparent;
+
+  &__heading {
+    font-family: 'Sora', var(--font-primary);
+    font-weight: 400;
+    font-size: clamp(1.9rem, 2.6vw, 2.35rem);
+    text-align: center;
+    margin: 0 0 2.8rem;
+    color: $ink;
+
+    strong { font-weight: 700; }
+
+    i {
+      font-family: var(--font-serif), 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      color: $ink;
+    }
+  }
+
+  &__heading-break { display: block; }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(296px, 1fr));
+    gap: 1.38rem;
+    max-width: 1322px;
+    margin: 0 auto;
+  }
+
+  &__footer-note {
+    text-align: center;
+    max-width: 760px;
+    margin: 2.6rem auto 0;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    color: $muted;
+
+    a {
+      color: $ink;
+      text-decoration: underline;
+      font-weight: 600;
+      &:hover { color: $gold; }
+    }
+  }
+}
+
+
+.tier-card {
+  position: relative;
+  border: 1px solid $border;
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    border-color: rgb(200,200,200);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+  }
+
+  &--featured {
+    border-color: $gold;
+    &:hover { border-color: $gold; }
+  }
+
+  &__badge { display: none; }
+
+  &__header {
+    padding: 1.65rem 1.65rem 0.55rem;
+    text-align: center;
+  }
+
+  &__name {
+    font-family: var(--font-serif), 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.58rem, 2.74vw, 2.09rem);
+    line-height: 1.18;
+    margin: 0 0 1.94rem;
+    color: #000;
+  }
+
+  &__name-variant {
+    color: #5DB7DD;
+  }
+
+  &__price {
+    font-family: 'Open Sauce One', var(--font-primary);
+    font-size: clamp(3.29rem, 5.13vw, 4.46rem);
+    font-weight: 700;
+    color: $ink;
+    line-height: 1;
+    margin-bottom: 1.14rem;
+  }
+
+  &__images {
+    font-size: 1.12rem;
+    color: $ink;
+  }
+
+  &__body {
+    padding: 0.16rem 1.37rem 0.26rem;
+    flex: 1;
+  }
+
+  &__benefits-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $ink;
+    margin: 0 0 0.48rem;
+  }
+
+  &__benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.42rem;
+      padding: 0.18rem 0;
+      font-size: 0.78rem;
+      color: $muted;
+      line-height: 1.32;
+    }
+  }
+
+  &__benefit-icon {
+    flex: 0 0 auto;
+    width: 0.86rem;
+    height: 0.86rem;
+    margin-top: 0.1rem;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      stroke: $muted;
+      stroke-width: 1.5;
+    }
+  }
+
+  &__golden {
+    margin-top: 0.24rem;
+    font-weight: 500;
+    color: $gold !important;
+
+    .golden-icon {
+      flex: 0 0 auto;
+      width: 1.03rem;
+      height: 1.03rem;
+      margin-top: 0.02rem;
+
+      svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+        stroke: $gold;
+        stroke-width: 1.2;
+      }
+    }
+
+    .golden-info {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 0.82rem;
+      height: 0.82rem;
+      margin-left: 0.14rem;
+      border-radius: 999px;
+      background: rgba(216,167,77,0.18);
+      color: $gold;
+      font-size: 0.62rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+  }
+
+  &__golden-emphasis {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-style: italic;
+    color: inherit;
+  }
+
+  &__footer {
+    padding: 0.02rem 1.43rem 0.96rem;
+  }
+}
+
+.tier-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.88rem 1.08rem;
+  background: #fff;
+  color: $ink;
+  font-family: 'Open Sauce One', var(--font-primary);
+  font-weight: 500;
+  font-size: 1.04rem;
+  text-decoration: none;
+  border: 1px solid $ink;
+  border-radius: 5px;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+
+  &:hover {
+    color: #fff;
+    background: $ink;
+    border-color: $ink;
+  }
+
+  .tier-card--featured & {
+    background: $ink;
+    color: #fff;
+    &:hover { background: $gold; border-color: $gold; color: $ink; }
+  }
+
+  &__arrow {
+    width: 0.98rem;
+    height: 0.98rem;
+  }
+
+  &__arrow svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover &__arrow svg {
+    transform: translateX(0.12rem);
+  }
+}

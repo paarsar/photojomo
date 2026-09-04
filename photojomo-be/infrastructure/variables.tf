@@ -133,3 +133,28 @@ variable "paypal_webhook_id" {
   description = "PayPal webhook ID from the PayPal developer dashboard"
   type        = string
 }
+
+# ── Mailchimp ──────────────────────────────────────────────────────────────────
+
+variable "contest_tier_service_zip_path" {
+  description = "Local path to the contest-tier-service Go binary zip"
+  type        = string
+  default     = "../dist/contest-tier.zip"
+}
+
+variable "sweepstakes_service_zip_path" {
+  description = "Local path to the sweepstakes-service Go binary zip"
+  type        = string
+  default     = "../dist/sweepstakes.zip"
+}
+
+variable "mailchimp_api_key" {
+  description = "Mailchimp API key"
+  type        = string
+  sensitive   = true
+}
+
+variable "mailchimp_audience_id" {
+  description = "Mailchimp audience (list) ID — use a test audience for dev, the real one for prod"
+  type        = string
+}

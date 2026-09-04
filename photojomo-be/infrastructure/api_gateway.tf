@@ -7,7 +7,7 @@ resource "aws_apigatewayv2_api" "main" {
 
   cors_configuration {
     allow_origins = ["*"]
-    allow_methods = ["POST", "OPTIONS"]
+    allow_methods = ["GET", "POST", "OPTIONS"]
     allow_headers = ["Content-Type", "Authorization"]
     max_age       = 300
   }
@@ -212,6 +212,52 @@ resource "aws_lambda_permission" "paypal_webhook_service_apigw" {
   statement_id  = "AllowAPIGatewayInvoke"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.paypal_webhook_service.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_apigatewayv2_api.main.execution_arn}/*/*"
+}
+
+# ── Sweepstakes Service Integration ──────────────────────────────────────────
+
+resource "aws_apigatewayv2_integration" "sweepstakes_service" {
+  api_id                 = aws_apigatewayv2_api.main.id
+  integration_type       = "AWS_PROXY"
+  integration_uri        = aws_lambda_function.sweepstakes_service.invoke_arn
+  payload_format_version = "2.0"
+}
+
+resource "aws_apigatewayv2_route" "create_sweepstakes_entry" {
+  api_id    = aws_apigatewayv2_api.main.id
+  route_key = "POST /sweepstakes"
+  target    = "integrations/${aws_apigatewayv2_integration.sweepstakes_service.id}"
+}
+
+resource "aws_lambda_permission" "sweepstakes_service_apigw" {
+  statement_id  = "AllowAPIGatewayInvoke"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.sweepstakes_service.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_apigatewayv2_api.main.execution_arn}/*/*"
+}
+
+# ── Contest Tier Service Integration ─────────────────────────────────────────
+
+resource "aws_apigatewayv2_integration" "contest_tier_service" {
+  api_id                 = aws_apigatewayv2_api.main.id
+  integration_type       = "AWS_PROXY"
+  integration_uri        = aws_lambda_function.contest_tier_service.invoke_arn
+  payload_format_version = "2.0"
+}
+
+resource "aws_apigatewayv2_route" "get_contest_tiers" {
+  api_id    = aws_apigatewayv2_api.main.id
+  route_key = "GET /contests/{contestId}/tiers"
+  target    = "integrations/${aws_apigatewayv2_integration.contest_tier_service.id}"
+}
+
+resource "aws_lambda_permission" "contest_tier_service_apigw" {
+  statement_id  = "AllowAPIGatewayInvoke"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.contest_tier_service.function_name
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${aws_apigatewayv2_api.main.execution_arn}/*/*"
 }
