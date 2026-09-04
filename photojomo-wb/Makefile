@@ -11,15 +11,16 @@ build:
 	$(NPX) ng build
 
 deploy: build
-	CLOUDFLARE_ACCOUNT_ID=$(ACCOUNT_ID) wrangler pages deploy $(DIST) \
+	CLOUDFLARE_ACCOUNT_ID=$(ACCOUNT_ID) $(NPX) wrangler pages deploy $(DIST) \
 		--project-name $(PROJECT) \
+		--branch=main \
 		--commit-dirty=true
 
 build-dev:
 	$(NPX) ng build --configuration development
 
 deploy-dev: build-dev
-	CLOUDFLARE_ACCOUNT_ID=$(ACCOUNT_ID) wrangler pages deploy $(DIST) \
+	CLOUDFLARE_ACCOUNT_ID=$(ACCOUNT_ID) $(NPX) wrangler pages deploy $(DIST) \
 		--project-name $(PROJECT_DEV) \
 		--branch=dev \
 		--commit-dirty=true

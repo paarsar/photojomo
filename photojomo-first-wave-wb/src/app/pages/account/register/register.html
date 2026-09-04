@@ -22,6 +22,23 @@
       <!-- MAIN FORM -->
       <form class="reg-form" (ngSubmit)="onSubmit()" #f="ngForm">
 
+        <!-- Tier Selection -->
+        @if (tiersLoading) {
+          <div class="reg-section"><p class="stripe-loading">Loading tiers…</p></div>
+        } @else {
+          <div class="reg-section">
+            <h2 class="reg-section__title">Select Your Tier</h2>
+            <div class="payment-options">
+              @for (tier of tiers; track tier.id) {
+                <label class="payment-opt" [class.payment-opt--active]="selectedTier?.id === tier.id">
+                  <input type="radio" name="tierSelect" [value]="tier" [(ngModel)]="selectedTier" (ngModelChange)="onTierChange()" />
+                  <span>{{ tier.name }} — ${{ tier.price }}</span>
+                </label>
+              }
+            </div>
+          </div>
+        }
+
         <!-- Personal Info -->
         <div class="reg-section">
           <h2 class="reg-section__title">Add personal information</h2>
@@ -92,31 +109,31 @@
         }
 
         <!-- Privacy & Rules -->
-        <div class="reg-section">
+        <div class="reg-section reg-section--with-total">
           <h2 class="reg-section__title">Privacy and Rules</h2>
           <div class="reg-checks">
-            <label class="reg-check">
-              <input type="checkbox" name="confirmDates" [(ngModel)]="form.confirmDates" required />
-              <span>I confirm that my images were captured between the years 2024, 2025 and 2026.</span>
-            </label>
-            <label class="reg-check">
-              <input type="checkbox" name="confirmAge" [(ngModel)]="form.confirmAge" required />
-              <span>I confirm that I am at least 18 years old as of the opening date of the competition.</span>
-            </label>
-            <label class="reg-check">
-              <input type="checkbox" name="agreeRules" [(ngModel)]="form.agreeRules" required />
-              <span>I have read and agreed to the <a routerLink="/info/rules">Rules</a>, <a routerLink="/info/terms-and-conditions">Terms and Conditions</a> and <a routerLink="/info/privacy-policy">Privacy Policy</a> <span class="req">*</span></span>
-            </label>
-            <label class="reg-check">
-              <input type="checkbox" name="subscribeOffers" [(ngModel)]="form.subscribeOffers" />
+            <div class="reg-check">
+              <input id="confirmDates" type="checkbox" name="confirmDates" [(ngModel)]="form.confirmDates" required />
+              <span>I confirm that my images were captured between the years 2025 and 2026. <span class="req">*</span></span>
+            </div>
+            <div class="reg-check">
+              <input id="confirmAge" type="checkbox" name="confirmAge" [(ngModel)]="form.confirmAge" required />
+              <span>I confirm that I am at least 18 years old as of the opening date of the competition. <span class="req">*</span></span>
+            </div>
+            <div class="reg-check">
+              <input id="agreeRules" type="checkbox" name="agreeRules" [(ngModel)]="form.agreeRules" required />
+              <span>I have read and agreed to the <a routerLink="/info/rules" [state]="legalModalState()" [replaceUrl]="true">Rules</a>, <a routerLink="/info/terms-and-conditions" [state]="legalModalState()" [replaceUrl]="true">Terms and Conditions</a> and <a routerLink="/info/privacy-policy" [state]="legalModalState()" [replaceUrl]="true">Privacy Policy</a> <span class="req">*</span></span>
+            </div>
+            <div class="reg-check">
+              <input id="subscribeOffers" type="checkbox" name="subscribeOffers" [(ngModel)]="form.subscribeOffers" />
               <span>Yes! Send me exclusive Saint Lucia travel offers from the Official Hospitality Partners.</span>
-            </label>
+            </div>
           </div>
 
           @if (selectedTier) {
             <div class="reg-total">
               <span class="reg-total__label">Total</span>
-              <span class="reg-total__price">{{ selectedTier.price }}</span>
+              <span class="reg-total__price">${{ selectedTier.price }}</span>
             </div>
           }
         </div>
@@ -167,7 +184,7 @@
             }
             <div id="paypal-button-container"></div>
           } @else {
-            <button type="submit" class="reg-submit" [disabled]="submitting || stripeLoading || !f.valid">
+            <button type="submit" class="reg-submit" [disabled]="submitting || stripeLoading || tiersLoading || !f.valid">
               @if (submitting) { Processing… } @else { Complete Purchase }
             </button>
           }
@@ -181,7 +198,7 @@
           <h3 class="order-summary__heading">Order Summary</h3>
           <p class="order-summary__division">{{ division }}</p>
           <p class="order-summary__tier">{{ tier.name }}</p>
-          <p class="order-summary__images">{{ tier.images }}</p>
+          <p class="order-summary__images">Up to {{ tier.maxImages }} images</p>
 
           <div class="order-summary__benefits">
             <p class="order-summary__benefits-label">Benefits</p>
@@ -198,7 +215,7 @@
           <div class="order-summary__divider"></div>
           <div class="order-summary__total">
             <span>Total</span>
-            <span>{{ tier.price }}</span>
+            <span>${{ tier.price }}</span>
           </div>
         </aside>
       }

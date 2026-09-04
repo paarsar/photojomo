@@ -1,0 +1,237 @@
+<!-- ── Hero ──────────────────────────────────────────────────────────────── -->
+<section class="sw-hero">
+  <img
+    src="assets/images/sweepstakes-hero.jpg"
+    alt="Win a 4 Day / 3 Night Luxury Caribbean Escape in Saint Lucia"
+    class="sw-hero__img"
+  />
+</section>
+
+<!-- ── Experience ────────────────────────────────────────────────────────── -->
+<section class="sw-experience">
+  <p class="sw-section__label">The Experience</p>
+  <h2 class="sw-experience__heading">Unrivaled Beauty. Unforgettable Memories.</h2>
+  <p class="sw-experience__body">
+    Immerse yourself in the tranquility of the islands. From crystal-clear waters to golden shores, your
+    exclusive vacation awaits. Discover the perfect blend of thrilling adventure and total relaxation.
+  </p>
+  <div class="sw-experience__photos">
+    <div class="sw-experience__photo sw-photo--1"></div>
+    <div class="sw-experience__photo sw-photo--2"></div>
+    <div class="sw-experience__photo sw-photo--3"></div>
+    <div class="sw-experience__photo sw-photo--4"></div>
+  </div>
+</section>
+
+<!-- ── What's Included ───────────────────────────────────────────────────── -->
+<section class="sw-included">
+  <h2 class="sw-included__heading">What's Included</h2>
+  <div class="sw-included__grid">
+
+    <div class="sw-included__card">
+      <div class="sw-included__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 11l19-9-9 19-2-8-8-2z"/>
+        </svg>
+      </div>
+      <h3 class="sw-included__card-title"><em>Fine Dining</em></h3>
+      <ul class="sw-included__list">
+        <li>5-night, 6-day luxury all-inclusive stay at a premier resort</li>
+        <li>Premium accommodations for two</li>
+        <li>All dining, meals, and drinks included</li>
+      </ul>
+    </div>
+
+    <div class="sw-included__card sw-included__card--center">
+      <div class="sw-included__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+      </div>
+      <h3 class="sw-included__card-title"><em>Island Life</em></h3>
+      <ul class="sw-included__list">
+        <li>Immersive nature &amp; wellness tours</li>
+        <li>Your choice of adventure or spa package</li>
+        <li><strong>Bonus:</strong> Private tour with a local pro photographer</li>
+      </ul>
+    </div>
+
+    <div class="sw-included__card">
+      <div class="sw-included__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+        </svg>
+      </div>
+      <h3 class="sw-included__card-title"><em>Easy Travel</em></h3>
+      <ul class="sw-included__list">
+        <li>Round-trip coach airfare for two</li>
+        <li>Select resort activities included</li>
+        <li>Total Prize Estimated Value: Up to $5,500 USD</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Win Section ───────────────────────────────────────────────────────── -->
+<section class="sw-win">
+  <p class="sw-win__eyebrow">WIN A 4-DAY, 3-NIGHT CURATED</p>
+  <h2 class="sw-win__heading"><em>Caribbean Experience</em></h2>
+  <p class="sw-win__legal">
+    The Capture Caribbean Sweepstakes is administered and operated by CaptureCaribbbean LLC, an
+    independent entity responsible for promotional management, prize fulfillment, and legal
+    compliance. This initiative is not sponsored, endorsed, or administered by Facebook, Instagram,
+    TikTok, or any affiliated travel partners unless explicitly stated.
+  </p>
+  <div class="sw-win__video">
+    <div class="sw-win__video-overlay">
+      <button class="sw-win__play" aria-label="Play video">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ── Entry Form ────────────────────────────────────────────────────────── -->
+<section class="sw-form-section">
+
+  <div *ngIf="submitted" class="sw-success">
+    <h2>You're entered!</h2>
+    <p>Thank you for entering the Capture Caribbean Sweepstakes. Good luck!</p>
+  </div>
+
+  <ng-container *ngIf="!submitted">
+    <h2 class="sw-form-section__heading">Enter the Sweepstakes</h2>
+    <p class="sw-form-section__sub">*No purchase necessary to enter or win the sweepstakes.</p>
+
+    <form class="sw-form" (ngSubmit)="onSubmit()" #f="ngForm">
+
+      <div class="sw-form__row">
+        <div class="sw-form__field">
+          <label class="sw-form__label" for="firstName">First Name <span class="sw-form__req">*</span></label>
+          <input class="sw-form__input" id="firstName" type="text" placeholder="First Name" [(ngModel)]="firstName" name="firstName" required>
+        </div>
+        <div class="sw-form__field">
+          <label class="sw-form__label" for="lastName">Last Name <span class="sw-form__req">*</span></label>
+          <input class="sw-form__input" id="lastName" type="text" placeholder="Last Name" [(ngModel)]="lastName" name="lastName" required>
+        </div>
+      </div>
+
+      <div class="sw-form__row">
+        <div class="sw-form__field">
+          <label class="sw-form__label" for="email">Email <span class="sw-form__req">*</span></label>
+          <input class="sw-form__input" id="email" type="email" placeholder="Email" [(ngModel)]="email" name="email" required>
+        </div>
+        <div class="sw-form__field">
+          <label class="sw-form__label" for="confirmEmail">Confirm Email <span class="sw-form__req">*</span></label>
+          <input class="sw-form__input" id="confirmEmail" type="email" placeholder="Confirm Email" [(ngModel)]="confirmEmail" name="confirmEmail" required>
+        </div>
+      </div>
+
+      <div class="sw-form__row sw-form__row--single">
+        <div class="sw-form__field">
+          <label class="sw-form__label" for="phoneNumber">Phone Number <span class="sw-form__req">*</span></label>
+          <input class="sw-form__input" id="phoneNumber" type="tel" placeholder="Phone Number" [(ngModel)]="phoneNumber" name="phoneNumber" required>
+        </div>
+      </div>
+
+      <div class="sw-form__row sw-form__row--single">
+        <div class="sw-form__field">
+          <label class="sw-form__label" for="address">Address <span class="sw-form__req">*</span></label>
+          <input class="sw-form__input" id="address" type="text" placeholder="Address" [(ngModel)]="address" name="address" required>
+        </div>
+      </div>
+
+      <div class="sw-form__row">
+        <div class="sw-form__field">
+          <label class="sw-form__label" for="city">City <span class="sw-form__req">*</span></label>
+          <input class="sw-form__input" id="city" type="text" placeholder="City" [(ngModel)]="city" name="city" required>
+        </div>
+        <div class="sw-form__field">
+          <label class="sw-form__label" for="stateProvince">State / Province <span class="sw-form__req">*</span></label>
+          <input class="sw-form__input" id="stateProvince" type="text" placeholder="State/Province" [(ngModel)]="stateProvince" name="stateProvince" required>
+        </div>
+      </div>
+
+      <div class="sw-form__row">
+        <div class="sw-form__field">
+          <label class="sw-form__label" for="zipPostalCode">Zip / Postal Code <span class="sw-form__req">*</span></label>
+          <input class="sw-form__input" id="zipPostalCode" type="text" placeholder="Zip/Postal Code" [(ngModel)]="zipPostalCode" name="zipPostalCode" required>
+        </div>
+        <div class="sw-form__field">
+          <label class="sw-form__label" for="countryOfResidence">Country of Residence <span class="sw-form__req">*</span></label>
+          <input class="sw-form__input" id="countryOfResidence" type="text" placeholder="Country of Residence" [(ngModel)]="countryOfResidence" name="countryOfResidence" required>
+        </div>
+      </div>
+
+      <div class="sw-form__row sw-form__row--single">
+        <div class="sw-form__field">
+          <label class="sw-form__label" for="contentType">What type of content do you create when you travel</label>
+          <textarea class="sw-form__input sw-form__textarea" id="contentType" placeholder="" [(ngModel)]="contentType" name="contentType" rows="4"></textarea>
+        </div>
+      </div>
+
+      <div class="sw-form__checkbox-row">
+        <input class="sw-form__checkbox" id="agreedToRules" type="checkbox" [(ngModel)]="agreedToRules" name="agreedToRules">
+        <label class="sw-form__checkbox-label" for="agreedToRules">
+          I have read and agree to the <a routerLink="/info/rules" class="sw-form__link">Sweepstakes Official Rules</a>
+        </label>
+      </div>
+
+      <div *ngIf="errorMessage" class="sw-form__error">{{ errorMessage }}</div>
+
+      <button class="sw-form__submit" type="submit" [disabled]="!formValid || submitting">
+        {{ submitting ? 'Submitting...' : 'Next' }}
+      </button>
+
+    </form>
+  </ng-container>
+</section>
+
+<!-- ── Sweepstakes Footer ─────────────────────────────────────────────────── -->
+<footer class="sw-footer">
+  <div class="sw-footer__inner">
+    <div class="sw-footer__logo">
+      <div class="sw-footer__logo-wordmark"><strong>C</strong>apture</div>
+      <div class="sw-footer__logo-sub">CARIBBEAN SWEEPSTAKES</div>
+    </div>
+    <p class="sw-footer__tagline">
+      Step into the thrill of a lifetime where sun, sea, and sweeping<br>
+      prizes await — It's time to Capture the Caribbean.
+    </p>
+    <div class="sw-footer__socials">
+      <!-- Instagram -->
+      <a href="#" class="sw-footer__social-link" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+        </svg>
+      </a>
+      <!-- Facebook -->
+      <a href="#" class="sw-footer__social-link" aria-label="Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+      </a>
+      <!-- TikTok -->
+      <a href="#" class="sw-footer__social-link" aria-label="TikTok">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/>
+        </svg>
+      </a>
+      <!-- YouTube -->
+      <a href="#" class="sw-footer__social-link" aria-label="YouTube">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </svg>
+      </a>
+    </div>
+    <a routerLink="/info/rules" class="sw-footer__rules-link">Sweepstakes Official Rules</a>
+  </div>
+  <div class="sw-footer__bottom">
+    <span>Capture Caribbean Sweepstakes: Where the World Meets Caribbean Creativity</span>
+    <span>© 2026 Capture Caribbean Sweepstakes</span>
+  </div>
+</footer>

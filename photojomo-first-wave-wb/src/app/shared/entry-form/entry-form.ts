@@ -1,23 +1,25 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { TIERS, Tier } from '../contest-tiers/contest-tiers';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { SubmissionService, Tier } from '../../core/submission.service';
 import { COUNTRIES } from './countries';
 
 interface UploadSlot { index: number; file: File | null; preview: string | null; }
 
 @Component({
   selector: 'app-entry-form',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './entry-form.html',
   styleUrl: './entry-form.scss',
 })
 export class EntryForm implements OnInit {
   @Input() division = 'General';
+  private readonly router = inject(Router);
+  private readonly submissionService = inject(SubmissionService);
 
   countries = COUNTRIES;
-  tiers = TIERS;
-  selectedTier: Tier = TIERS[0];
+  tiers: Tier[] = [];
+  selectedTier: Tier | null = null;
   paymentMethod: 'stripe' | 'paypal' = 'stripe';
 
   form = {
@@ -37,20 +39,17 @@ export class EntryForm implements OnInit {
 
   constructor(private route: ActivatedRoute) {}
 
-  ngOnInit() {
-    const tierParam = this.route.snapshot.queryParamMap.get('tier');
-    if (tierParam) {
-      const match = this.tiers.find(t => t.name === tierParam);
-      if (match) this.selectedTier = match;
+  async ngOnInit() {
+    try {
+      this.tiers = await this.submissionService.getTiers();
+    } catch {
+      return;
     }
-    this.updateUploadSlots();
-  }
 
-  get maxImages(): number {
-    if (this.selectedTier.name.includes('1')) return 5;
-    if (this.selectedTier.name.includes('2')) return 10;
-    if (this.selectedTier.name.includes('3')) return 15;
-    return 25;
+    const tierParam = this.route.snapshot.queryParamMap.get('tier');
+    const match = tierParam ? this.tiers.find(t => t.name === tierParam) : null;
+    this.selectedTier = match ?? this.tiers[0] ?? null;
+    this.updateUploadSlots();
   }
 
   onTierChange() {
@@ -58,7 +57,7 @@ export class EntryForm implements OnInit {
   }
 
   private updateUploadSlots() {
-    const max = this.maxImages;
+    const max = this.selectedTier?.maxImages ?? 5;
     this.uploadSlots = Array.from({ length: max }, (_, i) => ({
       index: i + 1,
       file: null,
@@ -81,15 +80,25 @@ export class EntryForm implements OnInit {
     slot.preview = null;
   }
 
+  get maxImages(): number {
+    return this.selectedTier?.maxImages ?? 5;
+  }
+
   get uploadedCount(): number {
     return this.uploadSlots.filter(s => s.file).length;
   }
 
   async onSubmit() {
     this.submitting = true;
-    // Payment processing will be wired to Stripe/PayPal Cloudflare Worker
     await new Promise(r => setTimeout(r, 1200));
     this.submitted = true;
     this.submitting = false;
+  }
+
+  legalModalState() {
+    return {
+      returnUrl: this.router.url,
+      returnScrollY: window.scrollY,
+    };
   }
 }

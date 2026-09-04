@@ -11,8 +11,11 @@ photojomo/
 ├── CLAUDE.md                    # This file
 ├── SPECIFICATION.md             # Backend technical specification
 ├── photojomo-be/                # Backend — Spring Boot AWS Lambda functions
-├── photojomo-wb/                # Photojomo main web app — Angular
+├── photojomo-wb/                # Official contest website — Angular
 ├── photojomo-first-wave-wb/     # Capture Caribbean: First Wave Challenge — Angular 20
+├── caribbean-photo-contest-wb/  # Photo Contest website — Angular
+├── capture-contests-wb/         # Capture Contests website — Angular 20
+├── capture-caribbean-sweepstakes-wb/ # Sweepstakes website — Angular
 ├── screenshots/
 └── scripts/
 ```
@@ -31,7 +34,8 @@ photojomo/
 
 ---
 
-### `photojomo-wb` — Photojomo Main Web App
+### `photojomo-wb` — Official Contest Website
+- **Purpose**: The official Capture Caribbean photography contest website
 - **Framework**: Angular (standalone components)
 - **Branch**: `main`
 
@@ -55,6 +59,38 @@ photojomo/
 - **Shared components**: `src/app/shared/contest-tiers/` (tier selector used by all division pages)
 - **Registration flow**: Division page → select tier → "Register Now" → `/account/register` pre-populated with division + tier via query params
 - **WordPress source**: caribbeanphotocontests.com (reference for design/content)
+
+---
+
+### `caribbean-photo-contest-wb` — Photo Contest Website
+- **Purpose**: The Capture Caribbean photo contest website
+- **Framework**: Angular (standalone components)
+
+---
+
+### `capture-contests-wb` — Capture Contests Website
+- **Purpose**: Home, regional (Barbados, Ghana, Guyana, Jamaica, Nigeria, Saint Lucia, Africa, Caribbean), and partner pages for Capture Contests
+- **Framework**: Angular 20 (standalone components)
+- **Dev server**: `npx ng serve` (from `capture-contests-wb/`)
+- **Build**: `make build NPX=npx NODE=node`
+- **Cloudflare project**: `capture-contests-dev`
+- **Deploy dev**: GitHub Actions workflow **"Capture Contests Dev"** (`.github/workflows/contests-deploy-dev.yml`) — `workflow_dispatch` only, runs `make deploy-dev` against whatever ref it's dispatched on and pushes to the `dev-contests` Cloudflare Pages branch.
+- **Deploy prod**: workflow **"Capture Contests Prod"** (`.github/workflows/contests-deploy-prod.yml`)
+
+**Important for contributors**: the dev/prod deploy workflows are manually triggered (`workflow_dispatch`) — pushing a branch or opening a PR does **not** automatically deploy it. To see your changes live on the dev site, your commits must be merged into `main` and someone must run the "Capture Contests Dev" workflow (`gh workflow run "Capture Contests Dev" --ref main`, or via the Actions tab). Work sitting on a feature branch, or lost in a bad merge resolution into `main`, will not show up on the deployed site even though it's "in the repo" — verify with `git log --oneline -- capture-contests-wb/` and a local `ng build` before assuming a change shipped.
+
+---
+
+### `capture-caribbean-sweepstakes-wb` — Sweepstakes Website
+- **Purpose**: The Capture Caribbean sweepstakes entry site
+- **Framework**: Angular 20 (standalone components)
+- **Dev server**: `npx ng serve` (from `capture-caribbean-sweepstakes-wb/`)
+- **Build**: `make build NPX=npx NODE=node`
+- **Deploy dev**: `make deploy-dev NPX=npx NODE=node`
+- **Deploy prod**: `make deploy NPX=npx NODE=node`
+- **Cloudflare project**: `capture-caribbean-sweepstakes`
+- **API**: Dev → `49124qqimj.execute-api.us-east-1.amazonaws.com`, Prod → `dbvxth6wi4.execute-api.us-east-1.amazonaws.com`
+- **Mailchimp**: Entrants tagged `Sweepstakes Entrant` on successful submission
 
 ---
 
